@@ -9,6 +9,8 @@
 ```html
 <ng-content></ng-content>                <!-- default slot -->
 <ng-content select="selector"></ng-content> <!-- named slot -->
+<ng-content select="[header], h1, .title, #title "></ng-content> <!-- multiple selectors -->
+
 ```
 
 ---
@@ -288,7 +290,7 @@ import { Component, contentChild, ElementRef } from '@angular/core';
 })
 export class SingleComponent {
 
-  titleEl = contentChild<ElementRef>('[title]');
+  titleEl = contentChild<ElementRef>('titleRef');
   // contentChild(TemplateRef)
   // contentChild(MyDirective)
 }
@@ -300,7 +302,7 @@ export class SingleComponent {
   imports: [SingleComponent],
   template: `
     <app-single>
-      <h1 title>Projected Title</h1>
+      <h1 title #titleRef>Projected Title</h1>
     </app-single>
   `
 })

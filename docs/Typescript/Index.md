@@ -3,7 +3,7 @@ title: Typescript
 sidebar_position: 2
 ---
 
-# [TypeScript Reference]("./intro.md")
+# TypeScript Reference
 
 ## 1. Language & Compiler Basics
 

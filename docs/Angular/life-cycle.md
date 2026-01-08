@@ -245,6 +245,113 @@ Angular calls lifecycle hooks in this sequence:
 8. ngAfterViewChecked
 9. ngOnDestroy
 
+<details>
+<summary>Example</summary>
+
+```ts
+// ParentComponent
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <h2>Parent</h2>
+
+    <button (click)="toggle()">Toggle Child</button>
+    <button (click)="update()">Update Input</button>
+
+    <app-child *ngIf="show" [value]="count">
+      <p>Projected content goes here</p>
+    </app-child>
+  `
+})
+export class Parent {
+  show = true;
+  count = 1;
+
+  toggle() {
+    this.show = !this.show;
+  }
+
+  update() {
+    this.count++;
+  }
+}
+
+
+
+// Child Component
+import {  Component,  OnInit,  OnChanges,  DoCheck,  AfterContentInit,  AfterContentChecked,  AfterViewInit,  AfterViewChecked,  OnDestroy,  SimpleChanges,  afterEveryRender,  afterNextRender,  Input} from '@angular/core';
+@Component({
+  selector: 'app-child',
+  template: `
+    <h3>Child value = {{ value }}</h3>
+    <ng-content></ng-content>
+  `
+})
+export class Child implements
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
+
+  @Input() value = 0;
+
+  constructor() {
+    console.log('constructor');
+
+    afterEveryRender(() => {
+      console.log('afterEveryRender (every render)');
+    });
+
+    afterNextRender(() => {
+      console.log('afterNextRender (once after first render)');
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges', changes);
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit');
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit');
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
+  }
+}
+
+
+
+```
+
+</details>
+
 ---
 
 ## Modern Cleanup Pattern (Angular 16+)

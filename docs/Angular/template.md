@@ -210,10 +210,13 @@ Data flows **from view to component**.
   template: `
     <button (click)="increment()"></button>
     <button (click)="increment($event)"></button> <!-- event object -->
+    <button (click.shift)="incrementShift()">Click + Shift</button>
+
   `
 })
 export class EventBindingComponent {
   increment(event?: MouseEvent) {}
+  incrementShift() {}
 }
 ```
 
@@ -263,12 +266,21 @@ These replace structural directives.
   template: `
     @if (isLoggedIn) {
       <p>Welcome</p>
-    } @else {
+    }@else if (100 > 150 ) {
+      100 is grater than 200
+    }  @else {
       <p>Login</p>
     }
 
-    @for (item of items; track item) {
-      <div>{{ item }}</div>
+    @for (item of items; track item.id;let idx = $index,let first = $first,let
+    last = $last,let even = $even,let odd = $odd) {
+    <p>
+      Item #{{ idx }}: {{ item.name }} |
+      First: {{ first }} |
+      Last: {{ last }} |
+      Even: {{ even }} |
+      Odd: {{ odd }}
+    </p>
     }
 
     @switch (role) {

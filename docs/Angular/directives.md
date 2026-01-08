@@ -9,99 +9,17 @@ Attribute directives change the **appearance or behavior of an existing element*
 ### `ngClass`
 
 Sets or toggles CSS classes dynamically based on a bound expression.
-
-<details>
-<summary>Example</summary>
-
-```ts
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-ngclass-demo',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <p [ngClass]="'static-class'">String value</p> <!-- string -->
-
-    <p [ngClass]="['a','b']">Array value</p> <!-- string[] -->
-
-    <p [ngClass]="{ active: isActive, disabled: isDisabled }">Object value</p> <!-- { [class: string]: boolean } -->
-
-    <button (click)="isActive = !isActive">Toggle</button>
-  `
-})
-export class NgClassDemoComponent {
-  isActive = true;  // boolean
-  isDisabled = false; // boolean
-}
-```
-
-</details>
-
 ---
 
 ### `ngStyle`
 
 Applies inline CSS styles dynamically to an element.
 
-<details>
-<summary>Example</summary>
-
-```ts
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-ngstyle-demo',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <p [ngStyle]="{ color: color, fontSize: size + 'px' }">Styled text</p> <!-- { [prop: string]: string|number|null } -->
-
-    <button (click)="size = size + 2">Grow</button>
-  `
-})
-export class NgStyleDemoComponent {
-  color = 'red';   // string
-  size = 14;       // number
-}
-```
-
-</details>
-
 ---
 
 ### `ngModel`
 
 Creates two‑way binding between a form control and a component property.
-
-<details>
-<summary>Example</summary>
-
-```ts
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-@Component({
-  selector: 'app-ngmodel-demo',
-  standalone: true,
-  imports: [FormsModule],
-  template: `
-    <input [(ngModel)]="name"> <!-- string -->
-    <p>Hello {{ name }}</p>
-
-    <input [(ngModel)]="age" type="number"> <!-- number -->
-    <p>Age: {{ age }}</p>
-  `
-})
-export class NgModelDemoComponent {
-  name = 'Alex'; // string
-  age = 25;      // number
-}
-```
-
-</details>
 
 ---
 
@@ -119,114 +37,6 @@ The old `*` syntax still works, but these are preferred.
 
 ---
 
-### `@if`
-
-Conditionally includes a template block when the expression is truthy.
-
-<details>
-<summary>Example</summary>
-
-```ts
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-if-demo',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <button (click)="show = !show">Toggle</button>
-
-    @if (show) {
-      <p>Visible Content</p> <!-- boolean -->
-    }
-
-    @if (user; as u) {
-      <p>Hello {{ u.name }}</p> <!-- truthy aliasing -->
-    } @else {
-      <p>Guest</p>
-    }
-  `
-})
-export class IfDemoComponent {
-  show = true; // boolean
-  user: { name: string } | null = { name: 'Alex' }; // object | null
-}
-```
-
-</details>
-
----
-
-### `@for`
-
-Repeats a template once per item in a collection.
-
-<details>
-<summary>Example</summary>
-
-```ts
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-for-demo',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <ul>
-      @for (item of items; track item; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {
-        <li>
-          {{ i }} — {{ item }}
-          @if (isFirst) { <span>(first)</span> }
-          @if (isLast) { <span>(last)</span> }
-          @if (isEven) { <span>(even)</span> }
-        </li>
-      }
-    </ul>
-  `
-})
-export class ForDemoComponent {
-  items = ['A','B','C']; // string[]
-}
-```
-
-</details>
-
----
-
-### `@switch`, `@case`, `@default`
-
-Displays the first matching case template for the switch value.
-
-<details>
-<summary>Example</summary>
-
-```ts
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-switch-demo',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    @switch (role) {
-      @case ('admin') { <p>Admin</p> }
-      @case ('user')  { <p>User</p> }
-      @default        { <p>Guest</p> }
-    }
-  `
-})
-export class SwitchDemoComponent {
-  role: 'admin' | 'user' | 'guest' = 'user';
-}
-```
-
-</details>
-
----
-
 ## Legacy Structural Directives (Still Supported)
 
 These still work but are **not the recommended syntax in Angular 19+**:
@@ -239,9 +49,184 @@ Use them only when needed for backwards compatibility.
 
 ---
 
-## Custom Attribute Directive
+## Attribute Directives (Custom)
 
-A custom attribute directive attaches reusable behavior to a host element.
+### `appHighlight` (Hover Highlight)
+
+<details>
+<summary>Example</summary>
+
+```ts
+import { Directive, ElementRef, inject, Component } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()',
+  },
+  standalone: true
+})
+export class HighlightDirective {
+  private el = inject(ElementRef);
+
+  onMouseEnter() { this.highlight('yellow'); }
+  onMouseLeave() { this.highlight(''); }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
+}
+
+@Component({
+  selector: 'app-highlight-demo',
+  standalone: true,
+  imports: [HighlightDirective],
+  template: `<p appHighlight>Hover over me!</p>`
+})
+export class HighlightDemoComponent {}
+```
+
+</details>
+
+---
+
+### `appTooltip` (Dynamic Tooltip)
+
+<details>
+<summary>Example</summary>
+
+```ts
+import { Directive, ElementRef, Input, inject, Component } from '@angular/core';
+
+@Directive({
+  selector: '[appTooltip]',
+  host: {
+    '(mouseenter)': 'show()',
+    '(mouseleave)': 'hide()',
+  },
+  standalone: true
+})
+export class TooltipDirective {
+  @Input() appTooltip = '';
+  private tooltipEl?: HTMLElement;
+  private el = inject(ElementRef);
+
+  show() {
+    this.tooltipEl = document.createElement('span');
+    this.tooltipEl.textContent = this.appTooltip;
+    this.tooltipEl.style.position = 'absolute';
+    this.tooltipEl.style.background = '#333';
+    this.tooltipEl.style.color = '#fff';
+    this.tooltipEl.style.padding = '2px 6px';
+    this.tooltipEl.style.borderRadius = '4px';
+    this.el.nativeElement.appendChild(this.tooltipEl);
+  }
+
+  hide() { this.tooltipEl?.remove(); this.tooltipEl = undefined; }
+}
+
+@Component({
+  selector: 'app-tooltip-demo',
+  standalone: true,
+  imports: [TooltipDirective],
+  template: `<button appTooltip="Click me!">Hover me</button>`
+})
+export class TooltipDemoComponent {}
+```
+
+</details>
+
+---
+
+## Structural Directives (Custom)
+
+### `@if` (Custom Structural Conditional)
+
+<details>
+<summary>Example</summary>
+
+```ts
+import { Directive, Input, TemplateRef, ViewContainerRef, inject, Component } from '@angular/core';
+
+@Directive({ selector: '[appIf]', standalone: true })
+export class AppIfDirective {
+  private hasView = false;
+  private templateRef = inject(TemplateRef<any>);
+  private vcRef = inject(ViewContainerRef);
+
+  @Input() set appIf(condition: boolean) {
+    if (condition && !this.hasView) {
+      this.vcRef.createEmbeddedView(this.templateRef);
+      this.hasView = true;
+    } else if (!condition && this.hasView) {
+      this.vcRef.clear();
+      this.hasView = false;
+    }
+  }
+}
+
+@Component({
+  selector: 'app-if-demo',
+  standalone: true,
+  imports: [AppIfDirective],
+  template: `
+    <p *appIf="show">This text is conditionally rendered!</p>
+    <button (click)="show = !show">Toggle</button>
+  `
+})
+export class IfDemoComponent {
+  show = true;
+}
+```
+
+</details>
+
+---
+
+### `@for` (Custom Structural Loop)
+
+<details>
+<summary>Example</summary>
+
+```ts
+import { Directive, Input, TemplateRef, ViewContainerRef, inject, Component } from '@angular/core';
+
+@Directive({ selector: '[appFor]', standalone: true })
+export class AppForDirective<T> {
+  private templateRef = inject(TemplateRef<any>);
+  private vcRef = inject(ViewContainerRef);
+
+  @Input() set appFor(items: T[]) {
+    this.vcRef.clear();
+    items.forEach((item, i) => {
+      this.vcRef.createEmbeddedView(this.templateRef, { $implicit: item, index: i });
+    });
+  }
+}
+
+@Component({
+  selector: 'app-for-demo',
+  standalone: true,
+  imports: [AppForDirective],
+  template: `
+    <ul>
+      <li *appFor="let item of items; let i = index">{{ i }} — {{ item }}</li>
+    </ul>
+  `
+})
+export class ForDemoComponent {
+  items = ['A', 'B', 'C'];
+}
+```
+
+</details>
+
+---
+
+## Attribute & Structural Directives — Deprecated
+
+### `appHighlight` Deprecated
 
 <details>
 <summary>Example</summary>
@@ -249,35 +234,61 @@ A custom attribute directive attaches reusable behavior to a host element.
 ```ts
 import { Directive, ElementRef, HostListener, Component } from '@angular/core';
 
-@Directive({
-  selector: '[appHighlight]',
-  standalone: true
-})
-export class HighlightDirective {
+@Directive({ selector: '[appHighlight]' })
+export class HighlightDirectiveDeprecated {
   constructor(private el: ElementRef) {}
 
-  @HostListener('mouseenter')
-  onEnter() {
-    this.el.nativeElement.style.background = 'yellow';
-  }
-
-  @HostListener('mouseleave')
-  onLeave() {
-    this.el.nativeElement.style.background = '';
-  }
+  @HostListener('mouseenter') onEnter() { this.el.nativeElement.style.backgroundColor = 'yellow'; }
+  @HostListener('mouseleave') onLeave() { this.el.nativeElement.style.backgroundColor = ''; }
 }
 
 @Component({
-  selector: 'app-custom-dir-demo',
+  selector: 'app-highlight-demo-deprecated',
   standalone: true,
-  imports: [HighlightDirective],
-  template: `
-    <p appHighlight>Hover me</p>
-  `
+  imports: [HighlightDirectiveDeprecated],
+  template: `<p appHighlight>Hover over me!</p>`
 })
-export class CustomDirDemoComponent {}
+export class HighlightDemoDeprecatedComponent {}
 ```
 
 </details>
 
----
+### `appTooltip` Deprecated
+
+<details>
+<summary>Example</summary>
+
+```ts
+import { Directive, ElementRef, Input, HostListener, Component } from '@angular/core';
+
+@Directive({ selector: '[appTooltip]' })
+export class TooltipDirectiveDeprecated {
+  @Input() appTooltip = '';
+  private tooltipEl?: HTMLElement;
+
+  constructor(private el: ElementRef) {}
+
+  @HostListener('mouseenter') show() {
+    this.tooltipEl = document.createElement('span');
+    this.tooltipEl.textContent = this.appTooltip;
+    this.tooltipEl.style.position = 'absolute';
+    this.tooltipEl.style.background = '#333';
+    this.tooltipEl.style.color = '#fff';
+    this.tooltipEl.style.padding = '2px 6px';
+    this.tooltipEl.style.borderRadius = '4px';
+    this.el.nativeElement.appendChild(this.tooltipEl);
+  }
+
+  @HostListener('mouseleave') hide() { this.tooltipEl?.remove(); this.tooltipEl = undefined; }
+}
+
+@Component({
+  selector: 'app-tooltip-demo-deprecated',
+  standalone: true,
+  imports: [TooltipDirectiveDeprecated],
+  template: `<button appTooltip="Click me!">Hover me</button>`
+})
+export class TooltipDemoDeprecatedComponent {}
+```
+
+</details>

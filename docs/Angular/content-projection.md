@@ -321,22 +321,36 @@ Access all projected nodes that match a selector or directive as a reactive coll
 <summary>Example</summary>
 
 ```ts
-import { Component, contentChildren, ElementRef } from '@angular/core';
+import {
+  Component,
+  contentChildren,
+  ElementRef,
+  AfterContentInit,
+} from '@angular/core';
+
+/* ================= CHILD ================= */
 
 @Component({
   selector: 'app-multi',
   standalone: true,
   template: `
     <ng-content></ng-content>
-  `
+  `,
 })
-export class MultiComponent {
+export class MultiComponent implements AfterContentInit {
 
-  items = contentChildren<ElementRef>('p');
-  // contentChildren(MyDirective)
-  // contentChildren(TemplateRef)
+  // ✅ contentChildren MUST query template refs (not tag names)
+  items = contentChildren<ElementRef>('item');
+
+  ngAfterContentInit() {
+    console.log(
+      'Projected <p> elements:',
+      this.items().map(i => i.nativeElement.textContent)
+    );
+  }
 }
 
+/* ================= PARENT ================= */
 
 @Component({
   selector: 'app-parent',
@@ -344,12 +358,13 @@ export class MultiComponent {
   imports: [MultiComponent],
   template: `
     <app-multi>
-      <p>One</p>
-      <p>Two</p>
+      <p #item>One</p>
+      <p #item>Two</p>
     </app-multi>
-  `
+  `,
 })
 export class ParentComponent {}
+
 ```
 
 </details>

@@ -112,8 +112,28 @@ Transforms input to output in templates.
 <details>
 <summary>Example</summary>
 ```ts
-<p>{{ data$ | async }}</p>           // Observable<string>
-<p>{{ promiseValue | async }}</p>    // Promise<number>
+@Component({
+  standalone: true,
+  imports: [AsyncPipe],
+  selector: 'app-async',
+  template: `
+    <h2>Async Pipe Examples</h2>
+
+    <!-- 1️⃣ Observable with async pipe -->
+    <p>Observable value: {{ obs$ | async }}</p>
+
+    <!-- 2️⃣ Promise with async pipe -->
+    <p>Promise value: {{ promise | async }}</p>
+  `
+})
+export class AsyncComponent {
+  // Observable emitting after 2 seconds
+  obs$: Observable<string> = of('Hello from Observable!').pipe(delay(2000));
+
+  // Promise resolving after 3 seconds
+  promise: Promise<string> = new Promise(resolve => setTimeout(() => resolve('Hello from Promise!'), 3000));
+}
+
 ```
 </details>
 

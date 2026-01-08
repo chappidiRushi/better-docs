@@ -40,6 +40,19 @@ export class LoginComponent {
 
 ---
 
+## Reactive Form Directives
+
+| Directive                | Selector / Usage                   | Purpose                                            | Important Notes / Quirks                       |
+| ------------------------ | ---------------------------------- | -------------------------------------------------- | ---------------------------------------------- |
+| **FormGroupDirective**   | `<form [formGroup]="myForm">`      | Binds an Angular `FormGroup` to a `<form>` element | Required for reactive forms; replaces `ngForm` |
+| **FormControlDirective** | `<input [formControl]="nameCtrl">` | Binds an existing `FormControl` instance           | Used for standalone controls                   |
+| **FormControlName**      | `<input formControlName="name">`   | Binds a control inside a `FormGroup`               | Name must match key in `FormGroup`             |
+| **FormGroupName**        | `<div formGroupName="address">`    | Binds a nested `FormGroup`                         | Enables nesting                                |
+| **FormArrayName**        | `<div formArrayName="skills">`     | Binds a `FormArray`                                | Used for dynamic lists                         |
+| **FormArray**            | `new FormArray([])`                | Represents an array of controls                    | Not a directive, but core reactive API         |
+| **FormBuilder**          | `this.fb.group()`                  | Helper for building forms                          | Reduces boilerplate                            |
+| **NgControl**            | Base class                         | Parent class for form directives                   | Internal / advanced usage                      |
+
 ## 🏗️ Building Forms
 
 ### **FormControl** — Single Value

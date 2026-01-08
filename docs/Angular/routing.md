@@ -1,8 +1,4 @@
-# Angular Routing
-
-> Mid‑level friendly, **standalone + functional routing APIs**.
->
-> Focuses on what each feature does and how to use it.
+# Routing
 
 ---
 

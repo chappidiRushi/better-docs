@@ -39,23 +39,250 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-root',
   standalone: true,
   imports: [FormsModule],
   template: `
-    <form>
-      <input name="email" [(ngModel)]="email">
+    <form #myForm="ngForm">
+
+      <input type="text" (ngSubmit)="onSubmit()" name="username" [(ngModel)]="username" required #usernameCtrl="ngModel"/>
+
+      <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched">
+        <small *ngIf="usernameCtrl.errors?.['required']">Username is required
+        </small>
+      </div>
+      <button [disabled]="myForm.invalid">Submit</button>
     </form>
   `
 })
-export class LoginComponent {
-  email = '';
+export class AppComponent {
+  username = '';
+  onSubmit(){
+    console.log("form submitted")
+  }
 }
+
 ```
 
 </details>
 
 ---
+
+## Complete Example
+
+```ts
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [FormsModule],
+  template: `
+    <!-- ngForm creates the top-level Angular form -->
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+      <!-- ================= BASIC INFO GROUP ================= -->
+      <!-- ngModelGroup is REQUIRED to create nesting -->
+      <fieldset ngModelGroup="basicInfo" #basicInfoGroup="ngModelGroup">
+        <legend>Basic Info</legend>
+
+        <!-- NAME FIELD -->
+        <label>Name</label><br />
+        <input
+          type="text"
+
+          name="name"
+          <!-- name attribute is REQUIRED for ngModel to register -->
+
+          [(ngModel)]="model.basicInfo.name"
+          <!-- ngModel connects this input to Angular forms -->
+
+          required
+          <!-- required enables built-in validation -->
+
+          minlength="3"
+          <!-- minlength adds validation error -->
+
+          #nameCtrl="ngModel"
+          <!-- template reference to access validity & errors -->
+        />
+
+        <!-- Error messages must use ngModel reference -->
+        <div *ngIf="nameCtrl.invalid && nameCtrl.touched">
+          <small *ngIf="nameCtrl.errors?.['required']">
+            Name is required
+          </small>
+          <small *ngIf="nameCtrl.errors?.['minlength']">
+            Minimum 3 characters
+          </small>
+        </div>
+
+        <br /><br />
+
+        <!-- EMAIL FIELD -->
+        <label>Email</label><br />
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="model.basicInfo.email"
+          required
+          email
+          <!-- email activates Angular email validator -->
+          #emailCtrl="ngModel"
+        />
+
+        <div *ngIf="emailCtrl.invalid && emailCtrl.touched">
+          <small>Email must be valid</small>
+        </div>
+
+      </fieldset>
+
+      <br />
+
+      <!-- ================= ADDRESS GROUP ================= -->
+      <!-- Without ngModelGroup, nesting will NOT happen -->
+      <fieldset ngModelGroup="address" #addressGroup="ngModelGroup">
+        <legend>Address</legend>
+
+        <!-- STREET -->
+        <label>Street</label><br />
+        <input
+          type="text"
+          name="street"
+          <!-- name must be unique INSIDE this group -->
+
+          [(ngModel)]="model.address.street"
+          required
+          #streetCtrl="ngModel"
+        />
+
+        <div *ngIf="streetCtrl.invalid && streetCtrl.touched">
+          <small>Street is required</small>
+        </div>
+
+        <br /><br />
+
+        <!-- CITY -->
+        <label>City</label><br />
+        <input
+          type="text"
+          name="city"
+          [(ngModel)]="model.address.city"
+          required
+          #cityCtrl="ngModel"
+        />
+
+        <div *ngIf="cityCtrl.invalid && cityCtrl.touched">
+          <small>City is required</small>
+        </div>
+
+        <br /><br />
+
+        <!-- COUNTRY SELECT -->
+        <label>Country</label><br />
+        <select
+          name="country"
+          <!-- name is REQUIRED or control is ignored -->
+
+          [(ngModel)]="model.address.country"
+          required
+          #countryCtrl="ngModel"
+        >
+          <!-- Disabled option prevents valid selection -->
+          <option value="" disabled>Select country</option>
+          <option *ngFor="let c of countries" [value]="c">
+            {{ c }}
+          </option>
+        </select>
+
+        <div *ngIf="countryCtrl.invalid && countryCtrl.touched">
+          <small>Country is required</small>
+        </div>
+
+        <!-- Group-level state -->
+        <p>
+          Address Group Valid: {{ addressGroup.valid }} <br />
+          Address Group Touched: {{ addressGroup.touched }}
+        </p>
+      </fieldset>
+
+      <br />
+
+      <!-- ================= TERMS CHECKBOX ================= -->
+      <label>
+        <input
+          type="checkbox"
+          name="terms"
+
+          [(ngModel)]="model.terms"
+          <!-- required only passes when checkbox is true -->
+
+          required
+          #termsCtrl="ngModel"
+        />
+        Accept Terms
+      </label>
+
+      <div *ngIf="termsCtrl.invalid && termsCtrl.touched">
+        <small>You must accept the terms</small>
+      </div>
+
+      <br /><br />
+
+      <!-- ================= FORM STATE ================= -->
+      <p>
+        Form Valid: {{ userForm.valid }} <br />
+        Form Touched: {{ userForm.touched }}
+      </p>
+
+      <!-- Submit disabled until entire form is valid -->
+      <button type="submit" [disabled]="userForm.invalid">
+        Submit
+      </button>
+
+    </form>
+  `
+})
+export class AppComponent {
+
+  // Model structure MUST match ngModelGroup hierarchy
+  model = {
+    basicInfo: {
+      name: '',
+      email: ''
+    },
+    address: {
+      street: '',
+      city: '',
+      country: ''
+    },
+    terms: false
+  };
+
+  countries = ['USA', 'India', 'Germany'];
+
+  onSubmit(form: any) {
+    // form.value contains nested structure
+    console.log('FORM VALUE', form.value);
+  }
+}
+```
+
+## directives Table
+
+| Directive        | Purpose          |
+| ---------------- | ---------------- |
+| `ngForm`         | Root form        |
+| `ngModel`        | Control binding  |
+| `ngModelGroup`   | Nesting          |
+| `ngModelOptions` | Control behavior |
+| `ngSubmit`       | Submit handling  |
+| `required`       | Validation       |
+| `minlength`      | Validation       |
+| `maxlength`      | Validation       |
+| `pattern`        | Validation       |
+| `email`          | Validation       |
 
 ## 📝 `ngModel` — Bind Form Controls
 

@@ -242,7 +242,7 @@ var User = /** @class */ (function () {
 
 ## Source Maps
 
-Source maps map compiled JavaScript back to original TypeScript files, enabling debugging in browsers using original source code.
+Source maps are a translation layer between generated JS and original TS. Source maps map compiled JavaScript back to original TypeScript files, enabling debugging in browsers using original source code.
 
 <details>
 <summary>Examples</summary>

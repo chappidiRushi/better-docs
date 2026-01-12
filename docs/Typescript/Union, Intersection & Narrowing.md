@@ -2,7 +2,7 @@
 title: Union, Intersection & Narrowing
 id: Union-Intersection-Narrowing
 sidebar_position: 5
----
+-------------------
 
 # Union, Intersection & Narrowing
 
@@ -10,9 +10,15 @@ sidebar_position: 5
 
 ---
 
-## Union Types
+## Type Composition
 
-Types that allow a value to be one of several possible types.
+Type Composition is creating complex types by combining simpler, reusable parts
+
+---
+
+### Union Types (`|`)
+
+Types that allow a value to be **one of several possible types**.
 
 <details>
 <summary>Examples</summary>
@@ -32,9 +38,9 @@ function print(id: string | number) {
 
 ---
 
-## Intersection Types
+### Intersection Types (`&`)
 
-Types that combine multiple types into one that includes all members.
+Types that **combine multiple types into one**, requiring all members.
 
 <details>
 <summary>Examples</summary>
@@ -55,9 +61,9 @@ const value: C = {
 
 ---
 
-## Literal Types
+### Literal Types
 
-Types that restrict values to exact string, number, or boolean literals.
+Types that restrict values to **exact string, number, or boolean literals**.
 
 <details>
 <summary>Examples</summary>
@@ -76,9 +82,44 @@ setRole('admin');
 
 ---
 
-## Type Guards
+## Type Narrowing
 
-Runtime checks that narrow a union type to a more specific type.
+Techniques that reduce a Union type to a more specific one at runtime.
+
+---
+
+### Control-flow Narrowing
+
+Automatic narrowing applied through conditional logic and early returns.
+
+<details>
+<summary>Examples</summary>
+
+```ts
+function process(value: string | null) {
+  if (!value) {
+    return;                                 // value is null here
+  }
+
+  value.toUpperCase();                     // value is string
+}
+
+function example(x: string | number) {
+  if (typeof x === 'string') {
+    return x.length;
+  }
+
+  return x.toFixed(2);
+}
+```
+
+</details>
+
+---
+
+### Type Guards
+
+Runtime checks that narrow a union to a specific type.
 
 <details>
 <summary>Examples</summary>
@@ -97,9 +138,9 @@ function log(value: string | number) {
 
 ---
 
-## typeof / instanceof
+### Built-in Guards: `typeof` / `instanceof`
 
-Built-in JavaScript operators used for type narrowing.
+JavaScript operators recognized by TypeScript for narrowing.
 
 <details>
 <summary>Examples</summary>
@@ -131,9 +172,9 @@ function handle(value: User | Date) {
 
 ---
 
-## User-defined Type Guards
+### User-defined Type Guards
 
-Custom functions that narrow types using a type predicate.
+Custom functions that narrow types using **type predicates**.
 
 <details>
 <summary>Examples</summary>
@@ -159,9 +200,9 @@ function handle(person: Person) {
 
 ---
 
-## Discriminated Unions
+### Discriminated Unions
 
-Union types that share a common literal property used for narrowing.
+Unions sharing a **common literal property** used for exhaustive narrowing.
 
 <details>
 <summary>Examples</summary>
@@ -186,38 +227,9 @@ function area(shape: Shape) {
 
 ---
 
-## Control-flow Narrowing
-
-Automatic type narrowing based on control-flow analysis.
-
-<details>
-<summary>Examples</summary>
-
-```ts
-function process(value: string | null) {
-  if (!value) {
-    return;                                 // value is null here
-  }
-
-  value.toUpperCase();                     // value is string
-}
-
-function example(x: string | number) {
-  if (typeof x === 'string') {
-    return x.length;
-  }
-
-  return x.toFixed(2);
-}
-```
-
-</details>
-
----
-
 ## Notes
 
-* Unions describe alternatives, intersections describe combinations
-* Literal types enable strict value constraints
-* Narrowing is applied automatically through control flow
-* Discriminated unions scale well for complex domain models
+* Unions describe alternatives; intersections describe combinations
+* Narrowing is driven by control flow and runtime checks
+* Literal types enable strict domain modeling
+* Discriminated unions scale well for complex state and domain logic

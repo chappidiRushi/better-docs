@@ -1,16 +1,18 @@
 ---
-# title: Typescript
+
+title: TypeScript
 sidebar_position: 2
----
+-------------------
+
 # Primitive & Built-in Types
 
 > Core data types provided by the TypeScript type system
 
 ---
 
-## string, number, boolean
+## Primitive Types
 
-Primitive scalar types representing textual, numeric, and logical values.
+Primitive scalar types representing textual, numeric, logical, and special JavaScript values.
 
 <details>
 <summary>Examples</summary>
@@ -28,81 +30,56 @@ let hex: number = 0xff;                    // number (hex | binary | octal)
 // boolean values
 let enabled: boolean = true;               // boolean
 let visible: boolean = false;              // boolean
+
+// bigint values (arbitrary-precision integers)
+let big: bigint = 9007199254740991n;       // bigint
+
+// symbol values (unique identifiers)
+let id: symbol = Symbol('id');             // symbol
+
+// null & undefined (absence / uninitialized)
+let empty: null = null;                    // null
+let notSet: undefined = undefined;          // undefined
+
+// nullable union
+let maybe: string | null | undefined;      // union with null / undefined
 ```
 
 </details>
 
 ---
 
-## null & undefined
+## Top & Bottom Types
 
-Special primitive types representing absence of a value or an uninitialized value.
-
-<details>
-<summary>Examples</summary>
-
-```ts
-let n: null = null;                         // null only
-let u: undefined = undefined;               // undefined only
-
-let maybe: string | null;                   // union with null
-let optional: string | undefined;           // union with undefined
-
-function log(value?: string) {              // value: string | undefined
-  console.log(value);
-}
-```
-
-</details>
-
----
-
-## unknown
-
-Top type representing an unknown value that must be type-checked before use.
+Special types that define the upper and lower bounds of the type system.
 
 <details>
 <summary>Examples</summary>
 
 ```ts
-let value: unknown;                         // unknown
+// any (opt-out of type checking)
+let anything: any = 1;
+anything.foo.bar();                        // allowed
 
-value = 10;                                // number
-value = 'text';                            // string
-value = { a: 1 };                          // object
+// unknown (safe top type)
+let value: unknown;
 
-// type narrowing required
+value = 10;
+value = 'text';
+
 if (typeof value === 'string') {
-  value.toUpperCase();                     // safe after check
+  value.toUpperCase();                     // safe after narrowing
 }
 
-// comparison with any
-let anyValue: any = value;                 // allowed
-// let str: string = value;                // ❌ not allowed without narrowing
-```
+// void (no meaningful return)
+function log(msg: string): void {
+  console.log(msg);
+}
 
-</details>
-
----
-
-## symbol & bigint
-
-Primitive types for unique identifiers and arbitrary-precision integers.
-
-<details>
-<summary>Examples</summary>
-
-```ts
-// symbol
-const id: symbol = Symbol('id');            // unique symbol
-const key = Symbol.for('shared');            // global symbol
-
-// bigint
-let big: bigint = 9007199254740991n;        // bigint literal
-let calculated: bigint = BigInt(123);       // BigInt constructor
-
-// bigint operations
-let sum: bigint = big + calculated;         // bigint arithmetic
+// never (no possible value)
+function fail(msg: string): never {
+  throw new Error(msg);
+}
 ```
 
 </details>
@@ -111,21 +88,21 @@ let sum: bigint = big + calculated;         // bigint arithmetic
 
 ## object
 
-Represents non-primitive values such as plain objects, functions, and arrays.
+Represents any non-primitive value, excluding `null` and `undefined`.
 
 <details>
 <summary>Examples</summary>
 
 ```ts
-let obj: object = { a: 1 };                  // any non-primitive
+let obj: object = { a: 1 };                 // plain object
 
 let record: { id: number; name: string } = {
   id: 1,
   name: 'Dev'
 };
 
-let fn: object = function () {};             // function as object
-let arr: object = [1, 2, 3];                 // array as object
+let fn: object = function () {};            // function
+let arr: object = [1, 2, 3];                // array
 ```
 
 </details>
@@ -134,22 +111,22 @@ let arr: object = [1, 2, 3];                 // array as object
 
 ## Array & ReadonlyArray
 
-Typed collections of values, optionally marked as immutable.
+Typed indexed collections, optionally enforced as immutable.
 
 <details>
 <summary>Examples</summary>
 
 ```ts
 // mutable arrays
-let list: number[] = [1, 2, 3];              // number[]
-let names: Array<string> = ['a', 'b'];       // Array<string>
+let list: number[] = [1, 2, 3];             // number[]
+let names: Array<string> = ['a', 'b'];      // Array<string>
 
-list.push(4);                                // allowed
+list.push(4);                               // allowed
 
 // readonly arrays
-let readonly: ReadonlyArray<number> = [1, 2]; // ReadonlyArray<number>
+let readonly: ReadonlyArray<number> = [1, 2];
 
-// readonly.push(3);                          // ❌ mutation not allowed
+// readonly.push(3);                        // ❌ mutation not allowed
 ```
 
 </details>
@@ -158,17 +135,17 @@ let readonly: ReadonlyArray<number> = [1, 2]; // ReadonlyArray<number>
 
 ## Tuple Types
 
-Fixed-length arrays with known element types at each position.
+Fixed-length arrays with known element types at specific positions.
 
 <details>
 <summary>Examples</summary>
 
 ```ts
-let tuple: [number, string] = [1, 'one'];    // fixed order and length
+let tuple: [number, string] = [1, 'one'];   // fixed order
 
-let optional: [number, string?] = [1];      // optional element
+let optional: [number, string?] = [1];     // optional element
 
-let rest: [string, ...number[]] = ['a', 1]; // rest elements
+let rest: [string, ...number[]] = ['a', 1, 2];
 
 // named tuple elements
 let user: [id: number, name: string] = [1, 'Dev'];
@@ -180,7 +157,7 @@ let user: [id: number, name: string] = [1, 'Dev'];
 
 ## Enum Types
 
-Named constants representing a fixed set of values.
+Named constants representing a closed set of values.
 
 <details>
 <summary>Examples</summary>
@@ -188,9 +165,9 @@ Named constants representing a fixed set of values.
 ```ts
 // numeric enum
 enum Status {
-  Pending,        // 0
-  Active,         // 1
-  Disabled        // 2
+  Pending,
+  Active,
+  Disabled
 }
 
 let s: Status = Status.Active;
@@ -203,7 +180,7 @@ enum Direction {
 
 let d: Direction = Direction.Up;
 
-// const enum
+// const enum (inlined at compile time)
 const enum Role {
   Admin,
   User
@@ -219,6 +196,7 @@ let r: Role = Role.Admin;
 ## Notes
 
 * Primitive types are immutable
-* `null` and `undefined` are distinct types under strict mode
-* `ReadonlyArray` enforces immutability at compile time
-* `const enum` values are inlined at compile time
+* `null` and `undefined` are distinct under `strictNullChecks`
+* `unknown` enforces safe type narrowing
+* `ReadonlyArray` provides compile-time immutability
+* `const enum` values are erased and inlined at compile time

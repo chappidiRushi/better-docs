@@ -1,61 +1,50 @@
 ---
+
 id: hooks
 title: Hooks
 sidebar_position: 5
 -------------------
+
 # Lifecycle & Effects
 
-> Clean and structured guide covering lifecycle methods for class components and hooks for function components
+> A clear, concise guide to **class component lifecycles** and their **hook-based equivalents** in function components.
 
 ---
 
-## Class Component Lifecycle Methods (Execution Order)
+## Mental Model First
 
-| Phase          | Method                                               | Description                                                       |
-| -------------- | ---------------------------------------------------- | ----------------------------------------------------------------- |
-| Mounting       | `constructor(props)`                                 | Initialize state, bind methods                                    |
-|                | `static getDerivedStateFromProps(props, state)`      | Update state based on props before rendering                      |
-|                | `render()`                                           | Render JSX to DOM                                                 |
-|                | `componentDidMount()`                                | Runs after component is mounted; API calls, timers, subscriptions |
-| Updating       | `static getDerivedStateFromProps(props, state)`      | Update state from props before rendering                          |
-|                | `shouldComponentUpdate(nextProps, nextState)`        | Decide if re-render is needed (optimization)                      |
-|                | `render()`                                           | Render updated JSX                                                |
-|                | `getSnapshotBeforeUpdate(prevProps, prevState)`      | Capture snapshot of DOM before changes                            |
-|                | `componentDidUpdate(prevProps, prevState, snapshot)` | Perform side effects after update                                 |
-| Unmounting     | `componentWillUnmount()`                             | Cleanup timers, listeners, subscriptions                          |
-| Error Handling | `static getDerivedStateFromError(error)`             | Update state to display fallback UI                               |
-|                | `componentDidCatch(error, info)`                     | Log error details or perform side effects                         |
+* **Class components** use *lifecycle methods* (explicit phases).
+* **Function components** use *hooks* to express the same ideas.
+* Rendering is **pure**; side effects run **after commit**.
+
+---
+
+## Class Component Lifecycle (Execution Order)
+
+### Mounting (component is created)
+
+| Method                     | Simple Definition                           |
+| -------------------------- | ------------------------------------------- |
+| `constructor`              | Initialize state and bind methods           |
+| `getDerivedStateFromProps` | Sync state with props (rare)                |
+| `render`                   | Describe UI                                 |
+| `componentDidMount`        | Run side effects (API calls, subscriptions) |
 
 <details>
-<summary>Example Class Component</summary>
+<summary>Example: Mounting lifecycle</summary>
 
 ```js
-import React from 'react';
-
-class LifecycleDemo extends React.Component {
+class MountDemo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0, hasError: false };
+    this.state = { count: 0 };
   }
 
-  static getDerivedStateFromProps(props, state) { return null; }
-
-  componentDidMount() { console.log('Mounted'); }
-
-  shouldComponentUpdate(nextProps, nextState) { return true; }
-
-  getSnapshotBeforeUpdate(prevProps, prevState) { return null; }
-
-  componentDidUpdate(prevProps, prevState, snapshot) { console.log('Updated'); }
-
-  componentWillUnmount() { console.log('Unmounted'); }
-
-  static getDerivedStateFromError(error) { return { hasError: true }; }
-
-  componentDidCatch(error, info) { console.log('Error:', error, info); }
+  componentDidMount() {
+    console.log('Component mounted');
+  }
 
   render() {
-    if (this.state.hasError) return <h1>Something went wrong</h1>;
     return <p>Count: {this.state.count}</p>;
   }
 }
@@ -63,74 +52,347 @@ class LifecycleDemo extends React.Component {
 
 </details>
 
+------|------------------|
+| `constructor` | Initialize state and bind methods |
+| `getDerivedStateFromProps` | Sync state with props (rare) |
+| `render` | Describe UI |
+| `componentDidMount` | Run side effects (API calls, subscriptions) |
+
 ---
 
-## Function Component Hooks
+### Updating (props or state change)
 
-| Hook                                     | Purpose                                                  |
-| ---------------------------------------- | -------------------------------------------------------- |
-| `useState()`                             | Local state                                              |
-| `useEffect(() => { ... }, [])`           | Mounting; runs once after mount                          |
-| `useEffect(() => { ... }, [deps])`       | Updating; runs when dependencies change                  |
-| `useLayoutEffect(() => { ... }, [deps])` | Synchronous effect after DOM updates but before painting |
-| `useReducer()`                           | Manage complex state logic                               |
-| `useRef()`                               | Persistent values and DOM refs                           |
-| `useMemo()`                              | Memoize expensive calculations                           |
-| `useCallback()`                          | Memoize functions                                        |
-| `useContext()`                           | Access context values                                    |
-| `useImperativeHandle()`                  | Customize refs with `forwardRef`                         |
-| `useDebugValue()`                        | Show debug info in DevTools                              |
-
-### Cleanup / Unmounting
-
-* Return a cleanup function from `useEffect` or `useLayoutEffect`
-
-### Error Handling
-
-* No built-in hook; use class-based `ErrorBoundary`
+| Method                     | Simple Definition                          |
+| -------------------------- | ------------------------------------------ |
+| `getDerivedStateFromProps` | Update state from new props                |
+| `shouldComponentUpdate`    | Decide whether to re-render (optimization) |
+| `render`                   | Describe updated UI                        |
+| `getSnapshotBeforeUpdate`  | Read DOM before update                     |
+| `componentDidUpdate`       | Run side effects after update              |
 
 <details>
-<summary>Example Function Component with Hooks</summary>
+<summary>Example: Updating lifecycle</summary>
 
 ```js
-import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, useContext } from 'react';
-import MyContext from './MyContext';
+class UpdateDemo extends React.Component {
+  componentDidUpdate(prevProps) {
+    if (prevProps.value !== this.props.value) {
+      console.log('Value changed');
+    }
+  }
 
-function HookDemo({ multiplier }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef();
-  const context = useContext(MyContext);
-
-  const doubled = useMemo(() => count * multiplier, [count, multiplier]);
-  const increment = useCallback(() => setCount(c => c + 1), []);
-
-  useEffect(() => {
-    console.log('Effect after mount or update');
-    return () => console.log('Cleanup on unmount or before next update');
-  }, [count]);
-
-  useLayoutEffect(() => {
-    console.log('Layout effect');
-  });
-
-  return (
-    <div ref={ref}>
-      <p>Count: {count}</p>
-      <p>Doubled: {doubled}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
+  render() {
+    return <p>Value: {this.props.value}</p>;
+  }
 }
+```
+
+</details>
+
+------|------------------|
+| `getDerivedStateFromProps` | Update state from new props |
+| `shouldComponentUpdate` | Decide whether to re-render (optimization) |
+| `render` | Describe updated UI |
+| `getSnapshotBeforeUpdate` | Read DOM before update |
+| `componentDidUpdate` | Run side effects after update |
+
+---
+
+### Unmounting
+
+| Method                 | Simple Definition                          |
+| ---------------------- | ------------------------------------------ |
+| `componentWillUnmount` | Cleanup (timers, listeners, subscriptions) |
+
+<details>
+<summary>Example: Unmounting cleanup</summary>
+
+```js
+class UnmountDemo extends React.Component {
+  componentDidMount() {
+    this.id = setInterval(() => console.log('tick'), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.id);
+    console.log('Cleaned up');
+  }
+
+  render() {
+    return <p>Running...</p>;
+  }
+}
+```
+
+</details>
+
+------|------------------|
+| `componentWillUnmount` | Cleanup (timers, listeners, subscriptions) |
+
+---
+
+### Concurrent & Modern React Hooks
+
+| Hook               | Simple Definition                     |
+| ------------------ | ------------------------------------- |
+| `useTransition`    | Mark updates as non-urgent            |
+| `useDeferredValue` | Defer expensive re-renders            |
+| `useOptimistic`    | Optimistic UI updates (React 19+)     |
+| `useActionState`   | Manage async action state (React 19+) |
+
+---
+
+## Error Handling
+
+| Method                     | Simple Definition     |
+| -------------------------- | --------------------- |
+| `getDerivedStateFromError` | Update UI after error |
+| `componentDidCatch`        | Log error / report    |
+
+<details>
+<summary>Example: Error Boundary</summary>
+
+```js
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) return <h1>Something went wrong</h1>;
+    return this.props.children;
+  }
+}
+```
+
+</details>
+
+------|------------------|
+| `getDerivedStateFromError` | Update UI after error |
+| `componentDidCatch` | Log error / report |
+
+---
+
+## Function Component Hooks (What You’ll Actually Use)
+
+### Core Hooks
+
+| Hook              | Simple Definition             |
+| ----------------- | ----------------------------- |
+| `useState`        | Local component state         |
+| `useEffect`       | Run side effects after render |
+| `useLayoutEffect` | Run effects *before paint*    |
+| `useReducer`      | State logic with actions      |
+| `useRef`          | Persist values or access DOM  |
+
+<details>
+<summary>Example: <code>useState</code></summary>
+
+```js
+const [count, setCount] = useState(0);
+<button onClick={() => setCount(c => c + 1)} />
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useEffect</code> (side effects + cleanup)</summary>
+
+```js
+useEffect(() => {
+  const id = setInterval(() => console.log('tick'), 1000);
+  return () => clearInterval(id);
+}, []);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useLayoutEffect</code></summary>
+
+```js
+useLayoutEffect(() => {
+  const { height } = ref.current.getBoundingClientRect();
+  setHeight(height);
+}, []);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useRef</code></summary>
+
+```js
+const inputRef = useRef(null);
+inputRef.current.focus();
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useReducer</code></summary>
+
+```js
+function reducer(state, action) {
+  if (action.type === 'inc') return state + 1;
+  return state;
+}
+const [count, dispatch] = useReducer(reducer, 0);
 ```
 
 </details>
 
 ---
 
-## Notes & Caveats
+### Performance & Composition
 
-* Class components: use explicit lifecycle methods; function components: hooks.
-* `useEffect` covers mount, update, and unmount depending on dependencies.
-* `useLayoutEffect` is synchronous, before browser paint.
-* Error boundaries are still class-based.
-* Always include dependencies in hooks to avoid unintended behavior.
+| Hook          | Simple Definition            |
+| ------------- | ---------------------------- |
+| `useMemo`     | Cache expensive calculations |
+| `useCallback` | Cache function references    |
+| `useContext`  | Read context values          |
+
+<details>
+<summary>Example: <code>useMemo</code></summary>
+
+```js
+const total = useMemo(() => heavyCalc(items), [items]);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useCallback</code></summary>
+
+```js
+const onClick = useCallback(() => setOpen(true), []);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useContext</code></summary>
+
+```js
+const theme = useContext(ThemeContext);
+```
+
+</details>
+
+---
+
+### Concurrent & Modern Hooks
+
+| Hook               | Simple Definition                     |
+| ------------------ | ------------------------------------- |
+| `useTransition`    | Mark updates as non-urgent            |
+| `useDeferredValue` | Defer expensive re-renders            |
+| `useOptimistic`    | Optimistic UI updates (React 19+)     |
+| `useActionState`   | Manage async action state (React 19+) |
+
+<details>
+<summary>Example: <code>useTransition</code></summary>
+
+```js
+const [isPending, startTransition] = useTransition();
+startTransition(() => setList(filter(items)));
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useDeferredValue</code></summary>
+
+```js
+const deferredQuery = useDeferredValue(query);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useOptimistic</code></summary>
+
+```js
+const [state, setOptimistic] = useOptimistic(data);
+setOptimistic(d => [...d, newItem]);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useActionState</code></summary>
+
+```js
+const [state, action] = useActionState(saveUser, initialState);
+```
+
+</details>
+
+---
+
+### Advanced / Rare Hooks
+
+| Hook                   | Simple Definition                   |
+| ---------------------- | ----------------------------------- |
+| `useImperativeHandle`  | Expose custom ref API               |
+| `useDebugValue`        | Show debug info in DevTools         |
+| `useInsertionEffect`   | Inject styles before DOM mutations  |
+| `useSyncExternalStore` | Subscribe to external stores safely |
+| `useId`                | Generate stable unique IDs          |
+
+<details>
+<summary>Example: <code>useSyncExternalStore</code></summary>
+
+```js
+const value = useSyncExternalStore(store.subscribe, store.getSnapshot);
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useId</code></summary>
+
+```js
+const id = useId();
+<label htmlFor={id} />
+<input id={id} />
+```
+
+</details>
+
+<details>
+<summary>Example: <code>useInsertionEffect</code></summary>
+
+```js
+useInsertionEffect(() => {
+  injectStyles();
+}, []);
+```
+
+</details>
+
+---
+
+## Key Takeaways
+
+* Lifecycles and hooks solve the **same problems**
+
+* Hooks are more composable and easier to reuse
+
+* `useEffect` replaces most lifecycle methods
+
+* Rendering is pure; effects run **after commit**
+
+* Lifecycles and hooks solve the **same problems**
+
+* Hooks are more composable and easier to reuse
+
+* `useEffect` replaces most lifecycle methods
+
+* Rendering is pure; effects run **after commit**

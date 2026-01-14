@@ -1,164 +1,310 @@
 ---
+
 id: redux
 title: Redux
 sidebar_position: 12
--------------------
+--------------------
 
 # Redux
 
-> Comprehensive guide to Redux for state management in React applications
+> A **simple, modern reference** for using Redux with React via **Redux Toolkit**.
+
+Redux is a **state management library** for JavaScript applications. It is mainly used to manage **global state** — state that many components need to access and update.
+
+Use Redux when:
+
+* Many components need the same data (auth, theme, user info)
+* State updates are complex or follow strict rules
+* You want predictable, debuggable state changes
 
 ---
 
 ## Core Concepts
 
-| Concept  | Description                                                  |
-| -------- | ------------------------------------------------------------ |
-| Store    | Single source of truth holding the state of the app          |
-| Action   | Plain object describing what happened (type + payload)       |
-| Reducer  | Pure function that takes state and action, returns new state |
-| Dispatch | Sends an action to the store to update state                 |
-| Selector | Function to read specific part of state from the store       |
+| Concept  | Description                                      |
+| -------- | ------------------------------------------------ |
+| Store    | Holds the entire application state               |
+| Action   | An object describing what happened               |
+| Reducer  | A function that updates state based on an action |
+| Dispatch | Sends actions to the store                       |
+| Selector | Reads specific data from the store               |
 
 ---
 
-## Installation
+## Modern Redux (Redux Toolkit)
+
+Redux Toolkit (RTK) is the **official and recommended** way to use Redux.
+
+Install:
 
 ```bash
-npm install redux react-redux
+npm install @reduxjs/toolkit react-redux
 ```
 
 ---
 
-## Creating a Store
+## Example: Counter App (Step by Step)
+
+### 1. Create a Redux Slice
+
+A **slice** defines:
+
+* Initial state
+* Reducer logic
+* Auto‑generated actions
 
 <details>
-<summary>Example: Store</summary>
+<summary>counterSlice.js</summary>
 
 ```js
-import { createStore } from 'redux';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { count: 0 };
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    increment: state => {
+      state.value += 1;
+    },
+    decrement: state => {
+      state.value -= 1;
+    },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload;
+    },
+  },
+});
 
-function counterReducer(state = initialState, action) {
-  switch(action.type) {
-    case 'INCREMENT':
-      return { ...state, count: state.count + 1 };
-    case 'DECREMENT':
-      return { ...state, count: state.count - 1 };
-    default:
-      return state;
-  }
-}
-
-const store = createStore(counterReducer);
-
-store.dispatch({ type: 'INCREMENT' });
-console.log(store.getState()); // { count: 1 }
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export default counterSlice.reducer;
 ```
 
 </details>
 
 ---
 
-## React-Redux Integration
+### 2. Set Up the Redux Store
 
-| Hook / HOC    | Purpose                                                               |
-| ------------- | --------------------------------------------------------------------- |
-| `<Provider>`  | Wraps the app and provides store to components                        |
-| `useSelector` | Access state from the Redux store in function components              |
-| `useDispatch` | Get dispatch function to send actions                                 |
-| `connect`     | HOC to map state and dispatch to props (class or function components) |
+The store combines all slices and makes state available globally.
 
 <details>
-<summary>Example: React-Redux Hooks</summary>
+<summary>store.js</summary>
+
+```js
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from '../features/counter/counterSlice';
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+});
+```
+
+</details>
+
+---
+
+### 3. Provide the Store to React
+
+Wrap your app with `<Provider>` so components can access the store.
+
+<details>
+<summary>index.js</summary>
 
 ```js
 import React from 'react';
-import { Provider, useSelector, useDispatch } from 'react-redux';
-import { createStore } from 'redux';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+import App from './App';
 
-const initialState = { count: 0 };
-function reducer(state = initialState, action) {
-  switch(action.type) {
-    case 'INCREMENT': return { count: state.count + 1 };
-    default: return state;
-  }
-}
-
-const store = createStore(reducer);
-
-function Counter() {
-  const count = useSelector(state => state.count);
-  const dispatch = useDispatch();
-
-  return <button onClick={() => dispatch({ type: 'INCREMENT' })}>Count: {count}</button>;
-}
-
-function App() {
-  return (
-    <Provider store={store}>
-      <Counter />
-    </Provider>
-  );
-}
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 ```
 
 </details>
 
 ---
 
-## Middleware (Redux Thunk Example)
+### 4. Use Redux in Components
 
-Middleware adds custom logic during dispatch, often used for async operations.
+Use hooks to read state and dispatch actions.
 
 <details>
-<summary>Example: Async Action with Thunk</summary>
+<summary>App.js</summary>
 
 ```js
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, incrementByAmount } from './features/counter/counterSlice';
 
-const initialState = { data: null };
-function reducer(state = initialState, action) {
-  switch(action.type) {
-    case 'SET_DATA': return { ...state, data: action.payload };
-    default: return state;
-  }
+function App() {
+  const count = useSelector(state => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => dispatch(decrement())}>-</button>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(incrementByAmount(5))}>+5</button>
+    </div>
+  );
 }
 
-const store = createStore(reducer, applyMiddleware(thunk));
-
-function fetchData() {
-  return async dispatch => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    const data = await response.json();
-    dispatch({ type: 'SET_DATA', payload: data });
-  };
-}
-
-store.dispatch(fetchData());
+export default App;
 ```
 
 </details>
 
 ---
 
-## Best Practices
+## Async Logic with createAsyncThunk
 
-| Recommendation           | Notes                                                        |
-| ------------------------ | ------------------------------------------------------------ |
-| Keep state normalized    | Avoid nested objects for easier updates and selectors        |
-| Use selectors            | Memoized selectors (reselect) prevent unnecessary re-renders |
-| Use middleware for async | Redux Thunk or Redux Saga for side effects                   |
-| Split reducers           | Combine reducers for modularity and maintainability          |
-| Immutable updates        | Never mutate state directly; always return new objects       |
+Redux Toolkit includes built‑in support for async logic.
+
+<details>
+<summary>Example: Async User Fetch</summary>
+
+```js
+import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+const fetchUserAPI = () =>
+  new Promise(resolve =>
+    setTimeout(() => resolve({ id: 1, name: 'John Doe' }), 1000)
+  );
+
+export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
+  return await fetchUserAPI();
+});
+
+const userSlice = createSlice({
+  name: 'user',
+  initialState: { user: null, status: 'idle' },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchUser.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.user = action.payload;
+      })
+      .addCase(fetchUser.rejected, state => {
+        state.status = 'failed';
+      });
+  },
+});
+
+export const store = configureStore({
+  reducer: {
+    user: userSlice.reducer,
+  },
+});
+```
+
+</details>
 
 ---
 
-## Notes & Caveats
+## Summary
 
-* Redux is most useful for medium to large apps with complex state.
-* Hooks (`useSelector`, `useDispatch`) are recommended over `connect` for new code.
-* Keep actions and reducers simple and predictable.
-* Avoid storing non-serializable values in the store (e.g., functions, class instances).
+| Part        | Role                       |
+| ----------- | -------------------------- |
+| Slice       | Defines state and reducers |
+| Store       | Holds global state         |
+| Provider    | Connects Redux to React    |
+| useSelector | Reads state                |
+| useDispatch | Updates state              |
+
+---
+
+## Developer Experience (DX)
+
+Redux is known for its **excellent developer experience**, especially when paired with Redux Toolkit.
+
+### Redux DevTools
+
+Redux DevTools allow you to:
+
+* Inspect current state
+* See every dispatched action
+* Time‑travel (undo / redo state changes)
+* Debug complex state transitions
+
+Redux Toolkit enables DevTools automatically in development.
+
+---
+
+### Predictability & Debugging
+
+Redux enforces:
+
+* Unidirectional data flow
+* Explicit actions
+* Pure reducers
+
+This makes bugs easier to trace and fixes more confident.
+
+---
+
+## Selectors & Performance
+
+Selectors encapsulate how state is read.
+
+```js
+const selectCount = state => state.counter.value;
+```
+
+Benefits:
+
+* Centralized state access
+* Easier refactoring
+* Better performance
+
+For expensive derived data, use **memoized selectors** (`reselect`).
+
+---
+
+## Async Patterns & Side Effects
+
+Preferred async approaches:
+
+| Tool             | Use Case                                  |
+| ---------------- | ----------------------------------------- |
+| createAsyncThunk | Simple async requests                     |
+| RTK Query        | Server state (fetching, caching, polling) |
+
+Avoid manually handling loading/error state when RTK Query fits.
+
+---
+
+## Advantages of Redux
+
+* Centralized state
+* Predictable updates
+* Excellent DevTools (time‑travel debugging)
+* Testable business logic
+* Scales well for large applications
+
+---
+
+## When NOT to Use Redux
+
+Avoid Redux when:
+
+* State is local to a single component
+* App is small or simple
+* Context or component state is sufficient
+
+---
+
+## Key Takeaways
+
+* Redux Toolkit is the **standard way** to use Redux
+* Use slices to reduce boilerplate
+* Keep Redux for **shared, global, complex state**
+* Prefer simplicity over over‑engineering

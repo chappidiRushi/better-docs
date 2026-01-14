@@ -44,33 +44,6 @@ function App() {
 
 ---
 
-## Reconciliation & Fiber (High-Level)
-
-React uses the Fiber architecture to efficiently update the DOM.
-
-| Concept        | Description                                                                              |
-| -------------- | ---------------------------------------------------------------------------------------- |
-| Fiber          | Incremental rendering engine that breaks rendering work into units to allow interruption |
-| Reconciliation | Diffing algorithm comparing virtual DOM with previous state to apply minimal DOM updates |
-| Priority       | Fiber assigns priorities to updates to decide what to render first                       |
-
-```
-Virtual DOM changes -> Fiber creates work units -> Scheduler prioritizes -> Updates applied -> Commit phase
-```
-
----
-
-## React Architecture & Best Practices
-
-| Topic            | Recommendations                                                                        |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| Component Design | Keep components small and focused; use composition over inheritance                    |
-| State Management | Lift state up only when necessary; use context/reducers for shared state               |
-| Performance      | Use memoization (React.memo, useMemo, useCallback) and concurrent features when needed |
-| Code Splitting   | Use React.lazy and Suspense for lazy-loaded components                                 |
-| Testing          | Test components in isolation; use error boundaries to handle edge cases                |
-
----
 
 ## Notes & Caveats
 

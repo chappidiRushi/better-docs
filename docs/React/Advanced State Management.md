@@ -1,4 +1,5 @@
 ---
+
 id: advanced-state-management
 title: Advanced State Management
 sidebar_position: 6
@@ -6,31 +7,56 @@ sidebar_position: 6
 
 # Advanced State Management
 
-> Guide covering context, custom hooks, reducers, and patterns to manage state effectively
+> A practical guide to **scaling state** in React using Context, reducers, custom hooks, and modern patterns — with clear trade‑offs.
+
+---
+
+## Mental Model
+
+Before tools, understand *where state should live*:
+
+* **Local state** → component (`useState`)
+* **Shared state (few levels)** → lift state up
+* **Shared state (many levels)** → Context
+* **Complex transitions** → Reducers
+* **Reusable logic** → Custom hooks
+* **App‑wide / external** → External stores
 
 ---
 
 ## Context API
 
-Context provides a way to share values globally without prop drilling.
+The **Context API** lets you share values across the component tree **without prop drilling**.
 
-| Method / Hook                       | Purpose                                                 |
-| ----------------------------------- | ------------------------------------------------------- |
-| `React.createContext(defaultValue)` | Creates a context object with optional default value    |
-| `Context.Provider`                  | Wraps components to provide a value to descendants      |
-| `useContext(Context)`               | Hook to access the context value in function components |
+### When to Use Context
+
+* Theme, locale, auth user
+* Feature flags
+* Global configuration
+
+❌ Not ideal for rapidly changing values (can cause re‑renders).
+
+---
+
+### Core Context APIs
+
+| API / Hook      | Simple Definition                  |
+| --------------- | ---------------------------------- |
+| `createContext` | Create a context object            |
+| `Provider`      | Supply a value to descendants      |
+| `useContext`    | Consume the nearest provider value |
 
 <details>
 <summary>Example: Context</summary>
 
 ```js
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const ThemeContext = createContext('light');
 
 function Toolbar() {
   const theme = useContext(ThemeContext);
-  return <button style={{ background: theme === 'dark' ? '#333' : '#eee' }}>Theme Button</button>;
+  return <button className={theme}>Theme Button</button>;
 }
 
 function App() {
@@ -46,9 +72,35 @@ function App() {
 
 ---
 
+## Context Performance Patterns (Often Missed)
+
+### Splitting Contexts
+
+* One context per concern
+* Avoid "mega contexts"
+
+```js
+const AuthContext = createContext(null);
+const ThemeContext = createContext('light');
+```
+
+### Memoizing Provider Values
+
+```js
+const value = useMemo(() => ({ user, login }), [user]);
+```
+
+---
+
 ## Custom Hooks
 
-Custom hooks encapsulate reusable logic for function components.
+**Custom hooks** extract and reuse stateful logic.
+
+### Rules
+
+* Must start with `use`
+* Can call other hooks
+* No JSX inside custom hooks
 
 <details>
 <summary>Example: Custom Hook</summary>
@@ -60,17 +112,12 @@ function useWindowWidth() {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const onResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   return width;
-}
-
-function App() {
-  const width = useWindowWidth();
-  return <p>Window width: {width}</p>;
 }
 ```
 
@@ -80,7 +127,13 @@ function App() {
 
 ## Reducers (`useReducer`)
 
-`useReducer` is an alternative to `useState` for complex state logic.
+Reducers centralize **state transitions** and make updates predictable.
+
+### When to Prefer `useReducer`
+
+* Multiple related state values
+* Complex update logic
+* State transitions depend on previous state
 
 <details>
 <summary>Example: useReducer</summary>
@@ -89,20 +142,21 @@ function App() {
 import { useReducer } from 'react';
 
 function reducer(state, action) {
-  switch(action.type) {
-    case 'increment': return { count: state.count + 1 };
-    case 'decrement': return { count: state.count - 1 };
+  switch (action.type) {
+    case 'inc': return { count: state.count + 1 };
+    case 'dec': return { count: state.count - 1 };
     default: return state;
   }
 }
 
 function Counter() {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
+
   return (
     <>
-      <p>Count: {state.count}</p>
-      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
-      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <p>{state.count}</p>
+      <button onClick={() => dispatch({ type: 'inc' })}>+</button>
+      <button onClick={() => dispatch({ type: 'dec' })}>-</button>
     </>
   );
 }
@@ -112,33 +166,27 @@ function Counter() {
 
 ---
 
-## Prop Drilling vs Context Pattern
+## Reducer + Context (Global State Pattern)
 
-| Pattern       | Description                                         | When to Use                                               |
-| ------------- | --------------------------------------------------- | --------------------------------------------------------- |
-| Prop Drilling | Passing props through multiple layers of components | Simple apps, few levels deep                              |
-| Context API   | Provides data globally to component tree            | Complex apps, many nested components, shared global state |
+This pattern replaces small Redux‑like use cases.
 
 <details>
-<summary>Example: Prop Drilling vs Context</summary>
+<summary>Example: Context + Reducer</summary>
 
 ```js
-// Prop Drilling
-function Child({ theme }) { return <p>{theme}</p>; }
-function Parent({ theme }) { return <Child theme={theme} />; }
-function App() { return <Parent theme="dark" />; }
+const CountContext = createContext();
 
-// Context
-const ThemeContext = React.createContext('light');
-function ChildContext() {
-  const theme = useContext(ThemeContext);
-  return <p>{theme}</p>;
+function reducer(state, action) {
+  if (action.type === 'inc') return state + 1;
+  return state;
 }
-function AppContext() {
+
+function Provider({ children }) {
+  const [state, dispatch] = useReducer(reducer, 0);
   return (
-    <ThemeContext.Provider value="dark">
-      <ChildContext />
-    </ThemeContext.Provider>
+    <CountContext.Provider value={{ state, dispatch }}>
+      {children}
+    </CountContext.Provider>
   );
 }
 ```
@@ -147,9 +195,62 @@ function AppContext() {
 
 ---
 
-## Notes & Caveats
+## Prop Drilling vs Context
 
-* Use context for global/shared state to avoid prop drilling.
-* Custom hooks promote code reuse and clean logic.
-* `useReducer` is preferred when state updates depend on previous state or are complex.
-* Avoid overusing context for frequently changing values; can trigger unnecessary re-renders.
+| Pattern       | Description               | When to Use |
+| ------------- | ------------------------- | ----------- |
+| Prop Drilling | Pass props through layers | Small trees |
+| Context       | Implicit dependency       | Deep trees  |
+
+<details>
+<summary>Example Comparison</summary>
+
+```js
+// Prop drilling
+function Child({ theme }) { return <p>{theme}</p>; }
+function Parent({ theme }) { return <Child theme={theme} />; }
+
+// Context
+const ThemeContext = createContext('light');
+function ChildCtx() {
+  return <p>{useContext(ThemeContext)}</p>;
+}
+```
+
+</details>
+
+---
+
+## External State & Stores (Often Missing)
+
+For **app‑wide or cross‑framework state**:
+
+* Redux / Redux Toolkit
+* Zustand
+* Jotai
+* MobX
+
+### React Integration Hook
+
+| Hook                   | Purpose                              |
+| ---------------------- | ------------------------------------ |
+| `useSyncExternalStore` | Safe subscription to external stores |
+
+---
+
+## Common Mistakes
+
+* Overusing context for frequently changing state
+* Putting UI‑local state in global stores
+* Creating new provider values on every render
+* Mixing unrelated concerns in one reducer
+
+---
+
+## Key Takeaways
+
+* Start local, scale state **only when needed**
+* Context solves **prop drilling**, not all state
+* Reducers make complex updates predictable
+* Custom hooks are the foundation of reuse
+* External stores are for **cross‑app state**

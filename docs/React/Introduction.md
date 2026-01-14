@@ -1,34 +1,49 @@
 ---
+
 id: introductions
 title: Introduction
-sidebar_position: 3
+sidebar_position: 2
 -------------------
 
+# Introduction & Core Basics
 
-
-# Introduction & Basics
-
-> Core concepts and building blocks of React
+> High-signal React fundamentals for experienced developers. Minimal prose, maximal coverage.
 
 ---
 
 ## What React Is
 
-React is a declarative, component-based library for building UIs. It lets you break the UI into reusable components.
+React is a **declarative**, **component-driven** UI library focused on predictable rendering and state-driven views.
+
+**Key properties**
+
+* Declarative UI via render functions
+* Component composition over inheritance
+* Unidirectional data flow
+* Virtual DOM + reconciliation
+* Platform-agnostic core (DOM, Native, Server)
 
 <details>
 <summary>Examples</summary>
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
+// Function component (recommended)
 function App() {
-  return <h1>Hello React!</h1>;
+  return <h1>Hello React</h1>;
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+// Root API (React 18+)
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
 ```
 
 </details>
@@ -37,15 +52,46 @@ root.render(<App />);
 
 ## JSX
 
-JSX is a syntax to write HTML-like code in JavaScript. React compiles it into `createElement` calls.
+ A syntax extension for JavaScript that allows you to write HTML-like code within JavaScript.
+
+**Capabilities**
+
+* Expressions via `{}` (not statements)
+* Attribute camelCasing
+* Spread props
+* Conditional rendering
+* Children as values
 
 <details>
 <summary>Examples</summary>
 
 ```js
+// Compiles to React.createElement calls
 const name = 'React';
-const element = <h1>Hello, {name}!</h1>;   // JSX with expressions
-const list = <ul>{['A', 'B', 'C'].map(item => <li key={item}>{item}</li>)}</ul>; // JSX with map
+
+const element = (
+  <section
+    id="main"
+    className="container"
+    data-env={process.env.NODE_ENV}
+  >
+    <h1>Hello, {name.toUpperCase()}</h1>
+
+    {/* Conditional rendering */}
+    {name && <p>Visible if truthy</p>}
+    {name ? <A /> : <B />}
+
+    {/* Lists */}
+    <ul>
+      {['A', 'B', 'C'].map((item, index) => (
+        <li key={item /* prefer stable keys over index */}>{item}</li>
+      ))}
+    </ul>
+
+    {/* Spreading props */}
+    <Button {...buttonProps} disabled />
+  </section>
+);
 ```
 
 </details>
@@ -54,23 +100,37 @@ const list = <ul>{['A', 'B', 'C'].map(item => <li key={item}>{item}</li>)}</ul>;
 
 ## Rendering & Re-rendering
 
-Rendering inserts components into the DOM. Re-rendering updates the DOM efficiently when state or props change.
+Rendering is **pure execution of components** → React elements. Re-rendering is triggered by **state, props, or context changes**.
+
+**Facts**
+
+* Re-render ≠ DOM update (diffing + batching apply)
+* Entire subtree re-executes unless memoized
+* State updates are async & batched (by default)
 
 <details>
 <summary>Examples</summary>
 
 ```js
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Counter({ initial = 0 }) {
+  const [count, setCount] = useState(initial);
+
+  // Functional update (safe for concurrent rendering)
+  const increment = useCallback(() => {
+    setCount(c => c + 1);
+  }, []);
+
   return (
     <div>
       <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={increment}>Increment</button>
     </div>
   );
 }
+
+// Causes re-render when parent state/props change
 ```
 
 </details>
@@ -79,20 +139,30 @@ function Counter() {
 
 ## Strict Mode
 
-StrictMode detects potential problems and highlights unsafe patterns. It runs only in development mode.
+`StrictMode` enables **development-only diagnostics**.
+
+**Behaviors (React 18)**
+
+* Double-invokes render + effects (dev only)
+* Detects unsafe lifecycles
+* Warns about legacy APIs
 
 <details>
 <summary>Examples</summary>
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
+
+// NOTE:
+// - Only in development
+// - Does NOT affect production behavior
 ```
 
 </details>
@@ -101,12 +171,19 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 ## Fragments
 
-Fragments let you return multiple elements without extra DOM nodes. Useful to group elements without adding `<div>` wrappers.
+Fragments group children **without adding DOM nodes**.
+
+**Variants**
+
+* Short syntax: `<>...</>` (no keys)
+* Explicit: `<React.Fragment key>`
 
 <details>
 <summary>Examples</summary>
 
 ```js
+import { Fragment } from 'react';
+
 function List() {
   return (
     <>
@@ -116,6 +193,15 @@ function List() {
     </>
   );
 }
+
+function KeyedList({ items }) {
+  return items.map(item => (
+    <Fragment key={item.id}>
+      <dt>{item.term}</dt>
+      <dd>{item.definition}</dd>
+    </Fragment>
+  ));
+}
 ```
 
 </details>
@@ -124,7 +210,9 @@ function List() {
 
 ## Notes & Caveats
 
-* JSX must have one root element per expression.
-* StrictMode runs checks only in development, not production.
-* Fragments can use `<></>` shorthand or `<React.Fragment>`.
-* Re-rendering occurs only when state or props change.
+* JSX requires a **single return value** (Fragment allowed)
+* Re-rendering is cheap; premature memoization is not
+* Keys must be **stable, predictable, unique**
+* Avoid side effects during render
+* Prefer function components + hooks
+* Think in **state transitions**, not DOM mutations

@@ -1,179 +1,340 @@
 ---
+
 id: under-the-hood
-title: Under The Hood
-sidebar_position: 4
+title: Under the Hood
+sidebar_position: 3
 -------------------
 
-# How React Works Under the Hood
+# From JSX to Pixels: How React Renders
 
-> Step-by-step explanation of React's internal mechanisms for rendering and updating UIs
-
----
-
-## React Rendering Flow Diagram (Markdown Table)
-
-| Step                                | Description                                                                 |
-| ----------------------------------- | --------------------------------------------------------------------------- |
-| JSX Compilation                     | JSX is compiled into `React.createElement` calls creating Virtual DOM nodes |
-| Virtual DOM Creation                | React builds an in-memory representation of the UI                          |
-| Initial Rendering                   | React mounts Virtual DOM to real DOM using `createRoot().render`            |
-| State/Props Changes                 | Any state or props change marks a component for re-rendering                |
-| Reconciliation (Diffing)            | React compares new Virtual DOM with previous to compute minimal updates     |
-| Fiber Architecture & Prioritization | Updates are split into units with high-priority work processed first        |
-| Commit Phase                        | Changes are applied to the real DOM only where needed                       |
-| Effects & Lifecycle Hooks           | useEffect and other hooks run after DOM updates                             |
-| Event Delegation                    | Single root listener handles events efficiently                             |
+> A concise, end‑to‑end view of what happens from writing JSX to seeing updates on the screen.
 
 ---
 
-## Step 1: JSX Compilation
+## Important Clarification (Reconciliation vs Fiber)
 
-React JSX is compiled into `React.createElement` calls, creating a Virtual DOM representation.
+Before diving in, let’s correct a common misconception:
+
+* **Reconciliation** is the **process** that determines *what changed* between renders.
+* **Fiber** is the **internal architecture (data structure + reconciler + scheduler)** that *executes reconciliation* and *controls when work happens*.
+
+In short:
+
+> **Reconciliation decides *what* should change.**
+> **Fiber decides *when* and *how* those changes are processed.**
+
+Fiber does **not** replace reconciliation — it **powers it**.
+
+---
+
+## 1. Writing JSX (Authoring Phase)
+
+Developers write JSX to describe **what the UI should look like for a given state**.
+
+Key points:
+
+* JSX is JavaScript, not HTML
+* Components express **UI intent**, not DOM instructions
+* Function components are just functions that return UI descriptions
 
 <details>
 <summary>Example</summary>
 
 ```js
-const element = <h1>Hello</h1>;
-// Compiled to:
-const elementCompiled = React.createElement('h1', null, 'Hello');
+function App({ name }) {
+  return <h1>Hello {name}</h1>;
+}
 ```
 
 </details>
 
 ---
 
-## Step 2: Virtual DOM Creation
+## 2. JSX Compilation (Build Time)
 
-React maintains an in-memory tree of UI elements, the Virtual DOM, representing the UI state at any point.
+JSX is compiled by tools like **Babel** or **SWC**.
+
+* Happens at **build time**, not runtime
+* Transforms JSX into function calls
+* Produces plain JavaScript objects
 
 <details>
 <summary>Example</summary>
 
 ```js
-const vDom = React.createElement('div', null, 'Hello');
+// JSX
+<h1 className="title">Hello</h1>;
+
+// Compiled output (conceptual)
+React.createElement(
+  'h1',
+  { className: 'title' },
+  'Hello'
+);
 ```
 
 </details>
 
 ---
 
-## Step 3: Initial Rendering
+## 3. React Elements (UI Description Phase)
 
-React mounts the Virtual DOM to the real DOM for the first time using `ReactDOM.render` or `createRoot().render`.
+`React.createElement` returns **React elements** — immutable descriptions of the UI.
+
+Key points:
+
+* Elements are plain JavaScript objects
+* They describe *what the UI should look like*
+* Often (informally) called the **Virtual DOM**
+* **No DOM updates or effects happen here**
 
 <details>
 <summary>Example</summary>
 
 ```js
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+function MyComp() {
+  return <h1>Hello world <p>meow P</p></h1>;
+}
+
+// Simplified React element structure
+{
+  $$typeof: Symbol(react.element),
+  type: 'h1',
+  key: null,
+  props: {
+    children: [
+      'Hello world ',
+      { type: 'p', props: { children: 'meow P' } }
+    ]
+  }
+}
 ```
 
 </details>
 
 ---
 
-## Step 4: State/Props Changes
+## 4. Root Creation & Initial Render
 
-When a component's state or props change, React marks the component as needing an update and triggers re-rendering.
+Rendering begins when a **root** is created and `render` is called.
+
+What happens:
+
+* React creates the **root Fiber node**
+* Connects React to the host environment (DOM)
+* Starts the first reconciliation
 
 <details>
 <summary>Example</summary>
 
 ```js
-const [count, setCount] = useState(0);
-setCount(count + 1); // triggers re-render
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App name="React" />);
 ```
 
 </details>
 
 ---
 
-## Step 5: Reconciliation (Diffing)
+## 5. Reconciliation (Render Phase — Finding Changes)
 
-React compares the new Virtual DOM with the previous one to compute the minimal set of changes required for the real DOM.
+### What Reconciliation Is
+
+**Reconciliation** is the algorithmic process React uses to determine **what changed** between renders.
+
+It works by:
+
+* Comparing the **current Fiber tree**
+* With a **new work‑in‑progress Fiber tree** built from React elements
+* Deciding what can be **reused, updated, or replaced**
+
+What reconciliation **does**:
+
+* Re-runs function components
+* Compares elements by type and key
+* Marks Fibers with **flags** describing required changes
+
+What reconciliation **does NOT do**:
+
+* ❌ Mutate the DOM
+* ❌ Run effects
+* ❌ Guarantee a perfect minimal diff (it is heuristic-based)
+
+---
+
+### Characteristics of the Render Phase
+
+* Expected to be **pure** (no side effects)
+* **Interruptible** and restartable
+* Work can be **paused or discarded** if higher-priority updates arrive
 
 <details>
-<summary>Example</summary>
+<summary>Notes</summary>
 
-```js
-const oldVDom = <div>1</div>;
-const newVDom = <div>2</div>;
-// React updates only the text node
+```txt
+- Function components execute top to bottom
+- Hooks must be called in the same order
+- No DOM mutations occur here
 ```
 
 </details>
 
 ---
 
-## Step 6: Fiber Architecture & Prioritization
+## 6. React Fiber (The Engine Behind Rendering)
 
-React Fiber breaks updates into units of work, allowing high-priority updates (like user input) to interrupt low-priority tasks for smooth rendering.
+### What Fiber Is
 
-<details>
-<summary>Example</summary>
+**Fiber** is React’s internal architecture consisting of:
 
-```js
-// High priority: typing input
-// Low priority: animation frame updates
-```
+* A **data structure** (Fiber nodes)
+* A **reconciler** (diffing logic)
+* A **scheduler** (priorities and timing)
 
-</details>
+Each component instance corresponds to a **Fiber node**, forming a Fiber tree.
 
 ---
 
-## Step 7: Commit Phase
+### What Fiber Enables
 
-After diffing, React applies changes to the real DOM in the commit phase, updating only the affected nodes.
+Fiber allows React to:
 
-<details>
-<summary>Example</summary>
+* Split work into **small units**
+* Pause, resume, or abandon rendering work
+* Assign **priorities** to updates
+* Support **concurrent rendering**
 
-```js
-// React updates text nodes, attributes, or adds/removes elements as needed
-```
-
-</details>
+Without Fiber, rendering would be fully synchronous and blocking.
 
 ---
 
-## Step 8: Effects & Lifecycle Hooks
+### Scheduling & Priorities
 
-React runs useEffect, useLayoutEffect, and other lifecycle-related hooks after DOM updates to handle side effects.
+React assigns priorities to updates:
+
+* **Urgent** — user input (typing, clicks)
+* **Transition** — non-blocking UI updates (`startTransition`)
+* **Default** — normal updates
+* **Idle** — background or offscreen work
+
+Higher-priority work can interrupt lower-priority work.
+
+---
+
+### Capabilities Enabled by Fiber
+
+* Incremental rendering (time slicing)
+* Concurrent rendering
+* Automatic batching
+* Suspense & lazy loading
+* Streaming SSR
+* Improved error handling via error boundaries
+
+---
+
+## 7. Commit Phase (Applying Changes)
+
+Once reconciliation completes, React enters the **commit phase**.
+
+What happens here:
+
+* DOM mutations
+* Ref updates
+* `useLayoutEffect` callbacks
+
+Characteristics:
+
+* **Synchronous and non-interruptible**
+* Always reflects the latest finished render
+
+---
+
+## 8. Effects & Lifecycle Timing
+
+After the commit phase:
+
+1. `useLayoutEffect` runs **before paint**
+2. Browser paints
+3. `useEffect` runs **after paint**
 
 <details>
 <summary>Example</summary>
 
 ```js
 useEffect(() => {
-  console.log('DOM updated');
-}, [count]);
+  console.log('DOM committed');
+  return () => console.log('cleanup');
+}, []);
 ```
 
 </details>
 
 ---
 
-## Step 9: Event Delegation
+## 9. Updates: State & Props Changes
 
-React attaches a single listener to the root and delegates events to components efficiently.
+When state or props change:
+
+* An update is **scheduled**
+* Fiber assigns it a priority
+* Reconciliation may restart
 
 <details>
 <summary>Example</summary>
 
 ```js
-<button onClick={() => console.log('clicked')}>Click</button>
-// Handled through React's event delegation system
+setCount(c => c + 1); // schedules work, not an immediate DOM change
 ```
 
 </details>
 
 ---
 
-## Notes & Caveats
+## 10. Event System (Synthetic Events)
 
-* Virtual DOM minimizes direct DOM manipulation.
-* Fiber enables incremental rendering and task prioritization.
-* State and hooks are tracked internally per fiber.
-* Event delegation reduces memory usage and improves performance.
+React uses a **delegated synthetic event system**.
+
+Key points:
+
+* One listener per event type per root container
+* Cross-browser normalization
+* Event-triggered updates are batched and scheduled via Fiber
+
+---
+
+## Mental Model Summary
+
+```txt
+JSX
+ → React Elements
+ → Fiber Tree
+ → Reconciliation (render phase — find changes)
+ → Commit Phase (apply DOM updates)
+ → Effects
+```
+
+---
+
+## Stack Reconciler vs Fiber
+
+| Feature        | Stack (≤15) | Fiber (16+)      |
+| -------------- | ----------- | ---------------- |
+| Execution      | Synchronous | Interruptible    |
+| Scheduling     | ❌ None      | ✅ Priority-based |
+| Time slicing   | ❌           | ✅                |
+| Suspense       | ❌           | ✅                |
+| Concurrent UI  | ❌           | ✅                |
+| Architecture   | Call stack  | Fiber node tree  |
+| Error handling | Limited     | Error boundaries |
+
+---
+
+## Key Takeaways
+
+* **Reconciliation determines what changed**
+* **Fiber schedules and executes rendering work**
+* React elements are descriptions, not DOM nodes
+* Render and commit phases are strictly separated
+* DOM mutations happen only during the commit phase

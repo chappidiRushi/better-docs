@@ -17,7 +17,7 @@ It simplifies UI composition, state management, and optimizes rendering performa
 React provides predictable state-driven UI, reusability, and better scalability.
 
 **What is JSX?**
-JSX is a syntax extension that allows writing UI markup inside JavaScript.
+JSX is a syntax extension that allows writing HTML like syntax inside JavaScript.
 
 **Is JSX required?**
 No, JSX is optional and compiles to `React.createElement`.
@@ -84,7 +84,7 @@ Indexes change when lists reorder, causing incorrect updates and bugs.
 ## Hooks
 
 **What are hooks?**
-Hooks allow function components to use state, lifecycle, and React features.
+Hooks are functions that let React function components access state, lifecycle behavior, and other React features without using classes.
 
 **Why were hooks introduced?**
 To reuse logic easily and remove class component complexity.
@@ -291,9 +291,6 @@ Render must be pure and predictable.
 Architectural thinking, performance awareness, and ability to simplify systems.
 
 ---
-
-**This format is optimized for fast recall and spoken interview answers.**
-
 
 # Hardcore / Senior Level
 

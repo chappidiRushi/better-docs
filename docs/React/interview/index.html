@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-React/interview" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Interview | Better Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-site.example.com/better-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-site.example.com/better-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-site.example.com/better-docs/docs/React/interview"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Interview | Better Docs"><meta data-rh="true" name="description" content="----------------"><meta data-rh="true" property="og:description" content="----------------"><link data-rh="true" rel="icon" href="/better-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://your-docusaurus-site.example.com/better-docs/docs/React/interview"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/better-docs/docs/React/interview" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/better-docs/docs/React/interview" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Interview","item":"https://your-docusaurus-site.example.com/better-docs/docs/React/interview"}]}</script><link rel="stylesheet" href="/better-docs/assets/css/styles.8d83dfed.css">
+<script src="/better-docs/assets/js/runtime~main.381eca42.js" defer="defer"></script>
+<script src="/better-docs/assets/js/main.24d88155.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/better-docs/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/better-docs/"><div class="navbar__logo"><img src="/better-docs/img/logo.svg" alt="Better Docs Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/better-docs/img/logo.svg" alt="Better Docs Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Better Docs</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/better-docs/docs/Node/">CheatSheets</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbarSearchContainer_Bca1"><div class="dsla-search-wrapper"><div class="dsla-search-field" data-tags="default,docs-default-current"></div></div></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/Node/"><span title="Node.js" class="categoryLinkLabel_W154">Node.js</span></a><button aria-label="Expand sidebar category &#x27;Node.js&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/Typescript/"><span title="Typescript" class="categoryLinkLabel_W154">Typescript</span></a><button aria-label="Expand sidebar category &#x27;Typescript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/better-docs/docs/Angular/glossary"><span title="Angular" class="categoryLinkLabel_W154">Angular</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/better-docs/docs/React/glossary"><span title="React" class="categoryLinkLabel_W154">React</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/glossary"><span title="Glossary" class="linkLabel_WmDU">Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/better-docs/docs/React/interview"><span title="Interview" class="linkLabel_WmDU">Interview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/introductions"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/under-the-hood"><span title="Under the Hood" class="linkLabel_WmDU">Under the Hood</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/component"><span title="Component" class="linkLabel_WmDU">Component</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/hooks"><span title="Hooks" class="linkLabel_WmDU">Hooks</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/advanced-state-management"><span title="Advanced State Management" class="linkLabel_WmDU">Advanced State Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/performance-and-optimization"><span title="Performance And Optimization" class="linkLabel_WmDU">Performance And Optimization</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/pattern-and-architecture"><span title="Patterns and Architecture" class="linkLabel_WmDU">Patterns and Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/error-handling-and-edge-features"><span title="Error Handling &amp; Edge Features" class="linkLabel_WmDU">Error Handling &amp; Edge Features</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/advanced-concepts-and-internals"><span title="Advanced Concepts &amp; Internals" class="linkLabel_WmDU">Advanced Concepts &amp; Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/redux"><span title="Redux" class="linkLabel_WmDU">Redux</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/router"><span title="Router" class="linkLabel_WmDU">Router</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/compound-components"><span title="Compound Components" class="linkLabel_WmDU">Compound Components</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/reference"><span title="Reference" class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/forms"><span title="Forms" class="linkLabel_WmDU">Forms</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/better-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">React</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Interview</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Interview</h1></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fundamentals">Fundamentals<a href="#fundamentals" class="hash-link" aria-label="Direct link to Fundamentals" title="Direct link to Fundamentals" translate="no">​</a></h2>
+<p><strong>Q: What is React?</strong>
+React is a JavaScript library for building component-based user interfaces using declarative rendering.</p>
+<p><strong>Q: Why was React created?</strong>
+React was created to solve UI complexity and performance issues caused by frequent DOM updates.</p>
+<p><strong>Q: What problems does React solve?</strong>
+It simplifies UI composition, state management, and efficient DOM updates.</p>
+<p><strong>Q: Why use React instead of vanilla JS?</strong>
+React provides abstraction for state-driven UI, reusability, and predictable rendering.</p>
+<p><strong>Q: What is JSX?</strong>
+JSX is a syntax extension that allows writing UI markup inside JavaScript.</p>
+<p><strong>Q: Is JSX required in React?</strong>
+No, JSX is optional and compiles to React.createElement calls.</p>
+<p><strong>Q: What is a component?</strong>
+A component is a reusable unit of UI that returns React elements.</p>
+<p><strong>Q: Difference between element and component?</strong>
+An element is an immutable object, while a component is a function or class that creates elements.</p>
+<p><strong>Q: What are props?</strong>
+Props are read-only inputs passed from parent to child components.</p>
+<p><strong>Q: Can props be modified?</strong>
+No, props are immutable and owned by the parent.</p>
+<p><strong>Q: What is state?</strong>
+State is mutable data owned by a component that triggers re-renders.</p>
+<p><strong>Q: Why is state immutable?</strong>
+Immutability enables predictable updates and efficient change detection.</p>
+<p><strong>Q: What is one-way data flow?</strong>
+Data flows from parent to child components.</p>
+<p><strong>Q: What is declarative programming?</strong>
+You describe what the UI should look like, not how to update it.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rendering--lifecycle">Rendering &amp; Lifecycle<a href="#rendering--lifecycle" class="hash-link" aria-label="Direct link to Rendering &amp; Lifecycle" title="Direct link to Rendering &amp; Lifecycle" translate="no">​</a></h2>
+<p><strong>Q: What happens during rendering?</strong>
+React calculates the next UI tree based on props and state.</p>
+<p><strong>Q: What is reconciliation?</strong>
+Reconciliation is how React compares previous and next UI trees to decide updates.</p>
+<p><strong>Q: What is the virtual DOM?</strong>
+The virtual DOM is an in-memory representation used to optimize real DOM updates.</p>
+<p><strong>Q: What is diffing?</strong>
+Diffing is the process of comparing two virtual DOM trees.</p>
+<p><strong>Q: What are keys and why are they important?</strong>
+Keys help React identify list items between renders.</p>
+<p><strong>Q: Why not use array index as key?</strong>
+Indexes can cause incorrect UI updates when list order changes.</p>
+<p><strong>Q: What are lifecycle phases?</strong>
+Mounting, updating, and unmounting.</p>
+<p><strong>Q: When does React re-render a component?</strong>
+When state or props change, or when its parent re-renders.</p>
+<p><strong>Q: What is the render phase?</strong>
+The phase where React calculates UI without side effects.</p>
+<p><strong>Q: What is the commit phase?</strong>
+The phase where React applies changes to the DOM.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hooks">Hooks<a href="#hooks" class="hash-link" aria-label="Direct link to Hooks" title="Direct link to Hooks" translate="no">​</a></h2>
+<p><strong>Q: What are hooks?</strong>
+Hooks let functional components use state, lifecycle, and other React features.</p>
+<p><strong>Q: Why were hooks introduced?</strong>
+To reuse logic without HOCs or render props and remove class complexity.</p>
+<p><strong>Q: Rules of hooks?</strong>
+Hooks must be called at the top level and only inside React functions.</p>
+<p><strong>Q: What does useState do?</strong>
+It adds local state to a functional component.</p>
+<p><strong>Q: Why is setState async?</strong>
+To enable batching and better performance.</p>
+<p><strong>Q: What does useEffect do?</strong>
+It runs side effects after rendering.</p>
+<p><strong>Q: When does useEffect run?</strong>
+After render and after DOM paint.</p>
+<p><strong>Q: What is effect cleanup?</strong>
+A function returned from useEffect to clean resources.</p>
+<p><strong>Q: Difference between useEffect and useLayoutEffect?</strong>
+useLayoutEffect runs synchronously before paint.</p>
+<p><strong>Q: What is the dependency array?</strong>
+It controls when effects or memoized values re-run.</p>
+<p><strong>Q: What happens if dependencies are wrong?</strong>
+It can cause stale data or infinite loops.</p>
+<p><strong>Q: What is useRef used for?</strong>
+To store mutable values without causing re-renders.</p>
+<p><strong>Q: useMemo vs useCallback?</strong>
+useMemo memoizes values; useCallback memoizes functions.</p>
+<p><strong>Q: What is a custom hook?</strong>
+A reusable function that encapsulates hook logic.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="state-management">State Management<a href="#state-management" class="hash-link" aria-label="Direct link to State Management" title="Direct link to State Management" translate="no">​</a></h2>
+<p><strong>Q: What is lifting state up?</strong>
+Moving shared state to the nearest common ancestor.</p>
+<p><strong>Q: What is prop drilling?</strong>
+Passing props through unnecessary intermediate components.</p>
+<p><strong>Q: How does Context help?</strong>
+Context shares data without prop drilling.</p>
+<p><strong>Q: When should you avoid Context?</strong>
+When frequent updates cause wide re-renders.</p>
+<p><strong>Q: Difference between local and global state?</strong>
+Local state belongs to a component; global state is shared.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-optimization">Performance Optimization<a href="#performance-optimization" class="hash-link" aria-label="Direct link to Performance Optimization" title="Direct link to Performance Optimization" translate="no">​</a></h2>
+<p><strong>Q: What causes re-renders?</strong>
+State changes, prop changes, or parent re-renders.</p>
+<p><strong>Q: What is React.memo?</strong>
+A HOC that skips re-renders when props don’t change.</p>
+<p><strong>Q: What is memoization?</strong>
+Caching results to avoid unnecessary recomputation.</p>
+<p><strong>Q: When should you not memoize?</strong>
+When computation is cheap or props change often.</p>
+<p><strong>Q: What is over-memoization?</strong>
+Using memoization without measurable benefit.</p>
+<p><strong>Q: What is batching?</strong>
+Grouping multiple state updates into one render.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="events--forms">Events &amp; Forms<a href="#events--forms" class="hash-link" aria-label="Direct link to Events &amp; Forms" title="Direct link to Events &amp; Forms" translate="no">​</a></h2>
+<p><strong>Q: What is a synthetic event?</strong>
+A cross-browser wrapper around native browser events.</p>
+<p><strong>Q: Controlled vs uncontrolled components?</strong>
+Controlled use React state; uncontrolled use the DOM.</p>
+<p><strong>Q: When to use uncontrolled components?</strong>
+For simple forms or integrating with non-React code.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="advanced-rendering-react-18">Advanced Rendering (React 18)<a href="#advanced-rendering-react-18" class="hash-link" aria-label="Direct link to Advanced Rendering (React 18)" title="Direct link to Advanced Rendering (React 18)" translate="no">​</a></h2>
+<p><strong>Q: What is concurrent rendering?</strong>
+It allows React to interrupt and prioritize rendering work.</p>
+<p><strong>Q: What problem does concurrent rendering solve?</strong>
+It keeps the UI responsive during heavy updates.</p>
+<p><strong>Q: What is a transition?</strong>
+A non-urgent update that can be interrupted.</p>
+<p><strong>Q: What does useTransition do?</strong>
+It defers non-urgent updates.</p>
+<p><strong>Q: What is useDeferredValue?</strong>
+It delays updating a value for smoother UI.</p>
+<p><strong>Q: What is Fiber?</strong>
+React’s internal architecture for incremental rendering.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="suspense--code-splitting">Suspense &amp; Code Splitting<a href="#suspense--code-splitting" class="hash-link" aria-label="Direct link to Suspense &amp; Code Splitting" title="Direct link to Suspense &amp; Code Splitting" translate="no">​</a></h2>
+<p><strong>Q: What is Suspense?</strong>
+It lets React wait for async dependencies before rendering.</p>
+<p><strong>Q: How does Suspense work internally?</strong>
+By throwing promises during render.</p>
+<p><strong>Q: What is lazy loading?</strong>
+Loading components only when needed.</p>
+<p><strong>Q: Difference between Suspense and loading state?</strong>
+Suspense integrates loading into rendering.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="error-handling">Error Handling<a href="#error-handling" class="hash-link" aria-label="Direct link to Error Handling" title="Direct link to Error Handling" translate="no">​</a></h2>
+<p><strong>Q: What is an error boundary?</strong>
+A component that catches rendering errors in its subtree.</p>
+<p><strong>Q: What errors do error boundaries catch?</strong>
+Errors during render, lifecycle, and constructors.</p>
+<p><strong>Q: Can hooks catch errors?</strong>
+No, only error boundaries can.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ssr--server-components">SSR &amp; Server Components<a href="#ssr--server-components" class="hash-link" aria-label="Direct link to SSR &amp; Server Components" title="Direct link to SSR &amp; Server Components" translate="no">​</a></h2>
+<p><strong>Q: What is server-side rendering?</strong>
+Rendering React components on the server.</p>
+<p><strong>Q: Benefits of SSR?</strong>
+Faster initial load and better SEO.</p>
+<p><strong>Q: What is hydration?</strong>
+Attaching React to server-rendered HTML.</p>
+<p><strong>Q: What causes hydration mismatch?</strong>
+Different server and client renders.</p>
+<p><strong>Q: What are Server Components?</strong>
+Components that run only on the server.</p>
+<p><strong>Q: Difference between Server and Client Components?</strong>
+Server Components don’t ship JS to the browser.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="internals--advanced-concepts">Internals &amp; Advanced Concepts<a href="#internals--advanced-concepts" class="hash-link" aria-label="Direct link to Internals &amp; Advanced Concepts" title="Direct link to Internals &amp; Advanced Concepts" translate="no">​</a></h2>
+<p><strong>Q: What are lanes in React?</strong>
+Internal priority buckets for scheduling updates.</p>
+<p><strong>Q: What is a bailout?</strong>
+When React skips rendering a subtree.</p>
+<p><strong>Q: What is strict mode double rendering?</strong>
+A development-only check to detect side effects.</p>
+<p><strong>Q: What is time slicing?</strong>
+Breaking rendering work into interruptible chunks.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="anti-patterns">Anti-Patterns<a href="#anti-patterns" class="hash-link" aria-label="Direct link to Anti-Patterns" title="Direct link to Anti-Patterns" translate="no">​</a></h2>
+<p><strong>Q: Why is derived state an anti-pattern?</strong>
+It causes duplication and synchronization bugs.</p>
+<p><strong>Q: Why mutating state is bad?</strong>
+It breaks React’s change detection.</p>
+<p><strong>Q: Why excessive useEffect is problematic?</strong>
+It indicates misplaced logic.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tooling--debugging">Tooling &amp; Debugging<a href="#tooling--debugging" class="hash-link" aria-label="Direct link to Tooling &amp; Debugging" title="Direct link to Tooling &amp; Debugging" translate="no">​</a></h2>
+<p><strong>Q: What is React DevTools?</strong>
+An official tool for inspecting React components.</p>
+<p><strong>Q: What does the Profiler do?</strong>
+It measures render performance.</p>
+<p><strong>Q: How do you debug re-renders?</strong>
+Using React DevTools and memoization analysis.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-design--architecture">System Design &amp; Architecture<a href="#system-design--architecture" class="hash-link" aria-label="Direct link to System Design &amp; Architecture" title="Direct link to System Design &amp; Architecture" translate="no">​</a></h2>
+<p><strong>Q: How do you structure a large React app?</strong>
+By feature-based folders and component colocation.</p>
+<p><strong>Q: How do you manage side effects at scale?</strong>
+By centralizing effects and avoiding unnecessary ones.</p>
+<p><strong>Q: How do you optimize initial load?</strong>
+Using code splitting, SSR, and caching.</p>
+<hr>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-is-frontend-architecture">1. What is frontend architecture?<a href="#1-what-is-frontend-architecture" class="hash-link" aria-label="Direct link to 1. What is frontend architecture?" title="Direct link to 1. What is frontend architecture?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Frontend architecture is how a frontend application is <strong>structured</strong>, including:</p>
+<ul>
+<li class="">How components are organized</li>
+<li class="">How state is managed</li>
+<li class="">How data flows</li>
+<li class="">How logic is separated from UI</li>
+<li class="">How the app scales and stays maintainable</li>
+</ul>
+<p>Good architecture makes an app <strong>easy to extend, test, and debug</strong>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-how-does-data-flow-in-react">2. How does data flow in React?<a href="#2-how-does-data-flow-in-react" class="hash-link" aria-label="Direct link to 2. How does data flow in React?" title="Direct link to 2. How does data flow in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React uses <strong>one-way (unidirectional) data flow</strong>:</p>
+<ul>
+<li class="">Parent components pass data to children via <strong>props</strong></li>
+<li class="">Children can notify parents via <strong>callbacks</strong></li>
+</ul>
+<p>This makes state changes predictable and easier to debug.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-what-is-the-difference-between-props-and-state">3. What is the difference between props and state?<a href="#3-what-is-the-difference-between-props-and-state" class="hash-link" aria-label="Direct link to 3. What is the difference between props and state?" title="Direct link to 3. What is the difference between props and state?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Props</strong>: Read-only data passed from a parent component</li>
+<li class=""><strong>State</strong>: Internal, mutable data owned by a component</li>
+</ul>
+<p>Props control <strong>what a component receives</strong>, state controls <strong>how it behaves</strong>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-what-is-lifting-state-up">4. What is “lifting state up”?<a href="#4-what-is-lifting-state-up" class="hash-link" aria-label="Direct link to 4. What is “lifting state up”?" title="Direct link to 4. What is “lifting state up”?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+When multiple components need the same data, you:</p>
+<ol>
+<li class="">Move the state to their <strong>closest common parent</strong></li>
+<li class="">Pass it down via props</li>
+</ol>
+<p>This avoids duplicated or inconsistent state.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-when-should-you-use-context-api">5. When should you use Context API?<a href="#5-when-should-you-use-context-api" class="hash-link" aria-label="Direct link to 5. When should you use Context API?" title="Direct link to 5. When should you use Context API?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Use Context when data is:</p>
+<ul>
+<li class="">Global or semi-global</li>
+<li class="">Needed by many components at different levels</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li class="">Auth user</li>
+<li class="">Theme</li>
+<li class="">Language</li>
+<li class="">Feature flags</li>
+</ul>
+<p>Avoid using Context for <strong>high-frequency updates</strong> or everything, as it can hurt performance.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-how-do-you-structure-a-react-project">6. How do you structure a React project?<a href="#6-how-do-you-structure-a-react-project" class="hash-link" aria-label="Direct link to 6. How do you structure a React project?" title="Direct link to 6. How do you structure a React project?" translate="no">​</a></h2>
+<p><strong>Answer (common approach):</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">src/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  components/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  features/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">    auth/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">      AuthPage.tsx</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">      authSlice.ts</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">      authApi.ts</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  hooks/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  services/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  utils/</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  pages/</span><br></span></code></pre></div></div>
+<p>Feature-based structure scales better than grouping by file type.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-what-are-controlled-vs-uncontrolled-components">7. What are controlled vs uncontrolled components?<a href="#7-what-are-controlled-vs-uncontrolled-components" class="hash-link" aria-label="Direct link to 7. What are controlled vs uncontrolled components?" title="Direct link to 7. What are controlled vs uncontrolled components?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Controlled</strong>: Form values are controlled by React state</li>
+<li class=""><strong>Uncontrolled</strong>: Form values are handled by the DOM (using refs)</li>
+</ul>
+<p>Controlled components are preferred for validation and predictable behavior.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-what-is-a-custom-hook-and-why-use-it">8. What is a custom hook and why use it?<a href="#8-what-is-a-custom-hook-and-why-use-it" class="hash-link" aria-label="Direct link to 8. What is a custom hook and why use it?" title="Direct link to 8. What is a custom hook and why use it?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A custom hook is a function that:</p>
+<ul>
+<li class="">Starts with <code>use</code></li>
+<li class="">Encapsulates reusable logic</li>
+</ul>
+<p>Example use cases:</p>
+<ul>
+<li class="">Data fetching</li>
+<li class="">Form handling</li>
+<li class="">Debouncing</li>
+<li class="">Authentication logic</li>
+</ul>
+<p>They improve <strong>code reuse and separation of concerns</strong>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-how-do-you-handle-side-effects-in-react">9. How do you handle side effects in React?<a href="#9-how-do-you-handle-side-effects-in-react" class="hash-link" aria-label="Direct link to 9. How do you handle side effects in React?" title="Direct link to 9. How do you handle side effects in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+With the <code>useEffect</code> hook:</p>
+<ul>
+<li class="">API calls</li>
+<li class="">Subscriptions</li>
+<li class="">Timers</li>
+<li class="">DOM interactions</li>
+</ul>
+<p>You must:</p>
+<ul>
+<li class="">Specify dependencies correctly</li>
+<li class="">Clean up effects to avoid memory leaks</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-what-is-memoization-and-when-should-you-use-it">10. What is memoization and when should you use it?<a href="#10-what-is-memoization-and-when-should-you-use-it" class="hash-link" aria-label="Direct link to 10. What is memoization and when should you use it?" title="Direct link to 10. What is memoization and when should you use it?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Memoization avoids unnecessary re-computation or re-rendering using:</p>
+<ul>
+<li class=""><code>React.memo</code></li>
+<li class=""><code>useMemo</code></li>
+<li class=""><code>useCallback</code></li>
+</ul>
+<p>Use it when:</p>
+<ul>
+<li class="">Components re-render frequently</li>
+<li class="">Computations are expensive</li>
+</ul>
+<p>Don’t overuse it, as it adds complexity.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-what-is-the-difference-between-client-side-and-server-side-rendering">11. What is the difference between client-side and server-side rendering?<a href="#11-what-is-the-difference-between-client-side-and-server-side-rendering" class="hash-link" aria-label="Direct link to 11. What is the difference between client-side and server-side rendering?" title="Direct link to 11. What is the difference between client-side and server-side rendering?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>CSR</strong>: Browser downloads JS and renders UI (React SPA)</li>
+<li class=""><strong>SSR</strong>: Server renders HTML before sending it (Next.js)</li>
+</ul>
+<p>SSR improves:</p>
+<ul>
+<li class="">SEO</li>
+<li class="">Initial load performance</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-how-do-you-manage-global-state-in-react">12. How do you manage global state in React?<a href="#12-how-do-you-manage-global-state-in-react" class="hash-link" aria-label="Direct link to 12. How do you manage global state in React?" title="Direct link to 12. How do you manage global state in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Options include:</p>
+<ul>
+<li class="">Context API</li>
+<li class="">Redux / Redux Toolkit</li>
+<li class="">Zustand / Jotai</li>
+<li class="">React Query (for server state)</li>
+</ul>
+<p>Use the <strong>simplest solution</strong> that meets the app’s needs.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-what-is-the-difference-between-server-state-and-client-state">13. What is the difference between server state and client state?<a href="#13-what-is-the-difference-between-server-state-and-client-state" class="hash-link" aria-label="Direct link to 13. What is the difference between server state and client state?" title="Direct link to 13. What is the difference between server state and client state?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Server state</strong>: Data from APIs (cache, sync, revalidation)</li>
+<li class=""><strong>Client state</strong>: UI state (modals, tabs, inputs)</li>
+</ul>
+<p>Libraries like <strong>React Query</strong> are optimized for server state.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="14-how-do-you-prevent-unnecessary-re-renders">14. How do you prevent unnecessary re-renders?<a href="#14-how-do-you-prevent-unnecessary-re-renders" class="hash-link" aria-label="Direct link to 14. How do you prevent unnecessary re-renders?" title="Direct link to 14. How do you prevent unnecessary re-renders?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Keep state minimal</li>
+<li class="">Use keys correctly</li>
+<li class="">Memoize components and callbacks</li>
+<li class="">Avoid inline object/function props</li>
+<li class="">Split components logically</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="15-what-makes-a-react-app-scalable">15. What makes a React app scalable?<a href="#15-what-makes-a-react-app-scalable" class="hash-link" aria-label="Direct link to 15. What makes a React app scalable?" title="Direct link to 15. What makes a React app scalable?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Feature-based architecture</li>
+<li class="">Clear separation of concerns</li>
+<li class="">Predictable state management</li>
+<li class="">Reusable components and hooks</li>
+<li class="">Good naming and conventions</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="16-what-problem-do-keys-solve-in-react-lists">16. What problem do keys solve in React lists?<a href="#16-what-problem-do-keys-solve-in-react-lists" class="hash-link" aria-label="Direct link to 16. What problem do keys solve in React lists?" title="Direct link to 16. What problem do keys solve in React lists?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Keys help React identify which items changed, were added, or removed.
+They allow React to <strong>reconcile efficiently</strong> and avoid incorrect re-renders.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="17-why-is-using-array-index-as-a-key-usually-a-bad-idea">17. Why is using array index as a key usually a bad idea?<a href="#17-why-is-using-array-index-as-a-key-usually-a-bad-idea" class="hash-link" aria-label="Direct link to 17. Why is using array index as a key usually a bad idea?" title="Direct link to 17. Why is using array index as a key usually a bad idea?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Because when the list changes (insert, delete, reorder), indices change, causing:</p>
+<ul>
+<li class="">Incorrect DOM updates</li>
+<li class="">Broken component state</li>
+</ul>
+<p>Use a <strong>stable unique ID</strong> instead.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="18-what-is-reconciliation-in-react">18. What is reconciliation in React?<a href="#18-what-is-reconciliation-in-react" class="hash-link" aria-label="Direct link to 18. What is reconciliation in React?" title="Direct link to 18. What is reconciliation in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Reconciliation is React’s process of:</p>
+<ul>
+<li class="">Comparing the previous Virtual DOM with the new one</li>
+<li class="">Calculating the minimal set of DOM updates</li>
+</ul>
+<p>This is why React is fast.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="19-what-is-the-virtual-dom">19. What is the Virtual DOM?<a href="#19-what-is-the-virtual-dom" class="hash-link" aria-label="Direct link to 19. What is the Virtual DOM?" title="Direct link to 19. What is the Virtual DOM?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A lightweight JavaScript representation of the real DOM.
+React updates the Virtual DOM first, then efficiently updates the real DOM.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="20-what-causes-a-component-to-re-render">20. What causes a component to re-render?<a href="#20-what-causes-a-component-to-re-render" class="hash-link" aria-label="Direct link to 20. What causes a component to re-render?" title="Direct link to 20. What causes a component to re-render?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">State changes</li>
+<li class="">Props changes</li>
+<li class="">Parent re-renders</li>
+<li class="">Context value changes</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-what-is-prop-drilling-and-how-do-you-avoid-it">21. What is prop drilling and how do you avoid it?<a href="#21-what-is-prop-drilling-and-how-do-you-avoid-it" class="hash-link" aria-label="Direct link to 21. What is prop drilling and how do you avoid it?" title="Direct link to 21. What is prop drilling and how do you avoid it?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Prop drilling is passing props through many levels unnecessarily.</p>
+<p>Solutions:</p>
+<ul>
+<li class="">Context API</li>
+<li class="">Component composition</li>
+<li class="">State management libraries</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-what-is-the-difference-between-useeffect-and-uselayouteffect">22. What is the difference between <code>useEffect</code> and <code>useLayoutEffect</code>?<a href="#22-what-is-the-difference-between-useeffect-and-uselayouteffect" class="hash-link" aria-label="Direct link to 22-what-is-the-difference-between-useeffect-and-uselayouteffect" title="Direct link to 22-what-is-the-difference-between-useeffect-and-uselayouteffect" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>useEffect</code>: Runs <strong>after paint</strong> (non-blocking)</li>
+<li class=""><code>useLayoutEffect</code>: Runs <strong>before paint</strong> (blocking)</li>
+</ul>
+<p>Use <code>useLayoutEffect</code> only when you must measure or mutate the DOM synchronously.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-what-is-a-render-prop">23. What is a render prop?<a href="#23-what-is-a-render-prop" class="hash-link" aria-label="Direct link to 23. What is a render prop?" title="Direct link to 23. What is a render prop?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A pattern where a component receives a <strong>function as a prop</strong> to control what it renders.</p>
+<p>Used for:</p>
+<ul>
+<li class="">Logic reuse</li>
+<li class="">Flexible composition</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-what-is-component-composition-in-react">24. What is component composition in React?<a href="#24-what-is-component-composition-in-react" class="hash-link" aria-label="Direct link to 24. What is component composition in React?" title="Direct link to 24. What is component composition in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Building complex UIs by combining small components instead of inheritance.</p>
+<p>Examples:</p>
+<ul>
+<li class=""><code>children</code></li>
+<li class="">Slot-like APIs</li>
+<li class="">Wrapper components</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="25-what-is-hydration-in-react">25. What is hydration in React?<a href="#25-what-is-hydration-in-react" class="hash-link" aria-label="Direct link to 25. What is hydration in React?" title="Direct link to 25. What is hydration in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Hydration is when React attaches event listeners and state to server-rendered HTML (SSR).</p>
+<p>Common in frameworks like <strong>Next.js</strong>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="26-what-is-code-splitting-and-why-is-it-important">26. What is code splitting and why is it important?<a href="#26-what-is-code-splitting-and-why-is-it-important" class="hash-link" aria-label="Direct link to 26. What is code splitting and why is it important?" title="Direct link to 26. What is code splitting and why is it important?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Code splitting loads JavaScript <strong>only when needed</strong>.</p>
+<p>Benefits:</p>
+<ul>
+<li class="">Faster initial load</li>
+<li class="">Smaller bundles</li>
+</ul>
+<p>Common tools:</p>
+<ul>
+<li class=""><code>React.lazy</code></li>
+<li class="">Dynamic imports</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="27-what-is-the-difference-between-useref-and-usestate">27. What is the difference between <code>useRef</code> and <code>useState</code>?<a href="#27-what-is-the-difference-between-useref-and-usestate" class="hash-link" aria-label="Direct link to 27-what-is-the-difference-between-useref-and-usestate" title="Direct link to 27-what-is-the-difference-between-useref-and-usestate" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>useState</code>: Triggers re-render when updated</li>
+<li class=""><code>useRef</code>: Persists value without re-rendering</li>
+</ul>
+<p>Used for DOM refs or mutable values.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="28-what-are-error-boundaries">28. What are error boundaries?<a href="#28-what-are-error-boundaries" class="hash-link" aria-label="Direct link to 28. What are error boundaries?" title="Direct link to 28. What are error boundaries?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Components that catch JavaScript errors in the component tree and render fallback UI.</p>
+<p>They:</p>
+<ul>
+<li class="">Catch render errors</li>
+<li class="">Prevent app crashes</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="29-how-do-you-handle-performance-issues-in-large-react-apps">29. How do you handle performance issues in large React apps?<a href="#29-how-do-you-handle-performance-issues-in-large-react-apps" class="hash-link" aria-label="Direct link to 29. How do you handle performance issues in large React apps?" title="Direct link to 29. How do you handle performance issues in large React apps?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Memoization</li>
+<li class="">Virtualization (e.g., react-window)</li>
+<li class="">Code splitting</li>
+<li class="">Avoid unnecessary state</li>
+<li class="">Profiling with React DevTools</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="30-what-is-the-difference-between-spa-and-mpa">30. What is the difference between SPA and MPA?<a href="#30-what-is-the-difference-between-spa-and-mpa" class="hash-link" aria-label="Direct link to 30. What is the difference between SPA and MPA?" title="Direct link to 30. What is the difference between SPA and MPA?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>SPA</strong>: Single page, client-side routing</li>
+<li class=""><strong>MPA</strong>: Multiple pages, full page reloads</li>
+</ul>
+<p>SPAs feel faster but need good architecture for performance and SEO.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-what-is-the-difference-between-controlled-state-and-derived-state">31. What is the difference between controlled state and derived state?<a href="#31-what-is-the-difference-between-controlled-state-and-derived-state" class="hash-link" aria-label="Direct link to 31. What is the difference between controlled state and derived state?" title="Direct link to 31. What is the difference between controlled state and derived state?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Controlled state</strong>: Explicitly stored and updated via <code>useState</code></li>
+<li class=""><strong>Derived state</strong>: Computed from props or other state</li>
+</ul>
+<p>Avoid storing derived state when possible to prevent inconsistencies.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-why-is-duplicating-state-considered-an-anti-pattern">32. Why is duplicating state considered an anti-pattern?<a href="#32-why-is-duplicating-state-considered-an-anti-pattern" class="hash-link" aria-label="Direct link to 32. Why is duplicating state considered an anti-pattern?" title="Direct link to 32. Why is duplicating state considered an anti-pattern?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Because multiple sources of truth can get out of sync, causing bugs and complex logic.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-how-do-you-design-a-scalable-state-management-strategy">33. How do you design a scalable state management strategy?<a href="#33-how-do-you-design-a-scalable-state-management-strategy" class="hash-link" aria-label="Direct link to 33. How do you design a scalable state management strategy?" title="Direct link to 33. How do you design a scalable state management strategy?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Local state for local UI</li>
+<li class="">Context for low-frequency global state</li>
+<li class="">Dedicated libraries for complex or shared state</li>
+<li class="">Separate server state from client state</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="34-what-is-server-driven-ui">34. What is server-driven UI?<a href="#34-what-is-server-driven-ui" class="hash-link" aria-label="Direct link to 34. What is server-driven UI?" title="Direct link to 34. What is server-driven UI?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A pattern where the backend controls <strong>what UI to render</strong> via configuration or schema.</p>
+<p>Benefits:</p>
+<ul>
+<li class="">Faster iteration</li>
+<li class="">Feature flags</li>
+<li class="">A/B testing</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="35-what-is-the-difference-between-debounce-and-throttle">35. What is the difference between debounce and throttle?<a href="#35-what-is-the-difference-between-debounce-and-throttle" class="hash-link" aria-label="Direct link to 35. What is the difference between debounce and throttle?" title="Direct link to 35. What is the difference between debounce and throttle?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Debounce</strong>: Runs after events stop firing</li>
+<li class=""><strong>Throttle</strong>: Runs at most once per interval</li>
+</ul>
+<p>Used for inputs, scroll, resize, search.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="36-why-should-side-effects-be-avoided-during-render">36. Why should side effects be avoided during render?<a href="#36-why-should-side-effects-be-avoided-during-render" class="hash-link" aria-label="Direct link to 36. Why should side effects be avoided during render?" title="Direct link to 36. Why should side effects be avoided during render?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Because render should be:</p>
+<ul>
+<li class="">Pure</li>
+<li class="">Predictable</li>
+<li class="">Idempotent</li>
+</ul>
+<p>Side effects can cause infinite loops or inconsistent UI.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="37-what-is-the-difference-between-optimistic-and-pessimistic-updates">37. What is the difference between optimistic and pessimistic updates?<a href="#37-what-is-the-difference-between-optimistic-and-pessimistic-updates" class="hash-link" aria-label="Direct link to 37. What is the difference between optimistic and pessimistic updates?" title="Direct link to 37. What is the difference between optimistic and pessimistic updates?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Optimistic</strong>: Update UI immediately, rollback on failure</li>
+<li class=""><strong>Pessimistic</strong>: Wait for server response</li>
+</ul>
+<p>Optimistic updates improve perceived performance.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="38-what-is-the-difference-between-usecallback-and-usememo">38. What is the difference between <code>useCallback</code> and <code>useMemo</code>?<a href="#38-what-is-the-difference-between-usecallback-and-usememo" class="hash-link" aria-label="Direct link to 38-what-is-the-difference-between-usecallback-and-usememo" title="Direct link to 38-what-is-the-difference-between-usecallback-and-usememo" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>useCallback</code>: Memoizes a function</li>
+<li class=""><code>useMemo</code>: Memoizes a value</li>
+</ul>
+<p>Both help prevent unnecessary re-renders.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="39-what-is-tree-shaking">39. What is tree shaking?<a href="#39-what-is-tree-shaking" class="hash-link" aria-label="Direct link to 39. What is tree shaking?" title="Direct link to 39. What is tree shaking?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Removing unused code from the final bundle during build time.</p>
+<p>Works best with:</p>
+<ul>
+<li class="">ES modules</li>
+<li class="">Named exports</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="40-what-is-the-role-of-a-bundler-like-webpack-or-vite">40. What is the role of a bundler like Webpack or Vite?<a href="#40-what-is-the-role-of-a-bundler-like-webpack-or-vite" class="hash-link" aria-label="Direct link to 40. What is the role of a bundler like Webpack or Vite?" title="Direct link to 40. What is the role of a bundler like Webpack or Vite?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Bundle modules</li>
+<li class="">Transform code</li>
+<li class="">Optimize assets</li>
+<li class="">Enable code splitting and HMR</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-how-do-you-handle-authentication-in-frontend-apps">41. How do you handle authentication in frontend apps?<a href="#41-how-do-you-handle-authentication-in-frontend-apps" class="hash-link" aria-label="Direct link to 41. How do you handle authentication in frontend apps?" title="Direct link to 41. How do you handle authentication in frontend apps?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Store tokens securely (httpOnly cookies preferred)</li>
+<li class="">Handle refresh tokens</li>
+<li class="">Protect routes</li>
+<li class="">Sync auth state across tabs</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-what-are-race-conditions-in-frontend-apps">42. What are race conditions in frontend apps?<a href="#42-what-are-race-conditions-in-frontend-apps" class="hash-link" aria-label="Direct link to 42. What are race conditions in frontend apps?" title="Direct link to 42. What are race conditions in frontend apps?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+When multiple async operations resolve out of order, causing stale or incorrect UI.</p>
+<p>Solutions:</p>
+<ul>
+<li class="">Cancellation</li>
+<li class="">Request deduplication</li>
+<li class="">Latest-only logic</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-what-is-a-headless-component">43. What is a “headless” component?<a href="#43-what-is-a-headless-component" class="hash-link" aria-label="Direct link to 43. What is a “headless” component?" title="Direct link to 43. What is a “headless” component?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A component that provides logic but no UI.</p>
+<p>Benefits:</p>
+<ul>
+<li class="">Reusability</li>
+<li class="">Custom design control</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="44-what-is-accessibility-a11y-and-why-does-it-matter">44. What is accessibility (a11y) and why does it matter?<a href="#44-what-is-accessibility-a11y-and-why-does-it-matter" class="hash-link" aria-label="Direct link to 44. What is accessibility (a11y) and why does it matter?" title="Direct link to 44. What is accessibility (a11y) and why does it matter?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Making apps usable for everyone, including assistive technologies.</p>
+<p>Examples:</p>
+<ul>
+<li class="">Keyboard navigation</li>
+<li class="">ARIA labels</li>
+<li class="">Semantic HTML</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="45-how-do-you-architect-a-frontend-for-a-large-team">45. How do you architect a frontend for a large team?<a href="#45-how-do-you-architect-a-frontend-for-a-large-team" class="hash-link" aria-label="Direct link to 45. How do you architect a frontend for a large team?" title="Direct link to 45. How do you architect a frontend for a large team?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Clear folder structure</li>
+<li class="">Design system</li>
+<li class="">Linting and conventions</li>
+<li class="">Ownership boundaries</li>
+<li class="">Documentation</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="46-what-is-micro-frontend-architecture">46. What is micro-frontend architecture?<a href="#46-what-is-micro-frontend-architecture" class="hash-link" aria-label="Direct link to 46. What is micro-frontend architecture?" title="Direct link to 46. What is micro-frontend architecture?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Breaking a frontend into independently deployed pieces.</p>
+<p>Pros:</p>
+<ul>
+<li class="">Team autonomy
+Cons:</li>
+<li class="">Complexity</li>
+<li class="">Performance challenges</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="47-what-is-hydration-mismatch">47. What is hydration mismatch?<a href="#47-what-is-hydration-mismatch" class="hash-link" aria-label="Direct link to 47. What is hydration mismatch?" title="Direct link to 47. What is hydration mismatch?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+When server-rendered HTML doesn’t match client-rendered output.</p>
+<p>Common causes:</p>
+<ul>
+<li class="">Random values</li>
+<li class="">Date/time differences</li>
+<li class="">Browser-only APIs</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="48-what-is-the-difference-between-bff-and-direct-api-calls">48. What is the difference between BFF and direct API calls?<a href="#48-what-is-the-difference-between-bff-and-direct-api-calls" class="hash-link" aria-label="Direct link to 48. What is the difference between BFF and direct API calls?" title="Direct link to 48. What is the difference between BFF and direct API calls?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>BFF (Backend for Frontend)</strong>: Tailored API for UI needs</li>
+<li class=""><strong>Direct API</strong>: Shared backend endpoints</li>
+</ul>
+<p>BFF improves performance and simplifies frontend logic.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="49-how-do-you-measure-frontend-performance">49. How do you measure frontend performance?<a href="#49-how-do-you-measure-frontend-performance" class="hash-link" aria-label="Direct link to 49. How do you measure frontend performance?" title="Direct link to 49. How do you measure frontend performance?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Lighthouse</li>
+<li class="">Web Vitals</li>
+<li class="">React Profiler</li>
+<li class="">Real User Monitoring</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="50-what-separates-a-mid-level-from-a-senior-frontend-engineer">50. What separates a mid-level from a senior frontend engineer?<a href="#50-what-separates-a-mid-level-from-a-senior-frontend-engineer" class="hash-link" aria-label="Direct link to 50. What separates a mid-level from a senior frontend engineer?" title="Direct link to 50. What separates a mid-level from a senior frontend engineer?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Architectural thinking</li>
+<li class="">Tradeoff awareness</li>
+<li class="">Performance and DX focus</li>
+<li class="">Ability to simplify complex systems</li>
+<li class="">Mentoring others</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-why-must-hooks-be-called-unconditionally-and-in-the-same-order">51. Why must hooks be called unconditionally and in the same order?<a href="#51-why-must-hooks-be-called-unconditionally-and-in-the-same-order" class="hash-link" aria-label="Direct link to 51. Why must hooks be called unconditionally and in the same order?" title="Direct link to 51. Why must hooks be called unconditionally and in the same order?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React relies on <strong>call order</strong> to associate hook state with components.
+Calling hooks conditionally breaks this order and causes bugs.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-what-happens-if-you-update-state-during-render">52. What happens if you update state during render?<a href="#52-what-happens-if-you-update-state-during-render" class="hash-link" aria-label="Direct link to 52. What happens if you update state during render?" title="Direct link to 52. What happens if you update state during render?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+It causes an infinite render loop.
+State updates must happen in effects or event handlers.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="53-what-is-a-stale-closure-in-react">53. What is a stale closure in React?<a href="#53-what-is-a-stale-closure-in-react" class="hash-link" aria-label="Direct link to 53. What is a stale closure in React?" title="Direct link to 53. What is a stale closure in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+When a function “captures” old state values due to JavaScript closures.</p>
+<p>Common fix:</p>
+<ul>
+<li class="">Correct dependency arrays</li>
+<li class="">Functional state updates</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="54-why-are-dependency-arrays-important-in-useeffect">54. Why are dependency arrays important in <code>useEffect</code>?<a href="#54-why-are-dependency-arrays-important-in-useeffect" class="hash-link" aria-label="Direct link to 54-why-are-dependency-arrays-important-in-useeffect" title="Direct link to 54-why-are-dependency-arrays-important-in-useeffect" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+They tell React <strong>when the effect should re-run</strong>.
+Missing dependencies can cause stale data or inconsistent behavior.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="55-what-is-the-difference-between-functional-and-direct-state-updates">55. What is the difference between functional and direct state updates?<a href="#55-what-is-the-difference-between-functional-and-direct-state-updates" class="hash-link" aria-label="Direct link to 55. What is the difference between functional and direct state updates?" title="Direct link to 55. What is the difference between functional and direct state updates?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token function" style="color:hsl(221, 87%, 60%)">setCount</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token plain">count </span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token plain"> </span><span class="token number" style="color:hsl(35, 99%, 36%)">1</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain">       </span><span class="token comment" style="color:hsl(230, 4%, 64%)">// direct (can be stale)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token function" style="color:hsl(221, 87%, 60%)">setCount</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token parameter">prev</span><span class="token plain"> </span><span class="token arrow operator" style="color:hsl(221, 87%, 60%)">=&gt;</span><span class="token plain"> prev</span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token number" style="color:hsl(35, 99%, 36%)">1</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain"> </span><span class="token comment" style="color:hsl(230, 4%, 64%)">// functional (safe)</span><br></span></code></pre></div></div>
+<p>Functional updates are safer for async or repeated updates.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="56-what-is-strict-mode-and-why-does-it-double-invoke-effects">56. What is Strict Mode and why does it double-invoke effects?<a href="#56-what-is-strict-mode-and-why-does-it-double-invoke-effects" class="hash-link" aria-label="Direct link to 56. What is Strict Mode and why does it double-invoke effects?" title="Direct link to 56. What is Strict Mode and why does it double-invoke effects?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Strict Mode intentionally re-runs renders and effects in development to:</p>
+<ul>
+<li class="">Detect unsafe side effects</li>
+<li class="">Surface hidden bugs</li>
+</ul>
+<p>It does not affect production.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="57-what-is-concurrent-rendering">57. What is concurrent rendering?<a href="#57-what-is-concurrent-rendering" class="hash-link" aria-label="Direct link to 57. What is concurrent rendering?" title="Direct link to 57. What is concurrent rendering?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React’s ability to <strong>pause, resume, or abandon renders</strong> to keep the UI responsive.</p>
+<p>Introduced with React 18.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="58-what-problem-does-usetransition-solve">58. What problem does <code>useTransition</code> solve?<a href="#58-what-problem-does-usetransition-solve" class="hash-link" aria-label="Direct link to 58-what-problem-does-usetransition-solve" title="Direct link to 58-what-problem-does-usetransition-solve" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+It marks updates as <strong>non-urgent</strong>, allowing React to prioritize urgent UI updates.</p>
+<p>Used for:</p>
+<ul>
+<li class="">Filtering</li>
+<li class="">Searching</li>
+<li class="">Large list updates</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="59-what-is-usedeferredvalue">59. What is <code>useDeferredValue</code>?<a href="#59-what-is-usedeferredvalue" class="hash-link" aria-label="Direct link to 59-what-is-usedeferredvalue" title="Direct link to 59-what-is-usedeferredvalue" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+It delays updating a value so the UI stays responsive while heavy renders happen.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="60-what-is-the-difference-between-layout-thrashing-and-batching">60. What is the difference between layout thrashing and batching?<a href="#60-what-is-the-difference-between-layout-thrashing-and-batching" class="hash-link" aria-label="Direct link to 60. What is the difference between layout thrashing and batching?" title="Direct link to 60. What is the difference between layout thrashing and batching?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Layout thrashing</strong>: Repeated DOM reads/writes causing reflows</li>
+<li class=""><strong>Batching</strong>: Grouping updates to reduce renders</li>
+</ul>
+<p>React automatically batches updates.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-why-should-effects-clean-up-after-themselves">61. Why should effects clean up after themselves?<a href="#61-why-should-effects-clean-up-after-themselves" class="hash-link" aria-label="Direct link to 61. Why should effects clean up after themselves?" title="Direct link to 61. Why should effects clean up after themselves?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+To prevent:</p>
+<ul>
+<li class="">Memory leaks</li>
+<li class="">Duplicate subscriptions</li>
+<li class="">Unexpected behavior</li>
+</ul>
+<p>Cleanup runs on unmount or before re-running the effect.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-what-is-ref-forwarding">62. What is ref forwarding?<a href="#62-what-is-ref-forwarding" class="hash-link" aria-label="Direct link to 62. What is ref forwarding?" title="Direct link to 62. What is ref forwarding?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Passing a ref through a component to a child DOM element.</p>
+<p>Used in:</p>
+<ul>
+<li class="">Component libraries</li>
+<li class="">Focus management</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="63-what-problem-do-portals-solve">63. What problem do portals solve?<a href="#63-what-problem-do-portals-solve" class="hash-link" aria-label="Direct link to 63. What problem do portals solve?" title="Direct link to 63. What problem do portals solve?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Rendering components outside the DOM hierarchy while keeping React context.</p>
+<p>Used for:</p>
+<ul>
+<li class="">Modals</li>
+<li class="">Tooltips</li>
+<li class="">Dropdowns</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="64-what-is-event-delegation-in-react">64. What is event delegation in React?<a href="#64-what-is-event-delegation-in-react" class="hash-link" aria-label="Direct link to 64. What is event delegation in React?" title="Direct link to 64. What is event delegation in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React attaches event listeners at the root and handles events centrally for performance.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="65-why-are-inline-functions-in-jsx-sometimes-problematic">65. Why are inline functions in JSX sometimes problematic?<a href="#65-why-are-inline-functions-in-jsx-sometimes-problematic" class="hash-link" aria-label="Direct link to 65. Why are inline functions in JSX sometimes problematic?" title="Direct link to 65. Why are inline functions in JSX sometimes problematic?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+They create a new function on every render, potentially causing unnecessary re-renders.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="66-what-is-the-difference-between-memo-and-purecomponent">66. What is the difference between <code>memo</code> and <code>PureComponent</code>?<a href="#66-what-is-the-difference-between-memo-and-purecomponent" class="hash-link" aria-label="Direct link to 66-what-is-the-difference-between-memo-and-purecomponent" title="Direct link to 66-what-is-the-difference-between-memo-and-purecomponent" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>memo</code>: Functional components</li>
+<li class=""><code>PureComponent</code>: Class components</li>
+</ul>
+<p>Both use shallow comparison.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="67-how-do-you-safely-access-browser-only-apis-in-ssr-apps">67. How do you safely access browser-only APIs in SSR apps?<a href="#67-how-do-you-safely-access-browser-only-apis-in-ssr-apps" class="hash-link" aria-label="Direct link to 67. How do you safely access browser-only APIs in SSR apps?" title="Direct link to 67. How do you safely access browser-only APIs in SSR apps?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Check for <code>window</code></li>
+<li class="">Use <code>useEffect</code></li>
+<li class="">Dynamic imports with <code>ssr: false</code></li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="68-what-is-render-as-you-fetch">68. What is render-as-you-fetch?<a href="#68-what-is-render-as-you-fetch" class="hash-link" aria-label="Direct link to 68. What is render-as-you-fetch?" title="Direct link to 68. What is render-as-you-fetch?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A data-fetching pattern where requests start before rendering to reduce waterfalls.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="69-how-do-you-avoid-waterfall-requests">69. How do you avoid waterfall requests?<a href="#69-how-do-you-avoid-waterfall-requests" class="hash-link" aria-label="Direct link to 69. How do you avoid waterfall requests?" title="Direct link to 69. How do you avoid waterfall requests?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Parallel fetching</li>
+<li class="">Prefetching</li>
+<li class="">Server-side data loading</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="70-what-is-the-biggest-mistake-engineers-make-with-hooks">70. What is the biggest mistake engineers make with hooks?<a href="#70-what-is-the-biggest-mistake-engineers-make-with-hooks" class="hash-link" aria-label="Direct link to 70. What is the biggest mistake engineers make with hooks?" title="Direct link to 70. What is the biggest mistake engineers make with hooks?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Treating hooks as magic instead of understanding:</p>
+<ul>
+<li class="">Closures</li>
+<li class="">Render cycles</li>
+<li class="">Dependency tracking</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="react-fiber--internals--questions--answers">React Fiber &amp; Internals – Questions + Answers<a href="#react-fiber--internals--questions--answers" class="hash-link" aria-label="Direct link to React Fiber &amp; Internals – Questions + Answers" title="Direct link to React Fiber &amp; Internals – Questions + Answers" translate="no">​</a></h2>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="71-what-is-react-fiber">71. What is React Fiber?<a href="#71-what-is-react-fiber" class="hash-link" aria-label="Direct link to 71. What is React Fiber?" title="Direct link to 71. What is React Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React Fiber is React’s <strong>reconciliation engine</strong> introduced in React 16.</p>
+<p>Its goals:</p>
+<ul>
+<li class="">Incremental rendering</li>
+<li class="">Prioritization of updates</li>
+<li class="">Pause, resume, and abort work</li>
+<li class="">Enable concurrency features</li>
+</ul>
+<p>Fiber is <strong>not the public API</strong>, but the internal architecture.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="72-why-was-fiber-introduced">72. Why was Fiber introduced?<a href="#72-why-was-fiber-introduced" class="hash-link" aria-label="Direct link to 72. Why was Fiber introduced?" title="Direct link to 72. Why was Fiber introduced?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+The old stack reconciler was <strong>synchronous and blocking</strong>.</p>
+<p>Fiber allows:</p>
+<ul>
+<li class="">Breaking work into small units</li>
+<li class="">Scheduling work based on priority</li>
+<li class="">Keeping the UI responsive during heavy renders</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="73-what-is-a-fiber-node">73. What is a Fiber node?<a href="#73-what-is-a-fiber-node" class="hash-link" aria-label="Direct link to 73. What is a Fiber node?" title="Direct link to 73. What is a Fiber node?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A Fiber node is a JavaScript object representing:</p>
+<ul>
+<li class="">A component instance</li>
+<li class="">Its state, props, hooks</li>
+<li class="">Its relationship to other components</li>
+</ul>
+<p>Each React element maps to a Fiber node.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="74-what-information-does-a-fiber-node-store">74. What information does a Fiber node store?<a href="#74-what-information-does-a-fiber-node-store" class="hash-link" aria-label="Direct link to 74. What information does a Fiber node store?" title="Direct link to 74. What information does a Fiber node store?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A Fiber node contains:</p>
+<ul>
+<li class="">Type (function, class, host)</li>
+<li class="">Props and state</li>
+<li class="">Effect flags</li>
+<li class="">Pointers to parent, child, sibling</li>
+<li class="">Alternate (previous version)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="75-what-is-the-alternate-field-in-fiber">75. What is the “alternate” field in Fiber?<a href="#75-what-is-the-alternate-field-in-fiber" class="hash-link" aria-label="Direct link to 75. What is the “alternate” field in Fiber?" title="Direct link to 75. What is the “alternate” field in Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+It points to the <strong>previous Fiber tree</strong>.</p>
+<p>React uses:</p>
+<ul>
+<li class="">Current tree (committed UI)</li>
+<li class="">Work-in-progress tree (next render)</li>
+</ul>
+<p>This enables <strong>double buffering</strong>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="76-what-are-the-phases-of-react-rendering">76. What are the phases of React rendering?<a href="#76-what-are-the-phases-of-react-rendering" class="hash-link" aria-label="Direct link to 76. What are the phases of React rendering?" title="Direct link to 76. What are the phases of React rendering?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ol>
+<li class="">
+<p><strong>Render (Reconciliation) Phase</strong></p>
+<ul>
+<li class="">Build Fiber tree</li>
+<li class="">Can be paused or restarted</li>
+<li class="">No DOM mutations</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Commit Phase</strong></p>
+<ul>
+<li class="">Apply DOM updates</li>
+<li class="">Run effects</li>
+<li class="">Cannot be interrupted</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="77-why-is-the-render-phase-interruptible-but-commit-is-not">77. Why is the render phase interruptible but commit is not?<a href="#77-why-is-the-render-phase-interruptible-but-commit-is-not" class="hash-link" aria-label="Direct link to 77. Why is the render phase interruptible but commit is not?" title="Direct link to 77. Why is the render phase interruptible but commit is not?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Interrupting DOM mutations would cause inconsistent UI.</p>
+<p>So React:</p>
+<ul>
+<li class="">Prepares work incrementally</li>
+<li class="">Commits changes atomically</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="78-what-is-cooperative-scheduling">78. What is cooperative scheduling?<a href="#78-what-is-cooperative-scheduling" class="hash-link" aria-label="Direct link to 78. What is cooperative scheduling?" title="Direct link to 78. What is cooperative scheduling?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React yields control back to the browser between Fiber units of work to:</p>
+<ul>
+<li class="">Process user input</li>
+<li class="">Paint frames</li>
+<li class="">Avoid blocking the main thread</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="79-what-is-a-unit-of-work-in-fiber">79. What is a “unit of work” in Fiber?<a href="#79-what-is-a-unit-of-work-in-fiber" class="hash-link" aria-label="Direct link to 79. What is a “unit of work” in Fiber?" title="Direct link to 79. What is a “unit of work” in Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+The smallest piece of work React performs, usually:</p>
+<ul>
+<li class="">Processing a single Fiber node</li>
+<li class="">Running its render logic</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="80-how-does-fiber-enable-concurrency">80. How does Fiber enable concurrency?<a href="#80-how-does-fiber-enable-concurrency" class="hash-link" aria-label="Direct link to 80. How does Fiber enable concurrency?" title="Direct link to 80. How does Fiber enable concurrency?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+By:</p>
+<ul>
+<li class="">Splitting rendering into units</li>
+<li class="">Assigning priorities (lanes)</li>
+<li class="">Allowing React to pause low-priority work</li>
+</ul>
+<p>Concurrency is about <strong>responsiveness</strong>, not parallel threads.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="81-what-are-lanes-in-react-fiber">81. What are lanes in React Fiber?<a href="#81-what-are-lanes-in-react-fiber" class="hash-link" aria-label="Direct link to 81. What are lanes in React Fiber?" title="Direct link to 81. What are lanes in React Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Lanes are <strong>priority levels</strong> for updates.</p>
+<p>Examples:</p>
+<ul>
+<li class="">User input (high priority)</li>
+<li class="">Transitions (low priority)</li>
+<li class="">Background updates</li>
+</ul>
+<p>They replaced the older expiration time model.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="82-how-does-react-decide-update-priority">82. How does React decide update priority?<a href="#82-how-does-react-decide-update-priority" class="hash-link" aria-label="Direct link to 82. How does React decide update priority?" title="Direct link to 82. How does React decide update priority?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Based on:</p>
+<ul>
+<li class="">Event type (click vs timeout)</li>
+<li class=""><code>startTransition</code></li>
+<li class="">Scheduler heuristics</li>
+</ul>
+<p>Urgent updates preempt non-urgent ones.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="83-what-is-time-slicing">83. What is time slicing?<a href="#83-what-is-time-slicing" class="hash-link" aria-label="Direct link to 83. What is time slicing?" title="Direct link to 83. What is time slicing?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Breaking rendering work into chunks so React can:</p>
+<ul>
+<li class="">Yield to the browser</li>
+<li class="">Keep animations and input responsive</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="84-what-happens-when-react-yields">84. What happens when React “yields”?<a href="#84-what-happens-when-react-yields" class="hash-link" aria-label="Direct link to 84. What happens when React “yields”?" title="Direct link to 84. What happens when React “yields”?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+React:</p>
+<ul>
+<li class="">Pauses work</li>
+<li class="">Lets the browser handle high-priority tasks</li>
+<li class="">Resumes rendering later</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="85-how-does-fiber-affect-hooks">85. How does Fiber affect hooks?<a href="#85-how-does-fiber-affect-hooks" class="hash-link" aria-label="Direct link to 85. How does Fiber affect hooks?" title="Direct link to 85. How does Fiber affect hooks?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Hooks are stored as a <strong>linked list on the Fiber node</strong>.</p>
+<p>The strict call order rule exists because:</p>
+<ul>
+<li class="">Hooks are matched by position, not name</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="86-why-do-hooks-break-when-called-conditionally">86. Why do hooks break when called conditionally?<a href="#86-why-do-hooks-break-when-called-conditionally" class="hash-link" aria-label="Direct link to 86. Why do hooks break when called conditionally?" title="Direct link to 86. Why do hooks break when called conditionally?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Because React walks the hooks list <strong>in order</strong>.
+Changing order means React reads the wrong state.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="87-what-are-effect-tags--flags-in-fiber">87. What are effect tags / flags in Fiber?<a href="#87-what-are-effect-tags--flags-in-fiber" class="hash-link" aria-label="Direct link to 87. What are effect tags / flags in Fiber?" title="Direct link to 87. What are effect tags / flags in Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+They describe what needs to happen during commit:</p>
+<ul>
+<li class="">Placement</li>
+<li class="">Update</li>
+<li class="">Deletion</li>
+<li class="">Passive effects</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="88-when-do-useeffect-and-uselayouteffect-run-internally">88. When do <code>useEffect</code> and <code>useLayoutEffect</code> run internally?<a href="#88-when-do-useeffect-and-uselayouteffect-run-internally" class="hash-link" aria-label="Direct link to 88-when-do-useeffect-and-uselayouteffect-run-internally" title="Direct link to 88-when-do-useeffect-and-uselayouteffect-run-internally" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>useLayoutEffect</code>: After DOM mutations, before paint</li>
+<li class=""><code>useEffect</code>: After paint, asynchronously</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="89-what-is-hydration-from-a-fiber-perspective">89. What is hydration from a Fiber perspective?<a href="#89-what-is-hydration-from-a-fiber-perspective" class="hash-link" aria-label="Direct link to 89. What is hydration from a Fiber perspective?" title="Direct link to 89. What is hydration from a Fiber perspective?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Fiber attaches to existing DOM nodes instead of creating new ones.</p>
+<p>It matches:</p>
+<ul>
+<li class="">Fiber nodes ↔ existing DOM</li>
+</ul>
+<p>Mismatch causes re-rendering.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="90-why-does-strict-mode-double-render-components">90. Why does Strict Mode double-render components?<a href="#90-why-does-strict-mode-double-render-components" class="hash-link" aria-label="Direct link to 90. Why does Strict Mode double-render components?" title="Direct link to 90. Why does Strict Mode double-render components?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+To simulate mounting, unmounting, and remounting:</p>
+<ul>
+<li class="">Exposes unsafe side effects</li>
+<li class="">Validates effect cleanup logic</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="91-can-fiber-rendering-be-aborted">91. Can Fiber rendering be aborted?<a href="#91-can-fiber-rendering-be-aborted" class="hash-link" aria-label="Direct link to 91. Can Fiber rendering be aborted?" title="Direct link to 91. Can Fiber rendering be aborted?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Yes, during the render phase.</p>
+<p>If higher-priority work arrives, React:</p>
+<ul>
+<li class="">Abandons the current render</li>
+<li class="">Restarts later</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="92-what-is-the-difference-between-legacy-and-concurrent-rendering">92. What is the difference between legacy and concurrent rendering?<a href="#92-what-is-the-difference-between-legacy-and-concurrent-rendering" class="hash-link" aria-label="Direct link to 92. What is the difference between legacy and concurrent rendering?" title="Direct link to 92. What is the difference between legacy and concurrent rendering?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><strong>Legacy</strong>: Synchronous, blocking</li>
+<li class=""><strong>Concurrent</strong>: Interruptible, prioritized</li>
+</ul>
+<p>React 18 enables concurrent features by default.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="93-why-doesnt-concurrency-guarantee-faster-renders">93. Why doesn’t concurrency guarantee faster renders?<a href="#93-why-doesnt-concurrency-guarantee-faster-renders" class="hash-link" aria-label="Direct link to 93. Why doesn’t concurrency guarantee faster renders?" title="Direct link to 93. Why doesn’t concurrency guarantee faster renders?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Because it improves <strong>responsiveness</strong>, not raw speed.</p>
+<p>Work may actually take longer overall but feels smoother.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="94-what-is-the-biggest-misconception-about-react-fiber">94. What is the biggest misconception about React Fiber?<a href="#94-what-is-the-biggest-misconception-about-react-fiber" class="hash-link" aria-label="Direct link to 94. What is the biggest misconception about React Fiber?" title="Direct link to 94. What is the biggest misconception about React Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+That it’s multithreaded.</p>
+<p>Fiber runs on the <strong>single main thread</strong> but schedules work intelligently.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="95-when-should-a-developer-care-about-fiber-internals">95. When should a developer care about Fiber internals?<a href="#95-when-should-a-developer-care-about-fiber-internals" class="hash-link" aria-label="Direct link to 95. When should a developer care about Fiber internals?" title="Direct link to 95. When should a developer care about Fiber internals?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+When dealing with:</p>
+<ul>
+<li class="">Performance bottlenecks</li>
+<li class="">Large trees</li>
+<li class="">Concurrent features</li>
+<li class="">Complex rendering behavior</li>
+</ul>
+<p>Most apps don’t need direct knowledge, but understanding it improves decisions.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="class-based-components--advanced-questions--answers">Class-Based Components – Advanced Questions + Answers<a href="#class-based-components--advanced-questions--answers" class="hash-link" aria-label="Direct link to Class-Based Components – Advanced Questions + Answers" title="Direct link to Class-Based Components – Advanced Questions + Answers" translate="no">​</a></h2>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="96-what-is-a-class-based-component-in-react">96. What is a class-based component in React?<a href="#96-what-is-a-class-based-component-in-react" class="hash-link" aria-label="Direct link to 96. What is a class-based component in React?" title="Direct link to 96. What is a class-based component in React?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A class-based component is a JavaScript class that:</p>
+<ul>
+<li class="">Extends <code>React.Component</code></li>
+<li class="">Implements a <code>render()</code> method</li>
+<li class="">Manages state and lifecycle via methods</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="97-what-problem-did-class-components-originally-solve">97. What problem did class components originally solve?<a href="#97-what-problem-did-class-components-originally-solve" class="hash-link" aria-label="Direct link to 97. What problem did class components originally solve?" title="Direct link to 97. What problem did class components originally solve?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+They introduced:</p>
+<ul>
+<li class="">Local state</li>
+<li class="">Lifecycle methods</li>
+<li class="">Encapsulation of logic and UI</li>
+</ul>
+<p>Before hooks, they were the only way to do this.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="98-what-are-the-main-lifecycle-phases-of-a-class-component">98. What are the main lifecycle phases of a class component?<a href="#98-what-are-the-main-lifecycle-phases-of-a-class-component" class="hash-link" aria-label="Direct link to 98. What are the main lifecycle phases of a class component?" title="Direct link to 98. What are the main lifecycle phases of a class component?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ol>
+<li class=""><strong>Mounting</strong></li>
+<li class=""><strong>Updating</strong></li>
+<li class=""><strong>Unmounting</strong></li>
+<li class=""><strong>Error handling</strong></li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="99-what-lifecycle-methods-run-during-mounting">99. What lifecycle methods run during mounting?<a href="#99-what-lifecycle-methods-run-during-mounting" class="hash-link" aria-label="Direct link to 99. What lifecycle methods run during mounting?" title="Direct link to 99. What lifecycle methods run during mounting?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>constructor</code></li>
+<li class=""><code>static getDerivedStateFromProps</code></li>
+<li class=""><code>render</code></li>
+<li class=""><code>componentDidMount</code></li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="100-what-is-the-purpose-of-constructor">100. What is the purpose of <code>constructor</code>?<a href="#100-what-is-the-purpose-of-constructor" class="hash-link" aria-label="Direct link to 100-what-is-the-purpose-of-constructor" title="Direct link to 100-what-is-the-purpose-of-constructor" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Used to:</p>
+<ul>
+<li class="">Initialize state</li>
+<li class="">Bind event handlers</li>
+</ul>
+<p>Should not contain side effects.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="101-why-should-side-effects-not-be-placed-in-render">101. Why should side effects not be placed in <code>render()</code>?<a href="#101-why-should-side-effects-not-be-placed-in-render" class="hash-link" aria-label="Direct link to 101-why-should-side-effects-not-be-placed-in-render" title="Direct link to 101-why-should-side-effects-not-be-placed-in-render" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+<code>render()</code> must be:</p>
+<ul>
+<li class="">Pure</li>
+<li class="">Free of side effects</li>
+</ul>
+<p>Because it can run multiple times and be aborted.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="102-what-is-componentdidmount-used-for">102. What is <code>componentDidMount</code> used for?<a href="#102-what-is-componentdidmount-used-for" class="hash-link" aria-label="Direct link to 102-what-is-componentdidmount-used-for" title="Direct link to 102-what-is-componentdidmount-used-for" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Data fetching</li>
+<li class="">Subscriptions</li>
+<li class="">DOM measurements</li>
+</ul>
+<p>It runs once after the component is inserted into the DOM.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="103-what-lifecycle-methods-run-during-updates">103. What lifecycle methods run during updates?<a href="#103-what-lifecycle-methods-run-during-updates" class="hash-link" aria-label="Direct link to 103. What lifecycle methods run during updates?" title="Direct link to 103. What lifecycle methods run during updates?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>static getDerivedStateFromProps</code></li>
+<li class=""><code>shouldComponentUpdate</code></li>
+<li class=""><code>render</code></li>
+<li class=""><code>getSnapshotBeforeUpdate</code></li>
+<li class=""><code>componentDidUpdate</code></li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="104-what-is-shouldcomponentupdate">104. What is <code>shouldComponentUpdate</code>?<a href="#104-what-is-shouldcomponentupdate" class="hash-link" aria-label="Direct link to 104-what-is-shouldcomponentupdate" title="Direct link to 104-what-is-shouldcomponentupdate" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Allows preventing re-renders by returning <code>false</code>.</p>
+<p>Used for performance optimization.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="105-what-is-purecomponent">105. What is <code>PureComponent</code>?<a href="#105-what-is-purecomponent" class="hash-link" aria-label="Direct link to 105-what-is-purecomponent" title="Direct link to 105-what-is-purecomponent" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+A base class that implements <code>shouldComponentUpdate</code> with shallow prop/state comparison.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="106-what-are-the-dangers-of-shallow-comparison">106. What are the dangers of shallow comparison?<a href="#106-what-are-the-dangers-of-shallow-comparison" class="hash-link" aria-label="Direct link to 106. What are the dangers of shallow comparison?" title="Direct link to 106. What are the dangers of shallow comparison?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Mutated objects won’t trigger updates</li>
+<li class="">Nested changes may be missed</li>
+</ul>
+<p>Requires immutability.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="107-what-is-getsnapshotbeforeupdate">107. What is <code>getSnapshotBeforeUpdate</code>?<a href="#107-what-is-getsnapshotbeforeupdate" class="hash-link" aria-label="Direct link to 107-what-is-getsnapshotbeforeupdate" title="Direct link to 107-what-is-getsnapshotbeforeupdate" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Captures information (e.g. scroll position) <strong>before DOM updates</strong>, passed to <code>componentDidUpdate</code>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="108-when-does-componentdidupdate-run">108. When does <code>componentDidUpdate</code> run?<a href="#108-when-does-componentdidupdate-run" class="hash-link" aria-label="Direct link to 108-when-does-componentdidupdate-run" title="Direct link to 108-when-does-componentdidupdate-run" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+After re-render and DOM updates.</p>
+<p>Used for:</p>
+<ul>
+<li class="">Responding to prop/state changes</li>
+<li class="">Side effects</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="109-how-do-you-prevent-infinite-loops-in-componentdidupdate">109. How do you prevent infinite loops in <code>componentDidUpdate</code>?<a href="#109-how-do-you-prevent-infinite-loops-in-componentdidupdate" class="hash-link" aria-label="Direct link to 109-how-do-you-prevent-infinite-loops-in-componentdidupdate" title="Direct link to 109-how-do-you-prevent-infinite-loops-in-componentdidupdate" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+By comparing previous and current props/state before calling <code>setState</code>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="110-what-lifecycle-method-runs-during-unmounting">110. What lifecycle method runs during unmounting?<a href="#110-what-lifecycle-method-runs-during-unmounting" class="hash-link" aria-label="Direct link to 110. What lifecycle method runs during unmounting?" title="Direct link to 110. What lifecycle method runs during unmounting?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+<code>componentWillUnmount</code></p>
+<p>Used for:</p>
+<ul>
+<li class="">Cleanup</li>
+<li class="">Cancelling subscriptions</li>
+<li class="">Clearing timers</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="111-what-are-error-boundaries-and-which-lifecycle-methods-do-they-use">111. What are error boundaries and which lifecycle methods do they use?<a href="#111-what-are-error-boundaries-and-which-lifecycle-methods-do-they-use" class="hash-link" aria-label="Direct link to 111. What are error boundaries and which lifecycle methods do they use?" title="Direct link to 111. What are error boundaries and which lifecycle methods do they use?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Class components that catch rendering errors.</p>
+<p>They use:</p>
+<ul>
+<li class=""><code>static getDerivedStateFromError</code></li>
+<li class=""><code>componentDidCatch</code></li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="112-why-cant-hooks-replace-error-boundaries">112. Why can’t hooks replace error boundaries?<a href="#112-why-cant-hooks-replace-error-boundaries" class="hash-link" aria-label="Direct link to 112. Why can’t hooks replace error boundaries?" title="Direct link to 112. Why can’t hooks replace error boundaries?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Because error boundaries rely on lifecycle methods that hooks cannot implement.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="113-what-were-the-unsafe-lifecycle-methods-and-why-were-they-deprecated">113. What were the “unsafe” lifecycle methods and why were they deprecated?<a href="#113-what-were-the-unsafe-lifecycle-methods-and-why-were-they-deprecated" class="hash-link" aria-label="Direct link to 113. What were the “unsafe” lifecycle methods and why were they deprecated?" title="Direct link to 113. What were the “unsafe” lifecycle methods and why were they deprecated?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>componentWillMount</code></li>
+<li class=""><code>componentWillReceiveProps</code></li>
+<li class=""><code>componentWillUpdate</code></li>
+</ul>
+<p>They were unsafe for async and concurrent rendering.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="114-how-do-class-lifecycle-methods-map-to-hooks">114. How do class lifecycle methods map to hooks?<a href="#114-how-do-class-lifecycle-methods-map-to-hooks" class="hash-link" aria-label="Direct link to 114. How do class lifecycle methods map to hooks?" title="Direct link to 114. How do class lifecycle methods map to hooks?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class=""><code>componentDidMount</code> → <code>useEffect(() =&gt; {}, [])</code></li>
+<li class=""><code>componentDidUpdate</code> → <code>useEffect</code> with deps</li>
+<li class=""><code>componentWillUnmount</code> → cleanup function</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="115-what-problems-did-class-components-have">115. What problems did class components have?<a href="#115-what-problems-did-class-components-have" class="hash-link" aria-label="Direct link to 115. What problems did class components have?" title="Direct link to 115. What problems did class components have?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Logic reuse was difficult</li>
+<li class=""><code>this</code> binding issues</li>
+<li class="">Lifecycle complexity</li>
+<li class="">Hard to reason about related logic</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="116-what-is-this-binding-and-why-was-it-painful">116. What is “this” binding and why was it painful?<a href="#116-what-is-this-binding-and-why-was-it-painful" class="hash-link" aria-label="Direct link to 116. What is “this” binding and why was it painful?" title="Direct link to 116. What is “this” binding and why was it painful?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Methods lose context when passed as callbacks.</p>
+<p>Required:</p>
+<ul>
+<li class="">Manual binding</li>
+<li class="">Arrow functions</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="117-why-do-hooks-lead-to-better-logic-reuse-than-classes">117. Why do hooks lead to better logic reuse than classes?<a href="#117-why-do-hooks-lead-to-better-logic-reuse-than-classes" class="hash-link" aria-label="Direct link to 117. Why do hooks lead to better logic reuse than classes?" title="Direct link to 117. Why do hooks lead to better logic reuse than classes?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Hooks allow:</p>
+<ul>
+<li class="">Extracting logic without changing component hierarchy</li>
+<li class="">Composing behavior cleanly</li>
+</ul>
+<p>Classes relied on HOCs and render props.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="118-how-do-class-components-interact-with-fiber">118. How do class components interact with Fiber?<a href="#118-how-do-class-components-interact-with-fiber" class="hash-link" aria-label="Direct link to 118. How do class components interact with Fiber?" title="Direct link to 118. How do class components interact with Fiber?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Each class instance is associated with a Fiber node.</p>
+<p>Fiber manages:</p>
+<ul>
+<li class="">Scheduling</li>
+<li class="">Updates</li>
+<li class="">Lifecycle invocation</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="119-are-class-components-slower-than-function-components">119. Are class components slower than function components?<a href="#119-are-class-components-slower-than-function-components" class="hash-link" aria-label="Direct link to 119. Are class components slower than function components?" title="Direct link to 119. Are class components slower than function components?" translate="no">​</a></h2>
+<p><strong>Answer:</strong>
+Not inherently.</p>
+<p>Performance differences usually come from:</p>
+<ul>
+<li class="">Architecture</li>
+<li class="">Re-renders</li>
+<li class="">State management</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="120-when-should-class-components-still-be-used">120. When should class components still be used?<a href="#120-when-should-class-components-still-be-used" class="hash-link" aria-label="Direct link to 120. When should class components still be used?" title="Direct link to 120. When should class components still be used?" translate="no">​</a></h2>
+<p><strong>Answer:</strong></p>
+<ul>
+<li class="">Error boundaries</li>
+<li class="">Legacy codebases</li>
+<li class="">Libraries that predate hooks</li>
+</ul>
+<hr></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/React/Interview.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/better-docs/docs/React/glossary"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Glossary</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/better-docs/docs/React/introductions"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Introduction</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#fundamentals" class="table-of-contents__link toc-highlight">Fundamentals</a></li><li><a href="#rendering--lifecycle" class="table-of-contents__link toc-highlight">Rendering &amp; Lifecycle</a></li><li><a href="#hooks" class="table-of-contents__link toc-highlight">Hooks</a></li><li><a href="#state-management" class="table-of-contents__link toc-highlight">State Management</a></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a></li><li><a href="#events--forms" class="table-of-contents__link toc-highlight">Events &amp; Forms</a></li><li><a href="#advanced-rendering-react-18" class="table-of-contents__link toc-highlight">Advanced Rendering (React 18)</a></li><li><a href="#suspense--code-splitting" class="table-of-contents__link toc-highlight">Suspense &amp; Code Splitting</a></li><li><a href="#error-handling" class="table-of-contents__link toc-highlight">Error Handling</a></li><li><a href="#ssr--server-components" class="table-of-contents__link toc-highlight">SSR &amp; Server Components</a></li><li><a href="#internals--advanced-concepts" class="table-of-contents__link toc-highlight">Internals &amp; Advanced Concepts</a></li><li><a href="#anti-patterns" class="table-of-contents__link toc-highlight">Anti-Patterns</a></li><li><a href="#tooling--debugging" class="table-of-contents__link toc-highlight">Tooling &amp; Debugging</a></li><li><a href="#system-design--architecture" class="table-of-contents__link toc-highlight">System Design &amp; Architecture</a></li><li><a href="#1-what-is-frontend-architecture" class="table-of-contents__link toc-highlight">1. What is frontend architecture?</a></li><li><a href="#2-how-does-data-flow-in-react" class="table-of-contents__link toc-highlight">2. How does data flow in React?</a></li><li><a href="#3-what-is-the-difference-between-props-and-state" class="table-of-contents__link toc-highlight">3. What is the difference between props and state?</a></li><li><a href="#4-what-is-lifting-state-up" class="table-of-contents__link toc-highlight">4. What is “lifting state up”?</a></li><li><a href="#5-when-should-you-use-context-api" class="table-of-contents__link toc-highlight">5. When should you use Context API?</a></li><li><a href="#6-how-do-you-structure-a-react-project" class="table-of-contents__link toc-highlight">6. How do you structure a React project?</a></li><li><a href="#7-what-are-controlled-vs-uncontrolled-components" class="table-of-contents__link toc-highlight">7. What are controlled vs uncontrolled components?</a></li><li><a href="#8-what-is-a-custom-hook-and-why-use-it" class="table-of-contents__link toc-highlight">8. What is a custom hook and why use it?</a></li><li><a href="#9-how-do-you-handle-side-effects-in-react" class="table-of-contents__link toc-highlight">9. How do you handle side effects in React?</a></li><li><a href="#10-what-is-memoization-and-when-should-you-use-it" class="table-of-contents__link toc-highlight">10. What is memoization and when should you use it?</a></li><li><a href="#11-what-is-the-difference-between-client-side-and-server-side-rendering" class="table-of-contents__link toc-highlight">11. What is the difference between client-side and server-side rendering?</a></li><li><a href="#12-how-do-you-manage-global-state-in-react" class="table-of-contents__link toc-highlight">12. How do you manage global state in React?</a></li><li><a href="#13-what-is-the-difference-between-server-state-and-client-state" class="table-of-contents__link toc-highlight">13. What is the difference between server state and client state?</a></li><li><a href="#14-how-do-you-prevent-unnecessary-re-renders" class="table-of-contents__link toc-highlight">14. How do you prevent unnecessary re-renders?</a></li><li><a href="#15-what-makes-a-react-app-scalable" class="table-of-contents__link toc-highlight">15. What makes a React app scalable?</a></li><li><a href="#16-what-problem-do-keys-solve-in-react-lists" class="table-of-contents__link toc-highlight">16. What problem do keys solve in React lists?</a></li><li><a href="#17-why-is-using-array-index-as-a-key-usually-a-bad-idea" class="table-of-contents__link toc-highlight">17. Why is using array index as a key usually a bad idea?</a></li><li><a href="#18-what-is-reconciliation-in-react" class="table-of-contents__link toc-highlight">18. What is reconciliation in React?</a></li><li><a href="#19-what-is-the-virtual-dom" class="table-of-contents__link toc-highlight">19. What is the Virtual DOM?</a></li><li><a href="#20-what-causes-a-component-to-re-render" class="table-of-contents__link toc-highlight">20. What causes a component to re-render?</a></li><li><a href="#21-what-is-prop-drilling-and-how-do-you-avoid-it" class="table-of-contents__link toc-highlight">21. What is prop drilling and how do you avoid it?</a></li><li><a href="#22-what-is-the-difference-between-useeffect-and-uselayouteffect" class="table-of-contents__link toc-highlight">22. What is the difference between <code>useEffect</code> and <code>useLayoutEffect</code>?</a></li><li><a href="#23-what-is-a-render-prop" class="table-of-contents__link toc-highlight">23. What is a render prop?</a></li><li><a href="#24-what-is-component-composition-in-react" class="table-of-contents__link toc-highlight">24. What is component composition in React?</a></li><li><a href="#25-what-is-hydration-in-react" class="table-of-contents__link toc-highlight">25. What is hydration in React?</a></li><li><a href="#26-what-is-code-splitting-and-why-is-it-important" class="table-of-contents__link toc-highlight">26. What is code splitting and why is it important?</a></li><li><a href="#27-what-is-the-difference-between-useref-and-usestate" class="table-of-contents__link toc-highlight">27. What is the difference between <code>useRef</code> and <code>useState</code>?</a></li><li><a href="#28-what-are-error-boundaries" class="table-of-contents__link toc-highlight">28. What are error boundaries?</a></li><li><a href="#29-how-do-you-handle-performance-issues-in-large-react-apps" class="table-of-contents__link toc-highlight">29. How do you handle performance issues in large React apps?</a></li><li><a href="#30-what-is-the-difference-between-spa-and-mpa" class="table-of-contents__link toc-highlight">30. What is the difference between SPA and MPA?</a></li><li><a href="#31-what-is-the-difference-between-controlled-state-and-derived-state" class="table-of-contents__link toc-highlight">31. What is the difference between controlled state and derived state?</a></li><li><a href="#32-why-is-duplicating-state-considered-an-anti-pattern" class="table-of-contents__link toc-highlight">32. Why is duplicating state considered an anti-pattern?</a></li><li><a href="#33-how-do-you-design-a-scalable-state-management-strategy" class="table-of-contents__link toc-highlight">33. How do you design a scalable state management strategy?</a></li><li><a href="#34-what-is-server-driven-ui" class="table-of-contents__link toc-highlight">34. What is server-driven UI?</a></li><li><a href="#35-what-is-the-difference-between-debounce-and-throttle" class="table-of-contents__link toc-highlight">35. What is the difference between debounce and throttle?</a></li><li><a href="#36-why-should-side-effects-be-avoided-during-render" class="table-of-contents__link toc-highlight">36. Why should side effects be avoided during render?</a></li><li><a href="#37-what-is-the-difference-between-optimistic-and-pessimistic-updates" class="table-of-contents__link toc-highlight">37. What is the difference between optimistic and pessimistic updates?</a></li><li><a href="#38-what-is-the-difference-between-usecallback-and-usememo" class="table-of-contents__link toc-highlight">38. What is the difference between <code>useCallback</code> and <code>useMemo</code>?</a></li><li><a href="#39-what-is-tree-shaking" class="table-of-contents__link toc-highlight">39. What is tree shaking?</a></li><li><a href="#40-what-is-the-role-of-a-bundler-like-webpack-or-vite" class="table-of-contents__link toc-highlight">40. What is the role of a bundler like Webpack or Vite?</a></li><li><a href="#41-how-do-you-handle-authentication-in-frontend-apps" class="table-of-contents__link toc-highlight">41. How do you handle authentication in frontend apps?</a></li><li><a href="#42-what-are-race-conditions-in-frontend-apps" class="table-of-contents__link toc-highlight">42. What are race conditions in frontend apps?</a></li><li><a href="#43-what-is-a-headless-component" class="table-of-contents__link toc-highlight">43. What is a “headless” component?</a></li><li><a href="#44-what-is-accessibility-a11y-and-why-does-it-matter" class="table-of-contents__link toc-highlight">44. What is accessibility (a11y) and why does it matter?</a></li><li><a href="#45-how-do-you-architect-a-frontend-for-a-large-team" class="table-of-contents__link toc-highlight">45. How do you architect a frontend for a large team?</a></li><li><a href="#46-what-is-micro-frontend-architecture" class="table-of-contents__link toc-highlight">46. What is micro-frontend architecture?</a></li><li><a href="#47-what-is-hydration-mismatch" class="table-of-contents__link toc-highlight">47. What is hydration mismatch?</a></li><li><a href="#48-what-is-the-difference-between-bff-and-direct-api-calls" class="table-of-contents__link toc-highlight">48. What is the difference between BFF and direct API calls?</a></li><li><a href="#49-how-do-you-measure-frontend-performance" class="table-of-contents__link toc-highlight">49. How do you measure frontend performance?</a></li><li><a href="#50-what-separates-a-mid-level-from-a-senior-frontend-engineer" class="table-of-contents__link toc-highlight">50. What separates a mid-level from a senior frontend engineer?</a></li><li><a href="#51-why-must-hooks-be-called-unconditionally-and-in-the-same-order" class="table-of-contents__link toc-highlight">51. Why must hooks be called unconditionally and in the same order?</a></li><li><a href="#52-what-happens-if-you-update-state-during-render" class="table-of-contents__link toc-highlight">52. What happens if you update state during render?</a></li><li><a href="#53-what-is-a-stale-closure-in-react" class="table-of-contents__link toc-highlight">53. What is a stale closure in React?</a></li><li><a href="#54-why-are-dependency-arrays-important-in-useeffect" class="table-of-contents__link toc-highlight">54. Why are dependency arrays important in <code>useEffect</code>?</a></li><li><a href="#55-what-is-the-difference-between-functional-and-direct-state-updates" class="table-of-contents__link toc-highlight">55. What is the difference between functional and direct state updates?</a></li><li><a href="#56-what-is-strict-mode-and-why-does-it-double-invoke-effects" class="table-of-contents__link toc-highlight">56. What is Strict Mode and why does it double-invoke effects?</a></li><li><a href="#57-what-is-concurrent-rendering" class="table-of-contents__link toc-highlight">57. What is concurrent rendering?</a></li><li><a href="#58-what-problem-does-usetransition-solve" class="table-of-contents__link toc-highlight">58. What problem does <code>useTransition</code> solve?</a></li><li><a href="#59-what-is-usedeferredvalue" class="table-of-contents__link toc-highlight">59. What is <code>useDeferredValue</code>?</a></li><li><a href="#60-what-is-the-difference-between-layout-thrashing-and-batching" class="table-of-contents__link toc-highlight">60. What is the difference between layout thrashing and batching?</a></li><li><a href="#61-why-should-effects-clean-up-after-themselves" class="table-of-contents__link toc-highlight">61. Why should effects clean up after themselves?</a></li><li><a href="#62-what-is-ref-forwarding" class="table-of-contents__link toc-highlight">62. What is ref forwarding?</a></li><li><a href="#63-what-problem-do-portals-solve" class="table-of-contents__link toc-highlight">63. What problem do portals solve?</a></li><li><a href="#64-what-is-event-delegation-in-react" class="table-of-contents__link toc-highlight">64. What is event delegation in React?</a></li><li><a href="#65-why-are-inline-functions-in-jsx-sometimes-problematic" class="table-of-contents__link toc-highlight">65. Why are inline functions in JSX sometimes problematic?</a></li><li><a href="#66-what-is-the-difference-between-memo-and-purecomponent" class="table-of-contents__link toc-highlight">66. What is the difference between <code>memo</code> and <code>PureComponent</code>?</a></li><li><a href="#67-how-do-you-safely-access-browser-only-apis-in-ssr-apps" class="table-of-contents__link toc-highlight">67. How do you safely access browser-only APIs in SSR apps?</a></li><li><a href="#68-what-is-render-as-you-fetch" class="table-of-contents__link toc-highlight">68. What is render-as-you-fetch?</a></li><li><a href="#69-how-do-you-avoid-waterfall-requests" class="table-of-contents__link toc-highlight">69. How do you avoid waterfall requests?</a></li><li><a href="#70-what-is-the-biggest-mistake-engineers-make-with-hooks" class="table-of-contents__link toc-highlight">70. What is the biggest mistake engineers make with hooks?</a></li><li><a href="#react-fiber--internals--questions--answers" class="table-of-contents__link toc-highlight">React Fiber &amp; Internals – Questions + Answers</a></li><li><a href="#71-what-is-react-fiber" class="table-of-contents__link toc-highlight">71. What is React Fiber?</a></li><li><a href="#72-why-was-fiber-introduced" class="table-of-contents__link toc-highlight">72. Why was Fiber introduced?</a></li><li><a href="#73-what-is-a-fiber-node" class="table-of-contents__link toc-highlight">73. What is a Fiber node?</a></li><li><a href="#74-what-information-does-a-fiber-node-store" class="table-of-contents__link toc-highlight">74. What information does a Fiber node store?</a></li><li><a href="#75-what-is-the-alternate-field-in-fiber" class="table-of-contents__link toc-highlight">75. What is the “alternate” field in Fiber?</a></li><li><a href="#76-what-are-the-phases-of-react-rendering" class="table-of-contents__link toc-highlight">76. What are the phases of React rendering?</a></li><li><a href="#77-why-is-the-render-phase-interruptible-but-commit-is-not" class="table-of-contents__link toc-highlight">77. Why is the render phase interruptible but commit is not?</a></li><li><a href="#78-what-is-cooperative-scheduling" class="table-of-contents__link toc-highlight">78. What is cooperative scheduling?</a></li><li><a href="#79-what-is-a-unit-of-work-in-fiber" class="table-of-contents__link toc-highlight">79. What is a “unit of work” in Fiber?</a></li><li><a href="#80-how-does-fiber-enable-concurrency" class="table-of-contents__link toc-highlight">80. How does Fiber enable concurrency?</a></li><li><a href="#81-what-are-lanes-in-react-fiber" class="table-of-contents__link toc-highlight">81. What are lanes in React Fiber?</a></li><li><a href="#82-how-does-react-decide-update-priority" class="table-of-contents__link toc-highlight">82. How does React decide update priority?</a></li><li><a href="#83-what-is-time-slicing" class="table-of-contents__link toc-highlight">83. What is time slicing?</a></li><li><a href="#84-what-happens-when-react-yields" class="table-of-contents__link toc-highlight">84. What happens when React “yields”?</a></li><li><a href="#85-how-does-fiber-affect-hooks" class="table-of-contents__link toc-highlight">85. How does Fiber affect hooks?</a></li><li><a href="#86-why-do-hooks-break-when-called-conditionally" class="table-of-contents__link toc-highlight">86. Why do hooks break when called conditionally?</a></li><li><a href="#87-what-are-effect-tags--flags-in-fiber" class="table-of-contents__link toc-highlight">87. What are effect tags / flags in Fiber?</a></li><li><a href="#88-when-do-useeffect-and-uselayouteffect-run-internally" class="table-of-contents__link toc-highlight">88. When do <code>useEffect</code> and <code>useLayoutEffect</code> run internally?</a></li><li><a href="#89-what-is-hydration-from-a-fiber-perspective" class="table-of-contents__link toc-highlight">89. What is hydration from a Fiber perspective?</a></li><li><a href="#90-why-does-strict-mode-double-render-components" class="table-of-contents__link toc-highlight">90. Why does Strict Mode double-render components?</a></li><li><a href="#91-can-fiber-rendering-be-aborted" class="table-of-contents__link toc-highlight">91. Can Fiber rendering be aborted?</a></li><li><a href="#92-what-is-the-difference-between-legacy-and-concurrent-rendering" class="table-of-contents__link toc-highlight">92. What is the difference between legacy and concurrent rendering?</a></li><li><a href="#93-why-doesnt-concurrency-guarantee-faster-renders" class="table-of-contents__link toc-highlight">93. Why doesn’t concurrency guarantee faster renders?</a></li><li><a href="#94-what-is-the-biggest-misconception-about-react-fiber" class="table-of-contents__link toc-highlight">94. What is the biggest misconception about React Fiber?</a></li><li><a href="#95-when-should-a-developer-care-about-fiber-internals" class="table-of-contents__link toc-highlight">95. When should a developer care about Fiber internals?</a></li><li><a href="#class-based-components--advanced-questions--answers" class="table-of-contents__link toc-highlight">Class-Based Components – Advanced Questions + Answers</a></li><li><a href="#96-what-is-a-class-based-component-in-react" class="table-of-contents__link toc-highlight">96. What is a class-based component in React?</a></li><li><a href="#97-what-problem-did-class-components-originally-solve" class="table-of-contents__link toc-highlight">97. What problem did class components originally solve?</a></li><li><a href="#98-what-are-the-main-lifecycle-phases-of-a-class-component" class="table-of-contents__link toc-highlight">98. What are the main lifecycle phases of a class component?</a></li><li><a href="#99-what-lifecycle-methods-run-during-mounting" class="table-of-contents__link toc-highlight">99. What lifecycle methods run during mounting?</a></li><li><a href="#100-what-is-the-purpose-of-constructor" class="table-of-contents__link toc-highlight">100. What is the purpose of <code>constructor</code>?</a></li><li><a href="#101-why-should-side-effects-not-be-placed-in-render" class="table-of-contents__link toc-highlight">101. Why should side effects not be placed in <code>render()</code>?</a></li><li><a href="#102-what-is-componentdidmount-used-for" class="table-of-contents__link toc-highlight">102. What is <code>componentDidMount</code> used for?</a></li><li><a href="#103-what-lifecycle-methods-run-during-updates" class="table-of-contents__link toc-highlight">103. What lifecycle methods run during updates?</a></li><li><a href="#104-what-is-shouldcomponentupdate" class="table-of-contents__link toc-highlight">104. What is <code>shouldComponentUpdate</code>?</a></li><li><a href="#105-what-is-purecomponent" class="table-of-contents__link toc-highlight">105. What is <code>PureComponent</code>?</a></li><li><a href="#106-what-are-the-dangers-of-shallow-comparison" class="table-of-contents__link toc-highlight">106. What are the dangers of shallow comparison?</a></li><li><a href="#107-what-is-getsnapshotbeforeupdate" class="table-of-contents__link toc-highlight">107. What is <code>getSnapshotBeforeUpdate</code>?</a></li><li><a href="#108-when-does-componentdidupdate-run" class="table-of-contents__link toc-highlight">108. When does <code>componentDidUpdate</code> run?</a></li><li><a href="#109-how-do-you-prevent-infinite-loops-in-componentdidupdate" class="table-of-contents__link toc-highlight">109. How do you prevent infinite loops in <code>componentDidUpdate</code>?</a></li><li><a href="#110-what-lifecycle-method-runs-during-unmounting" class="table-of-contents__link toc-highlight">110. What lifecycle method runs during unmounting?</a></li><li><a href="#111-what-are-error-boundaries-and-which-lifecycle-methods-do-they-use" class="table-of-contents__link toc-highlight">111. What are error boundaries and which lifecycle methods do they use?</a></li><li><a href="#112-why-cant-hooks-replace-error-boundaries" class="table-of-contents__link toc-highlight">112. Why can’t hooks replace error boundaries?</a></li><li><a href="#113-what-were-the-unsafe-lifecycle-methods-and-why-were-they-deprecated" class="table-of-contents__link toc-highlight">113. What were the “unsafe” lifecycle methods and why were they deprecated?</a></li><li><a href="#114-how-do-class-lifecycle-methods-map-to-hooks" class="table-of-contents__link toc-highlight">114. How do class lifecycle methods map to hooks?</a></li><li><a href="#115-what-problems-did-class-components-have" class="table-of-contents__link toc-highlight">115. What problems did class components have?</a></li><li><a href="#116-what-is-this-binding-and-why-was-it-painful" class="table-of-contents__link toc-highlight">116. What is “this” binding and why was it painful?</a></li><li><a href="#117-why-do-hooks-lead-to-better-logic-reuse-than-classes" class="table-of-contents__link toc-highlight">117. Why do hooks lead to better logic reuse than classes?</a></li><li><a href="#118-how-do-class-components-interact-with-fiber" class="table-of-contents__link toc-highlight">118. How do class components interact with Fiber?</a></li><li><a href="#119-are-class-components-slower-than-function-components" class="table-of-contents__link toc-highlight">119. Are class components slower than function components?</a></li><li><a href="#120-when-should-class-components-still-be-used" class="table-of-contents__link toc-highlight">120. When should class components still be used?</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/better-docs/docs/Node">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

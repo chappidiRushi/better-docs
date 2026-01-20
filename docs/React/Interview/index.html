@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-React/Interview" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">React Interview Definitions (Concise &amp; Clear) | Better Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-site.example.com/better-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-site.example.com/better-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-site.example.com/better-docs/docs/React/Interview"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="React Interview Definitions (Concise &amp; Clear) | Better Docs"><meta data-rh="true" name="description" content="---"><meta data-rh="true" property="og:description" content="---"><link data-rh="true" rel="icon" href="/better-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://your-docusaurus-site.example.com/better-docs/docs/React/Interview"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/better-docs/docs/React/Interview" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/better-docs/docs/React/Interview" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"React Interview Definitions (Concise & Clear)","item":"https://your-docusaurus-site.example.com/better-docs/docs/React/Interview"}]}</script><link rel="stylesheet" href="/better-docs/assets/css/styles.8d83dfed.css">
+<script src="/better-docs/assets/js/runtime~main.2309b908.js" defer="defer"></script>
+<script src="/better-docs/assets/js/main.d0bcab07.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/better-docs/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/better-docs/"><div class="navbar__logo"><img src="/better-docs/img/logo.svg" alt="Better Docs Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/better-docs/img/logo.svg" alt="Better Docs Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Better Docs</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/better-docs/docs/Node/">CheatSheets</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbarSearchContainer_Bca1"><div class="dsla-search-wrapper"><div class="dsla-search-field" data-tags="default,docs-default-current"></div></div></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/Node/"><span title="Node.js" class="categoryLinkLabel_W154">Node.js</span></a><button aria-label="Expand sidebar category &#x27;Node.js&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/Typescript/"><span title="Typescript" class="categoryLinkLabel_W154">Typescript</span></a><button aria-label="Expand sidebar category &#x27;Typescript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/better-docs/docs/Angular/glossary"><span title="Angular" class="categoryLinkLabel_W154">Angular</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/better-docs/docs/React/glossary"><span title="React" class="categoryLinkLabel_W154">React</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/glossary"><span title="Glossary" class="linkLabel_WmDU">Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/introductions"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/under-the-hood"><span title="Under the Hood" class="linkLabel_WmDU">Under the Hood</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/component"><span title="Component" class="linkLabel_WmDU">Component</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/hooks"><span title="Hooks" class="linkLabel_WmDU">Hooks</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/advanced-state-management"><span title="Advanced State Management" class="linkLabel_WmDU">Advanced State Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/performance-and-optimization"><span title="Performance And Optimization" class="linkLabel_WmDU">Performance And Optimization</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/pattern-and-architecture"><span title="Patterns and Architecture" class="linkLabel_WmDU">Patterns and Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/error-handling-and-edge-features"><span title="Error Handling &amp; Edge Features" class="linkLabel_WmDU">Error Handling &amp; Edge Features</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/advanced-concepts-and-internals"><span title="Advanced Concepts &amp; Internals" class="linkLabel_WmDU">Advanced Concepts &amp; Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/redux"><span title="Redux" class="linkLabel_WmDU">Redux</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/router"><span title="Router" class="linkLabel_WmDU">Router</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/compound-components"><span title="Compound Components" class="linkLabel_WmDU">Compound Components</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/reference"><span title="Reference" class="linkLabel_WmDU">Reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/React/forms"><span title="Forms" class="linkLabel_WmDU">Forms</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/better-docs/docs/React/Interview"><span title="React Interview Definitions (Concise &amp; Clear)" class="linkLabel_WmDU">React Interview Definitions (Concise &amp; Clear)</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/better-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">React</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">React Interview Definitions (Concise &amp; Clear)</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>React Interview Definitions (Concise &amp; Clear)</h1></header>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="react-fundamentals">React Fundamentals<a href="#react-fundamentals" class="hash-link" aria-label="Direct link to React Fundamentals" title="Direct link to React Fundamentals" translate="no">​</a></h2>
+<p><strong>What is React?</strong>
+React is a JavaScript library for building user interfaces using component-based, declarative rendering.</p>
+<p><strong>Why was React created?</strong>
+React was created to manage complex UIs efficiently by minimizing direct DOM manipulation.</p>
+<p><strong>What problems does React solve?</strong>
+It simplifies UI composition, state management, and optimizes rendering performance.</p>
+<p><strong>Why use React instead of vanilla JavaScript?</strong>
+React provides predictable state-driven UI, reusability, and better scalability.</p>
+<p><strong>What is JSX?</strong>
+JSX is a syntax extension that allows writing UI markup inside JavaScript.</p>
+<p><strong>Is JSX required?</strong>
+No, JSX is optional and compiles to <code>React.createElement</code>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="components-props--state">Components, Props &amp; State<a href="#components-props--state" class="hash-link" aria-label="Direct link to Components, Props &amp; State" title="Direct link to Components, Props &amp; State" translate="no">​</a></h2>
+<p><strong>What is a component?</strong>
+A component is a reusable unit of UI that returns React elements.</p>
+<p><strong>Difference between element and component?</strong>
+An element is an immutable object describing UI, while a component produces elements.</p>
+<p><strong>What are props?</strong>
+Props are read-only data passed from parent to child components.</p>
+<p><strong>Can props be modified?</strong>
+No, props are immutable and controlled by the parent.</p>
+<p><strong>What is state?</strong>
+State is mutable data owned by a component that triggers re-renders.</p>
+<p><strong>Why is state treated as immutable?</strong>
+Immutability enables predictable updates and efficient change detection.</p>
+<p><strong>What is one-way data flow?</strong>
+Data flows from parent to child, making state changes predictable.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rendering--lifecycle">Rendering &amp; Lifecycle<a href="#rendering--lifecycle" class="hash-link" aria-label="Direct link to Rendering &amp; Lifecycle" title="Direct link to Rendering &amp; Lifecycle" translate="no">​</a></h2>
+<p><strong>What happens during rendering?</strong>
+React calculates a new UI tree based on current props and state.</p>
+<p><strong>What is reconciliation?</strong>
+Reconciliation is React’s process of comparing UI trees to determine minimal DOM updates.</p>
+<p><strong>What is the Virtual DOM?</strong>
+An in-memory representation of the UI used to optimize real DOM updates.</p>
+<p><strong>What is the render phase?</strong>
+A pure, interruptible phase where React computes UI changes.</p>
+<p><strong>What is the commit phase?</strong>
+The phase where React applies changes to the DOM and runs effects.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lists--keys">Lists &amp; Keys<a href="#lists--keys" class="hash-link" aria-label="Direct link to Lists &amp; Keys" title="Direct link to Lists &amp; Keys" translate="no">​</a></h2>
+<p><strong>What are keys in React?</strong>
+Keys uniquely identify list items across renders.</p>
+<p><strong>Why are keys important?</strong>
+They help React update lists efficiently and correctly.</p>
+<p><strong>Why avoid array index as key?</strong>
+Indexes change when lists reorder, causing incorrect updates and bugs.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hooks">Hooks<a href="#hooks" class="hash-link" aria-label="Direct link to Hooks" title="Direct link to Hooks" translate="no">​</a></h2>
+<p><strong>What are hooks?</strong>
+Hooks allow function components to use state, lifecycle, and React features.</p>
+<p><strong>Why were hooks introduced?</strong>
+To reuse logic easily and remove class component complexity.</p>
+<p><strong>Rules of hooks?</strong>
+Hooks must be called unconditionally and only inside React functions.</p>
+<p><strong>What does <code>useState</code> do?</strong>
+Adds local state to a function component.</p>
+<p><strong>Why is state update asynchronous?</strong>
+To enable batching and improve performance.</p>
+<p><strong>What does <code>useEffect</code> do?</strong>
+Runs side effects after rendering.</p>
+<p><strong>When does <code>useEffect</code> run?</strong>
+After render and browser paint.</p>
+<p><strong>What is effect cleanup?</strong>
+A function that cleans up resources before re-running or unmounting.</p>
+<p><strong><code>useEffect</code> vs <code>useLayoutEffect</code>?</strong>
+<code>useLayoutEffect</code> runs before paint; <code>useEffect</code> runs after paint.</p>
+<p><strong>What is <code>useRef</code> used for?</strong>
+Storing mutable values without triggering re-renders.</p>
+<p><strong><code>useMemo</code> vs <code>useCallback</code>?</strong>
+<code>useMemo</code> memoizes values, <code>useCallback</code> memoizes functions.</p>
+<p><strong>What is a custom hook?</strong>
+A reusable function that encapsulates hook logic.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="state-management">State Management<a href="#state-management" class="hash-link" aria-label="Direct link to State Management" title="Direct link to State Management" translate="no">​</a></h2>
+<p><strong>What is lifting state up?</strong>
+Moving shared state to the closest common parent.</p>
+<p><strong>What is prop drilling?</strong>
+Passing props through unnecessary intermediate components.</p>
+<p><strong>What is Context API used for?</strong>
+Sharing low-frequency global data without prop drilling.</p>
+<p><strong>When should Context be avoided?</strong>
+For frequently changing state that causes widespread re-renders.</p>
+<p><strong>Local vs global state?</strong>
+Local state belongs to a component; global state is shared.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-optimization">Performance Optimization<a href="#performance-optimization" class="hash-link" aria-label="Direct link to Performance Optimization" title="Direct link to Performance Optimization" translate="no">​</a></h2>
+<p><strong>What causes re-renders?</strong>
+State changes, prop changes, parent renders, or context updates.</p>
+<p><strong>What is <code>React.memo</code>?</strong>
+A HOC that skips re-rendering when props haven’t changed.</p>
+<p><strong>What is memoization?</strong>
+Caching results to avoid unnecessary computation.</p>
+<p><strong>When should memoization be avoided?</strong>
+When computations are cheap or props change frequently.</p>
+<p><strong>What is batching?</strong>
+Grouping multiple state updates into a single render.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="events--forms">Events &amp; Forms<a href="#events--forms" class="hash-link" aria-label="Direct link to Events &amp; Forms" title="Direct link to Events &amp; Forms" translate="no">​</a></h2>
+<p><strong>What is a synthetic event?</strong>
+React’s cross-browser wrapper around native events.</p>
+<p><strong>Controlled vs uncontrolled components?</strong>
+Controlled components use React state; uncontrolled use the DOM.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="react-18--concurrent-rendering">React 18 &amp; Concurrent Rendering<a href="#react-18--concurrent-rendering" class="hash-link" aria-label="Direct link to React 18 &amp; Concurrent Rendering" title="Direct link to React 18 &amp; Concurrent Rendering" translate="no">​</a></h2>
+<p><strong>What is concurrent rendering?</strong>
+React’s ability to interrupt and prioritize rendering work.</p>
+<p><strong>What problem does it solve?</strong>
+Keeps the UI responsive during heavy updates.</p>
+<p><strong>What is a transition?</strong>
+A non-urgent update that can be interrupted.</p>
+<p><strong>What does <code>useTransition</code> do?</strong>
+Marks updates as non-urgent.</p>
+<p><strong>What is <code>useDeferredValue</code>?</strong>
+Defers updating a value to keep the UI responsive.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="suspense--code-splitting">Suspense &amp; Code Splitting<a href="#suspense--code-splitting" class="hash-link" aria-label="Direct link to Suspense &amp; Code Splitting" title="Direct link to Suspense &amp; Code Splitting" translate="no">​</a></h2>
+<p><strong>What is Suspense?</strong>
+A mechanism for waiting on async dependencies before rendering.</p>
+<p><strong>What is lazy loading?</strong>
+Loading components only when needed.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="error-handling">Error Handling<a href="#error-handling" class="hash-link" aria-label="Direct link to Error Handling" title="Direct link to Error Handling" translate="no">​</a></h2>
+<p><strong>What is an error boundary?</strong>
+A component that catches rendering errors in its subtree.</p>
+<p><strong>What errors do error boundaries catch?</strong>
+Errors during render, lifecycle methods, and constructors.</p>
+<p><strong>Can hooks catch errors?</strong>
+No.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ssr--server-components">SSR &amp; Server Components<a href="#ssr--server-components" class="hash-link" aria-label="Direct link to SSR &amp; Server Components" title="Direct link to SSR &amp; Server Components" translate="no">​</a></h2>
+<p><strong>What is server-side rendering (SSR)?</strong>
+Rendering React components on the server before sending HTML.</p>
+<p><strong>Benefits of SSR?</strong>
+Faster initial load and improved SEO.</p>
+<p><strong>What is hydration?</strong>
+Attaching React to server-rendered HTML.</p>
+<p><strong>What causes hydration mismatch?</strong>
+Differences between server and client renders.</p>
+<p><strong>What are Server Components?</strong>
+Components that run only on the server and ship no JS to the browser.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture--scaling">Architecture &amp; Scaling<a href="#architecture--scaling" class="hash-link" aria-label="Direct link to Architecture &amp; Scaling" title="Direct link to Architecture &amp; Scaling" translate="no">​</a></h2>
+<p><strong>What makes a React app scalable?</strong>
+Feature-based structure, clear separation of concerns, and predictable state.</p>
+<p><strong>How should large React apps be structured?</strong>
+By features rather than file types.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="react-fiber-internals">React Fiber (Internals)<a href="#react-fiber-internals" class="hash-link" aria-label="Direct link to React Fiber (Internals)" title="Direct link to React Fiber (Internals)" translate="no">​</a></h2>
+<p><strong>What is React Fiber?</strong>
+React’s internal reconciliation engine enabling incremental rendering.</p>
+<p><strong>Why was Fiber introduced?</strong>
+To support prioritization, interruption, and concurrency.</p>
+<p><strong>What is a Fiber node?</strong>
+An object representing a component and its state in the render tree.</p>
+<p><strong>What are lanes?</strong>
+Priority levels used to schedule updates.</p>
+<p><strong>Why must hooks be called in order?</strong>
+Because hook state is matched by call order, not name.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="class-components">Class Components<a href="#class-components" class="hash-link" aria-label="Direct link to Class Components" title="Direct link to Class Components" translate="no">​</a></h2>
+<p><strong>What is a class component?</strong>
+A component defined using ES6 classes with lifecycle methods.</p>
+<p><strong>Why were class components needed?</strong>
+They enabled state and lifecycle before hooks.</p>
+<p><strong>When are class components still used?</strong>
+For error boundaries and legacy code.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="anti-patterns">Anti-Patterns<a href="#anti-patterns" class="hash-link" aria-label="Direct link to Anti-Patterns" title="Direct link to Anti-Patterns" translate="no">​</a></h2>
+<p><strong>Why is derived state an anti-pattern?</strong>
+It duplicates data and causes synchronization bugs.</p>
+<p><strong>Why is mutating state bad?</strong>
+It breaks React’s change detection.</p>
+<p><strong>Why avoid side effects in render?</strong>
+Render must be pure and predictable.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="senior-level-understanding">Senior-Level Understanding<a href="#senior-level-understanding" class="hash-link" aria-label="Direct link to Senior-Level Understanding" title="Direct link to Senior-Level Understanding" translate="no">​</a></h2>
+<p><strong>What separates a senior React engineer?</strong>
+Architectural thinking, performance awareness, and ability to simplify systems.</p>
+<hr>
+<p><strong>This format is optimized for fast recall and spoken interview answers.</strong></p>
+<h1>Hardcore / Senior Level</h1>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="core-philosophy">Core Philosophy<a href="#core-philosophy" class="hash-link" aria-label="Direct link to Core Philosophy" title="Direct link to Core Philosophy" translate="no">​</a></h2>
+<p><strong>What is React fundamentally?</strong>
+React is a UI rendering library focused on describing state → UI mappings, not a full framework.</p>
+<p><strong>What does “React is declarative” actually mean?</strong>
+You describe the desired UI state, and React determines how to update the DOM.</p>
+<p><strong>What does “UI = f(state)” imply?</strong>
+The UI is a pure function of application state and props.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rendering-model">Rendering Model<a href="#rendering-model" class="hash-link" aria-label="Direct link to Rendering Model" title="Direct link to Rendering Model" translate="no">​</a></h2>
+<p><strong>What is rendering in React?</strong>
+Rendering is the process of executing components to produce a description of UI, not DOM updates.</p>
+<p><strong>Why must render be pure?</strong>
+Because React may run, pause, restart, or discard renders.</p>
+<p><strong>What is idempotent rendering?</strong>
+Multiple renders with the same inputs must produce the same output.</p>
+<p><strong>Why are side effects forbidden during render?</strong>
+They can cause inconsistent UI and infinite loops.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reconciliation--diffing">Reconciliation &amp; Diffing<a href="#reconciliation--diffing" class="hash-link" aria-label="Direct link to Reconciliation &amp; Diffing" title="Direct link to Reconciliation &amp; Diffing" translate="no">​</a></h2>
+<p><strong>What is reconciliation?</strong>
+Reconciliation is React’s algorithm for comparing two UI trees to compute minimal updates.</p>
+<p><strong>How does React diff efficiently?</strong>
+By assuming:</p>
+<ul>
+<li class="">Elements of different types produce different trees</li>
+<li class="">Keys uniquely identify siblings</li>
+</ul>
+<p><strong>What is a bailout?</strong>
+When React skips rendering a subtree because inputs haven’t changed.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fiber-architecture">Fiber Architecture<a href="#fiber-architecture" class="hash-link" aria-label="Direct link to Fiber Architecture" title="Direct link to Fiber Architecture" translate="no">​</a></h2>
+<p><strong>What is React Fiber?</strong>
+Fiber is React’s internal architecture that enables incremental, interruptible rendering.</p>
+<p><strong>What problem did Fiber solve?</strong>
+The legacy stack reconciler was synchronous and blocked the main thread.</p>
+<p><strong>What is a Fiber node?</strong>
+A JavaScript object representing a unit of work in the component tree.</p>
+<p><strong>What does a Fiber node store?</strong>
+Type, props, state, hooks, effect flags, and tree relationships.</p>
+<p><strong>What is the “alternate” Fiber?</strong>
+The previous committed version used for double buffering.</p>
+<p><strong>Why does React use double buffering?</strong>
+To prepare a new UI tree without mutating the committed one.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scheduling--concurrency">Scheduling &amp; Concurrency<a href="#scheduling--concurrency" class="hash-link" aria-label="Direct link to Scheduling &amp; Concurrency" title="Direct link to Scheduling &amp; Concurrency" translate="no">​</a></h2>
+<p><strong>What is cooperative scheduling?</strong>
+React yields control back to the browser between units of work.</p>
+<p><strong>What is a unit of work?</strong>
+Processing a single Fiber node during rendering.</p>
+<p><strong>What is time slicing?</strong>
+Splitting rendering into chunks to avoid blocking the main thread.</p>
+<p><strong>What are lanes?</strong>
+Priority buckets that determine update scheduling.</p>
+<p><strong>Why doesn’t concurrency mean parallelism?</strong>
+All React rendering runs on the single main thread.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="commit-phase-internals">Commit Phase Internals<a href="#commit-phase-internals" class="hash-link" aria-label="Direct link to Commit Phase Internals" title="Direct link to Commit Phase Internals" translate="no">​</a></h2>
+<p><strong>Why is the commit phase not interruptible?</strong>
+Interrupting DOM mutations would lead to inconsistent UI.</p>
+<p><strong>What happens during commit?</strong></p>
+<ul>
+<li class="">DOM mutations</li>
+<li class="">Ref updates</li>
+<li class="">Layout effects</li>
+<li class="">Passive effects scheduling</li>
+</ul>
+<p><strong>What are effect flags?</strong>
+Markers describing what work must be done during commit.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hooks-internals">Hooks Internals<a href="#hooks-internals" class="hash-link" aria-label="Direct link to Hooks Internals" title="Direct link to Hooks Internals" translate="no">​</a></h2>
+<p><strong>How are hooks stored internally?</strong>
+As a linked list attached to the Fiber node.</p>
+<p><strong>Why must hooks be called in the same order?</strong>
+Because React matches hook state by position, not name.</p>
+<p><strong>What breaks if hook order changes?</strong>
+React associates state with the wrong hook.</p>
+<p><strong>What is a stale closure?</strong>
+When a function captures outdated state due to closures.</p>
+<p><strong>How do functional updates fix stale closures?</strong>
+They receive the latest state directly from React.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="effects-deep-dive">Effects Deep Dive<a href="#effects-deep-dive" class="hash-link" aria-label="Direct link to Effects Deep Dive" title="Direct link to Effects Deep Dive" translate="no">​</a></h2>
+<p><strong>Why does <code>useEffect</code> run after paint?</strong>
+To avoid blocking visual updates.</p>
+<p><strong>Why does <code>useLayoutEffect</code> block paint?</strong>
+It must run synchronously for DOM measurements.</p>
+<p><strong>Why does Strict Mode double-invoke effects?</strong>
+To expose unsafe side effects and missing cleanup.</p>
+<p><strong>When does cleanup run?</strong>
+Before the next effect and on unmount.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="state-management-theory">State Management Theory<a href="#state-management-theory" class="hash-link" aria-label="Direct link to State Management Theory" title="Direct link to State Management Theory" translate="no">​</a></h2>
+<p><strong>What is a single source of truth?</strong>
+Each piece of data should be owned in exactly one place.</p>
+<p><strong>Why is duplicated state dangerous?</strong>
+Multiple sources of truth drift out of sync.</p>
+<p><strong>What is derived state?</strong>
+State computed from other state or props.</p>
+<p><strong>Why should derived state usually not be stored?</strong>
+It introduces synchronization bugs.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="server-vs-client-state">Server vs Client State<a href="#server-vs-client-state" class="hash-link" aria-label="Direct link to Server vs Client State" title="Direct link to Server vs Client State" translate="no">​</a></h2>
+<p><strong>What is server state?</strong>
+Remote data that requires caching, synchronization, and revalidation.</p>
+<p><strong>What is client state?</strong>
+Ephemeral UI state like modals, inputs, and tabs.</p>
+<p><strong>Why separate them?</strong>
+They have different lifecycles and consistency requirements.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="suspense-internals">Suspense Internals<a href="#suspense-internals" class="hash-link" aria-label="Direct link to Suspense Internals" title="Direct link to Suspense Internals" translate="no">​</a></h2>
+<p><strong>How does Suspense work internally?</strong>
+By throwing promises during render.</p>
+<p><strong>What does React do when a promise is thrown?</strong>
+Pauses rendering and shows a fallback.</p>
+<p><strong>Why must Suspense integrate with rendering?</strong>
+To avoid loading waterfalls.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ssr--hydration-internals">SSR &amp; Hydration Internals<a href="#ssr--hydration-internals" class="hash-link" aria-label="Direct link to SSR &amp; Hydration Internals" title="Direct link to SSR &amp; Hydration Internals" translate="no">​</a></h2>
+<p><strong>What is hydration from React’s perspective?</strong>
+Matching Fiber nodes to existing DOM instead of creating new ones.</p>
+<p><strong>What happens on hydration mismatch?</strong>
+React discards server markup and re-renders on the client.</p>
+<p><strong>Why are random values dangerous in SSR?</strong>
+They cause mismatched renders.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="server-components">Server Components<a href="#server-components" class="hash-link" aria-label="Direct link to Server Components" title="Direct link to Server Components" translate="no">​</a></h2>
+<p><strong>What are React Server Components?</strong>
+Components that run only on the server and never ship JS.</p>
+<p><strong>What problems do Server Components solve?</strong></p>
+<ul>
+<li class="">Smaller bundles</li>
+<li class="">Direct data access</li>
+<li class="">Faster startup</li>
+</ul>
+<p><strong>How are Server Components different from SSR?</strong>
+SSR still ships JS; Server Components do not.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-pathologies">Performance Pathologies<a href="#performance-pathologies" class="hash-link" aria-label="Direct link to Performance Pathologies" title="Direct link to Performance Pathologies" translate="no">​</a></h2>
+<p><strong>What is over-rendering?</strong>
+Rendering more of the tree than necessary.</p>
+<p><strong>What is over-memoization?</strong>
+Adding memoization without measurable benefit.</p>
+<p><strong>What is layout thrashing?</strong>
+Repeated DOM reads and writes causing reflows.</p>
+<p><strong>What is virtualization?</strong>
+Rendering only visible items in large lists.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="event-system">Event System<a href="#event-system" class="hash-link" aria-label="Direct link to Event System" title="Direct link to Event System" translate="no">​</a></h2>
+<p><strong>What is event delegation in React?</strong>
+React attaches a single event listener at the root.</p>
+<p><strong>Why does React use synthetic events?</strong>
+Consistency and performance.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="advanced-patterns">Advanced Patterns<a href="#advanced-patterns" class="hash-link" aria-label="Direct link to Advanced Patterns" title="Direct link to Advanced Patterns" translate="no">​</a></h2>
+<p><strong>What is component composition?</strong>
+Building UIs by combining components instead of inheritance.</p>
+<p><strong>What is a headless component?</strong>
+Logic without UI.</p>
+<p><strong>What is a render prop?</strong>
+A function prop controlling rendering.</p>
+<p><strong>What is ref forwarding?</strong>
+Passing refs through components to DOM nodes.</p>
+<p><strong>What problem do portals solve?</strong>
+Rendering outside the DOM hierarchy while preserving context.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="anti-patterns-advanced">Anti-Patterns (Advanced)<a href="#anti-patterns-advanced" class="hash-link" aria-label="Direct link to Anti-Patterns (Advanced)" title="Direct link to Anti-Patterns (Advanced)" translate="no">​</a></h2>
+<p><strong>Why is excessive <code>useEffect</code> a smell?</strong>
+It often indicates misplaced logic.</p>
+<p><strong>Why are inline objects/functions problematic?</strong>
+They break referential equality.</p>
+<p><strong>Why is syncing props to state dangerous?</strong>
+It creates redundant sources of truth.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture--large-systems">Architecture &amp; Large Systems<a href="#architecture--large-systems" class="hash-link" aria-label="Direct link to Architecture &amp; Large Systems" title="Direct link to Architecture &amp; Large Systems" translate="no">​</a></h2>
+<p><strong>What makes frontend architecture scalable?</strong></p>
+<ul>
+<li class="">Clear ownership</li>
+<li class="">Predictable data flow</li>
+<li class="">Minimal shared state</li>
+<li class="">Strong conventions</li>
+</ul>
+<p><strong>What is micro-frontend architecture?</strong>
+Independently deployed frontend modules.</p>
+<p><strong>Tradeoffs of micro-frontends?</strong>
+Autonomy vs complexity and performance cost.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="senior-level-signals">Senior-Level Signals<a href="#senior-level-signals" class="hash-link" aria-label="Direct link to Senior-Level Signals" title="Direct link to Senior-Level Signals" translate="no">​</a></h2>
+<p><strong>What distinguishes senior React engineers?</strong></p>
+<ul>
+<li class="">Understand rendering deeply</li>
+<li class="">Anticipate performance issues</li>
+<li class="">Choose simplicity over cleverness</li>
+<li class="">Reason about tradeoffs</li>
+</ul>
+<p><strong>What distinguishes staff/principal engineers?</strong></p>
+<ul>
+<li class="">System-wide thinking</li>
+<li class="">Cross-team architecture</li>
+<li class="">Long-term maintainability decisions</li>
+</ul>
+<hr></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/React/Interview.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/better-docs/docs/React/forms"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Forms</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#react-fundamentals" class="table-of-contents__link toc-highlight">React Fundamentals</a></li><li><a href="#components-props--state" class="table-of-contents__link toc-highlight">Components, Props &amp; State</a></li><li><a href="#rendering--lifecycle" class="table-of-contents__link toc-highlight">Rendering &amp; Lifecycle</a></li><li><a href="#lists--keys" class="table-of-contents__link toc-highlight">Lists &amp; Keys</a></li><li><a href="#hooks" class="table-of-contents__link toc-highlight">Hooks</a></li><li><a href="#state-management" class="table-of-contents__link toc-highlight">State Management</a></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a></li><li><a href="#events--forms" class="table-of-contents__link toc-highlight">Events &amp; Forms</a></li><li><a href="#react-18--concurrent-rendering" class="table-of-contents__link toc-highlight">React 18 &amp; Concurrent Rendering</a></li><li><a href="#suspense--code-splitting" class="table-of-contents__link toc-highlight">Suspense &amp; Code Splitting</a></li><li><a href="#error-handling" class="table-of-contents__link toc-highlight">Error Handling</a></li><li><a href="#ssr--server-components" class="table-of-contents__link toc-highlight">SSR &amp; Server Components</a></li><li><a href="#architecture--scaling" class="table-of-contents__link toc-highlight">Architecture &amp; Scaling</a></li><li><a href="#react-fiber-internals" class="table-of-contents__link toc-highlight">React Fiber (Internals)</a></li><li><a href="#class-components" class="table-of-contents__link toc-highlight">Class Components</a></li><li><a href="#anti-patterns" class="table-of-contents__link toc-highlight">Anti-Patterns</a></li><li><a href="#senior-level-understanding" class="table-of-contents__link toc-highlight">Senior-Level Understanding</a></li><li><a href="#core-philosophy" class="table-of-contents__link toc-highlight">Core Philosophy</a></li><li><a href="#rendering-model" class="table-of-contents__link toc-highlight">Rendering Model</a></li><li><a href="#reconciliation--diffing" class="table-of-contents__link toc-highlight">Reconciliation &amp; Diffing</a></li><li><a href="#fiber-architecture" class="table-of-contents__link toc-highlight">Fiber Architecture</a></li><li><a href="#scheduling--concurrency" class="table-of-contents__link toc-highlight">Scheduling &amp; Concurrency</a></li><li><a href="#commit-phase-internals" class="table-of-contents__link toc-highlight">Commit Phase Internals</a></li><li><a href="#hooks-internals" class="table-of-contents__link toc-highlight">Hooks Internals</a></li><li><a href="#effects-deep-dive" class="table-of-contents__link toc-highlight">Effects Deep Dive</a></li><li><a href="#state-management-theory" class="table-of-contents__link toc-highlight">State Management Theory</a></li><li><a href="#server-vs-client-state" class="table-of-contents__link toc-highlight">Server vs Client State</a></li><li><a href="#suspense-internals" class="table-of-contents__link toc-highlight">Suspense Internals</a></li><li><a href="#ssr--hydration-internals" class="table-of-contents__link toc-highlight">SSR &amp; Hydration Internals</a></li><li><a href="#server-components" class="table-of-contents__link toc-highlight">Server Components</a></li><li><a href="#performance-pathologies" class="table-of-contents__link toc-highlight">Performance Pathologies</a></li><li><a href="#event-system" class="table-of-contents__link toc-highlight">Event System</a></li><li><a href="#advanced-patterns" class="table-of-contents__link toc-highlight">Advanced Patterns</a></li><li><a href="#anti-patterns-advanced" class="table-of-contents__link toc-highlight">Anti-Patterns (Advanced)</a></li><li><a href="#architecture--large-systems" class="table-of-contents__link toc-highlight">Architecture &amp; Large Systems</a></li><li><a href="#senior-level-signals" class="table-of-contents__link toc-highlight">Senior-Level Signals</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/better-docs/docs/Node">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

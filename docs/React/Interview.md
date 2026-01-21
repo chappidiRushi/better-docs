@@ -1,4 +1,4 @@
-# React Interview Definitions (Concise & Clear)
+# React Interview Definitions
 
 ---
 

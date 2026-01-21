@@ -4,6 +4,9 @@ title: Bootstrap
 sidebar_position: 1
 -------------------
 
+```text
+
+
 Write Component
    ↓ // JSX in function/class
 JSX Compiled
@@ -14,7 +17,7 @@ Select DOM Container
    ↓ // document.getElementById
 createRoot()
    ↓ // React root initialized
-root.render(<App />)
+root.render(App)
    ↓ // Initial update scheduled
 Fiber Root Created
    ↓ // HostRoot fiber
@@ -63,3 +66,5 @@ Event System Active
 App Interactive
    ↓ // Ready for updates
 State Updates Trigger Loop Again
+
+```

@@ -1,44 +1,55 @@
 ---
-
 id: under-the-hood
 title: Under the Hood
 sidebar_position: 3
 -------------------
 
-# From JSX to Pixels: How React Renders
-
-> A concise, end‑to‑end view of what happens from writing JSX to seeing updates on the screen.
+# From JSX to Pixels: How React Renders (Chronological Mental Model)
 
 ---
 
-## Important Clarification (Reconciliation vs Fiber)
+## First: A Critical Clarification (Reconciliation vs Fiber)
 
-Before diving in, let’s correct a common misconception:
+Before the pipeline, let’s fix a common misconception:
 
-* **Reconciliation** is the **process** that determines *what changed* between renders.
-* **Fiber** is the **internal architecture (data structure + reconciler + scheduler)** that *executes reconciliation* and *controls when work happens*.
+* **Reconciliation** is the *process* of figuring out **what changed**
+* **Fiber** is the *engine* that **runs reconciliation and schedules work**
 
 In short:
 
-> **Reconciliation decides *what* should change.**
-> **Fiber decides *when* and *how* those changes are processed.**
+> **Reconciliation decides *what* should change**
+> **Fiber decides *when* and *how* that work runs**
 
-Fiber does **not** replace reconciliation — it **powers it**.
+Fiber does **not replace** reconciliation — it **implements and powers it**.
+
+Keep this distinction in mind as we walk through the pipeline.
 
 ---
 
-## 1. Writing JSX (Authoring Phase)
+## The Big Picture (Keep This Mental Model)
 
-Developers write JSX to describe **what the UI should look like for a given state**.
+```txt
+JSX
+ → React Elements (UI description)
+ → Fiber Trees (current & work-in-progress)
+ → Render Phase (reconciliation: find changes)
+ → Commit Phase (apply changes)
+ → Effects
+```
 
-Key points:
+Everything below fits into this flow.
 
-* JSX is JavaScript, not HTML
-* Components express **UI intent**, not DOM instructions
+---
+
+## 1. Authoring Phase: Writing JSX
+
+Developers write **JSX** to describe what the UI should look like for a given state.
+
+Key ideas:
+
+* JSX is **JavaScript**, not HTML
+* Components describe **UI intent**, not DOM steps
 * Function components are just functions that return UI descriptions
-
-<details>
-<summary>Example</summary>
 
 ```js
 function App({ name }) {
@@ -46,20 +57,22 @@ function App({ name }) {
 }
 ```
 
-</details>
+At this stage:
+
+* ❌ No rendering
+* ❌ No DOM
+* ✅ Just declarative UI intent
 
 ---
 
-## 2. JSX Compilation (Build Time)
+## 2. Build Time: JSX Compilation
 
-JSX is compiled by tools like **Babel** or **SWC**.
+Before your app ever runs, JSX is compiled by tools like **Babel** or **SWC**.
 
-* Happens at **build time**, not runtime
-* Transforms JSX into function calls
-* Produces plain JavaScript objects
+What happens:
 
-<details>
-<summary>Example</summary>
+* JSX is transformed into function calls
+* This happens at **build time**, not runtime
 
 ```js
 // JSX
@@ -73,59 +86,47 @@ React.createElement(
 );
 ```
 
-</details>
+Important:
+
+* JSX itself never reaches the browser
+* The browser only sees plain JavaScript
 
 ---
 
-## 3. React Elements (UI Description Phase)
+## 3. Runtime: React Elements (UI Descriptions)
 
-`React.createElement` returns **React elements** — immutable descriptions of the UI.
+`React.createElement` produces **React elements**.
 
-Key points:
+React elements are:
 
-* Elements are plain JavaScript objects
-* They describe *what the UI should look like*
-* Often (informally) called the **Virtual DOM**
-* **No DOM updates or effects happen here**
+* Plain JavaScript objects
+* Immutable
+* Descriptions of *what the UI should look like*
 
-<details>
-<summary>Example</summary>
+They are often informally called the **Virtual DOM**, but they are **not** the real DOM and do nothing by themselves.
 
 ```js
-function MyComp() {
-  return <h1>Hello world <p>meow P</p></h1>;
-}
-
-// Simplified React element structure
 {
   $$typeof: Symbol(react.element),
   type: 'h1',
   key: null,
   props: {
-    children: [
-      'Hello world ',
-      { type: 'p', props: { children: 'meow P' } }
-    ]
+    children: 'Hello'
   }
 }
 ```
 
-</details>
+At this stage:
+
+* ❌ No DOM updates
+* ❌ No effects
+* ✅ Just a tree of UI descriptions
 
 ---
 
-## 4. Root Creation & Initial Render
+## 4. Starting the Render: Root Creation
 
-Rendering begins when a **root** is created and `render` is called.
-
-What happens:
-
-* React creates the **root Fiber node**
-* Connects React to the host environment (DOM)
-* Starts the first reconciliation
-
-<details>
-<summary>Example</summary>
+Rendering begins when you create a **root** and call `render`.
 
 ```js
 import { createRoot } from 'react-dom/client';
@@ -134,133 +135,133 @@ const root = createRoot(document.getElementById('root'));
 root.render(<App name="React" />);
 ```
 
-</details>
+What React does here:
+
+* Creates the **root Fiber**
+* Connects React to the host environment (DOM)
+* Schedules the **initial render**
+
+This is the entry point into the Fiber system.
 
 ---
 
-## 5. Reconciliation (Render Phase — Finding Changes)
+## 5. Fiber: The Internal Representation
+
+React does not work directly with React elements.
+
+Instead, it builds and maintains **Fiber trees**.
+
+Each Fiber node represents:
+
+* A component instance
+* A DOM node
+* Or an internal wrapper (like fragments)
+
+React maintains **two trees**:
+
+* **Current tree** → what’s on the screen now
+* **Work-in-progress tree** → what React is building next
+
+These trees are the foundation for reconciliation.
+
+---
+
+## 6. Render Phase: Reconciliation (Finding Changes)
 
 ### What Reconciliation Is
 
-**Reconciliation** is the algorithmic process React uses to determine **what changed** between renders.
+**Reconciliation** is the process of comparing:
 
-It works by:
+* The **current Fiber tree**
+* With a **new work-in-progress tree** built from React elements
 
-* Comparing the **current Fiber tree**
-* With a **new work‑in‑progress Fiber tree** built from React elements
-* Deciding what can be **reused, updated, or replaced**
+Its job is to determine:
 
-What reconciliation **does**:
+* What can be reused
+* What needs to change
+* What needs to be created or removed
 
-* Re-runs function components
-* Compares elements by type and key
-* Marks Fibers with **flags** describing required changes
+### What Happens During Reconciliation
 
-What reconciliation **does NOT do**:
+* Function components are re-executed
+* Child elements are compared by **type and key**
+* Fibers are marked with **flags** describing required changes
+
+What reconciliation **does not do**:
 
 * ❌ Mutate the DOM
 * ❌ Run effects
-* ❌ Guarantee a perfect minimal diff (it is heuristic-based)
+* ❌ Guarantee a perfect minimal diff (it’s heuristic-based)
 
 ---
 
 ### Characteristics of the Render Phase
 
-* Expected to be **pure** (no side effects)
-* **Interruptible** and restartable
-* Work can be **paused or discarded** if higher-priority updates arrive
-
-<details>
-<summary>Notes</summary>
+* Must be **pure** (no side effects)
+* **Interruptible and restartable**
+* Can be paused, resumed, or abandoned
 
 ```txt
-- Function components execute top to bottom
+- Components execute top to bottom
 - Hooks must be called in the same order
 - No DOM mutations occur here
 ```
 
-</details>
+This is where **Fiber’s scheduling power matters**.
 
 ---
 
-## 6. React Fiber (The Engine Behind Rendering)
+## 7. Scheduling, Priorities, and Concurrency (Fiber’s Job)
 
-### What Fiber Is
+Fiber allows React to control *when* work happens.
 
-**Fiber** is React’s internal architecture consisting of:
-
-* A **data structure** (Fiber nodes)
-* A **reconciler** (diffing logic)
-* A **scheduler** (priorities and timing)
-
-Each component instance corresponds to a **Fiber node**, forming a Fiber tree.
-
----
-
-### What Fiber Enables
-
-Fiber allows React to:
-
-* Split work into **small units**
-* Pause, resume, or abandon rendering work
-* Assign **priorities** to updates
-* Support **concurrent rendering**
-
-Without Fiber, rendering would be fully synchronous and blocking.
-
----
-
-### Scheduling & Priorities
-
-React assigns priorities to updates:
+Each update is assigned a **priority** (internally via lanes):
 
 * **Urgent** — user input (typing, clicks)
-* **Transition** — non-blocking UI updates (`startTransition`)
+* **Transition** — non-blocking updates (`startTransition`)
 * **Default** — normal updates
-* **Idle** — background or offscreen work
+* **Idle** — background work
 
-Higher-priority work can interrupt lower-priority work.
+Higher-priority work can:
 
----
+* Interrupt lower-priority renders
+* Cause React to restart reconciliation
 
-### Capabilities Enabled by Fiber
+This enables:
 
-* Incremental rendering (time slicing)
+* Time slicing
 * Concurrent rendering
-* Automatic batching
-* Suspense & lazy loading
-* Streaming SSR
-* Improved error handling via error boundaries
+* Smooth user interactions
 
 ---
 
-## 7. Commit Phase (Applying Changes)
+## 8. Commit Phase: Applying Changes
 
-Once reconciliation completes, React enters the **commit phase**.
+Once React finishes reconciliation, it enters the **commit phase**.
 
-What happens here:
+This phase:
 
-* DOM mutations
-* Ref updates
-* `useLayoutEffect` callbacks
+* Applies DOM mutations
+* Updates refs
+* Runs `useLayoutEffect`
 
-Characteristics:
+Key properties:
 
-* **Synchronous and non-interruptible**
-* Always reflects the latest finished render
+* **Synchronous**
+* **Non-interruptible**
+* Always reflects the latest completed render
+
+This is the **only phase** where the DOM is touched.
 
 ---
 
-## 8. Effects & Lifecycle Timing
+## 9. Effects and Browser Paint
 
 After the commit phase:
 
-1. `useLayoutEffect` runs **before paint**
-2. Browser paints
-3. `useEffect` runs **after paint**
-
-<details>
-<summary>Example</summary>
+1. `useLayoutEffect` runs (before paint)
+2. Browser paints the screen
+3. `useEffect` runs (after paint)
 
 ```js
 useEffect(() => {
@@ -269,72 +270,234 @@ useEffect(() => {
 }, []);
 ```
 
-</details>
+This separation prevents layout thrashing and visual tearing.
 
 ---
 
-## 9. Updates: State & Props Changes
+## 10. Updates: State, Props, and Re-renders
 
 When state or props change:
 
-* An update is **scheduled**
-* Fiber assigns it a priority
-* Reconciliation may restart
-
-<details>
-<summary>Example</summary>
-
 ```js
-setCount(c => c + 1); // schedules work, not an immediate DOM change
+setCount(c => c + 1);
 ```
 
-</details>
+What actually happens:
+
+* An update is **scheduled**
+* A priority is assigned
+* Reconciliation may restart
+* DOM updates happen later during commit
+
+State updates **schedule work** — they do not directly mutate the DOM.
 
 ---
 
-## 10. Event System (Synthetic Events)
+## 11. Event System (Synthetic Events)
 
-React uses a **delegated synthetic event system**.
+React uses a delegated **synthetic event system**.
 
 Key points:
 
-* One listener per event type per root container
+* One listener per event type per root
 * Cross-browser normalization
-* Event-triggered updates are batched and scheduled via Fiber
+* Event-triggered updates are automatically batched
+* Updates flow through Fiber like any other update
+
+Events don’t bypass the rendering pipeline — they feed into it.
 
 ---
 
-## Mental Model Summary
+## Stack Reconciler vs Fiber (Why This Matters)
 
-```txt
-JSX
- → React Elements
- → Fiber Tree
- → Reconciliation (render phase — find changes)
- → Commit Phase (apply DOM updates)
- → Effects
-```
+| Feature       | Stack (≤15) | Fiber (16+)      |
+| ------------- | ----------- | ---------------- |
+| Execution     | Synchronous | Interruptible    |
+| Scheduling    | ❌ None      | ✅ Priority-based |
+| Time slicing  | ❌           | ✅                |
+| Suspense      | ❌           | ✅                |
+| Concurrent UI | ❌           | ✅                |
+| Architecture  | Call stack  | Fiber tree       |
 
----
-
-## Stack Reconciler vs Fiber
-
-| Feature        | Stack (≤15) | Fiber (16+)      |
-| -------------- | ----------- | ---------------- |
-| Execution      | Synchronous | Interruptible    |
-| Scheduling     | ❌ None      | ✅ Priority-based |
-| Time slicing   | ❌           | ✅                |
-| Suspense       | ❌           | ✅                |
-| Concurrent UI  | ❌           | ✅                |
-| Architecture   | Call stack  | Fiber node tree  |
-| Error handling | Limited     | Error boundaries |
+Fiber is what makes modern React possible.
 
 ---
 
 ## Key Takeaways
 
-* **Reconciliation determines what changed**
-* **Fiber schedules and executes rendering work**
-* React elements are descriptions, not DOM nodes
-* Render and commit phases are strictly separated
-* DOM mutations happen only during the commit phase
+* JSX describes **intent**, not instructions
+* React elements are **immutable UI descriptions**
+* Fiber is React’s internal execution engine
+* Reconciliation finds **what changed**
+* Commit phase applies **actual DOM updates**
+* Effects always run **after commit**
+* Scheduling and priorities enable smooth, concurrent UIs
+
+---
+## Visual Diagram: Current Tree vs Work-In-Progress Tree
+
+This diagram shows **what React is actually doing internally during rendering**.
+
+### Key Idea
+
+React **never mutates the current UI directly**.
+Instead, it builds a **new tree in memory**, then swaps it in during commit.
+
+---
+
+### Before an Update (Only Current Tree Exists)
+
+```txt
+Current Fiber Tree (on screen)
+--------------------------------
+<App>
+ ├─ <Header>
+ ├─ <Main>
+ │   ├─ <Post />
+ │   └─ <Sidebar />
+ └─ <Footer>
+```
+
+* This tree **matches the DOM**
+* User is seeing this UI
+* No work is in progress
+
+---
+
+### During an Update (Render Phase)
+
+```txt
+Current Tree (read-only)        Work-In-Progress Tree (being built)
+-------------------------       -----------------------------------
+<App>                            <App>
+ ├─ <Header>        ─────▶        ├─ <Header>        (reused)
+ ├─ <Main>          ─────▶        ├─ <Main>
+ │   ├─ <Post />    ─────▶        │   ├─ <Post />    (updated)
+ │   └─ <Sidebar /> ─────▶        │   └─ <Sidebar /> (unchanged)
+ └─ <Footer>        ─────▶        └─ <Footer>
+```
+
+What’s happening:
+
+* React **re-runs components**
+* Fibers are:
+
+  * reused
+  * cloned
+  * or newly created
+* Changes are recorded as **flags**, not DOM mutations
+
+⚠️ The DOM is **untouched** during this phase.
+
+---
+
+### After Commit (Tree Swap)
+
+```txt
+Old Current Tree ❌ (discarded)
+
+New Current Fiber Tree ✅ (now on screen)
+----------------------------------------
+<App>
+ ├─ <Header>
+ ├─ <Main>
+ │   ├─ <Post />   ← updated DOM node
+ │   └─ <Sidebar />
+ └─ <Footer>
+```
+
+* Work-in-progress becomes the **new current tree**
+* DOM mutations already applied
+* React is ready for the next update
+
+---
+
+### Why This Matters
+
+This dual-tree model enables:
+
+* Interruptible rendering
+* Safe concurrency
+* Restartable renders
+* Predictable commits
+
+Without it, React would be forced to mutate the DOM mid-render.
+
+---
+
+## Hook-by-Hook Timing Table
+
+This table answers one of the **most common sources of confusion**:
+
+> *“When exactly does each hook run?”*
+
+---
+
+### Hook Execution Timeline
+
+| Hook                             | Phase          | Runs When                        | Can Read DOM? | Can Mutate DOM? | Blocks Paint? |
+| -------------------------------- | -------------- | -------------------------------- | ------------- | --------------- | ------------- |
+| `useState`                       | Render         | During render                    | ❌             | ❌               | ❌             |
+| `useReducer`                     | Render         | During render                    | ❌             | ❌               | ❌             |
+| `useMemo`                        | Render         | During render                    | ❌             | ❌               | ❌             |
+| `useCallback`                    | Render         | During render                    | ❌             | ❌               | ❌             |
+| `useContext`                     | Render         | During render                    | ❌             | ❌               | ❌             |
+| `useRef` (read/write `.current`) | Render         | During render                    | ❌             | ❌               | ❌             |
+| `useLayoutEffect`                | Commit         | After DOM mutation, before paint | ✅             | ✅               | ✅             |
+| `useEffect`                      | Post-Commit    | After paint                      | ✅             | ❌               | ❌             |
+| `useInsertionEffect`             | Commit (early) | Before layout effects            | ❌             | ✅ (styles only) | ✅             |
+
+---
+
+### Simplified Timeline View
+
+```txt
+Render Phase
+------------
+useState
+useReducer
+useMemo
+useCallback
+useContext
+useRef
+
+Commit Phase
+------------
+DOM mutations
+useInsertionEffect
+useLayoutEffect
+
+Browser Paint
+-------------
+(pixels update)
+
+Post-Commit
+-----------
+useEffect
+```
+
+---
+
+### Practical Rules of Thumb
+
+* **Never cause side effects in render**
+* **DOM reads/writes that must be synchronous → `useLayoutEffect`**
+* **Most side effects → `useEffect`**
+* **CSS-in-JS libraries → `useInsertionEffect`**
+* **Performance optimization only → `useMemo` / `useCallback`**
+
+---
+
+### Common Mistake (Worth Calling Out)
+
+```js
+useLayoutEffect(() => {
+  setState(...) // ⚠️ can cause layout thrashing
+});
+```
+
+* Blocks paint
+* Can cause visible jank
+* Should be rare and intentional
+
+---

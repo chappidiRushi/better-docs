@@ -1,144 +1,151 @@
 ---
 
-id: web-components
-
+id: html-web-components
 title: Web Components
+sidebar_position: 22
+--------------------
 
-sidebar_position: 12
+# HTML and Web Components
 
------------
-
-# Web Components
-
-> Native component model for encapsulation, reuse, and interoperability without frameworks
+> How HTML is extended using Custom Elements, Shadow DOM, slots, and declarative composition — and where HTML alone stops.
 
 ---
 
-## Web Components Basics
-
-```txt
-Suite of standards enabling custom, encapsulated HTML elements
-```
-
-```txt
-Core pillars:
-- Custom Elements
-- Shadow DOM
-- HTML Templates
-```
-
-<details>
-<summary>Examples</summary>
-
-```txt
-Goals:
-- Encapsulation
-- Reusability
-- Style isolation
-```
+## Unified Example (Custom Element + Shadow DOM + Slots)
 
 ```html
-<my-widget></my-widget> <!-- custom element -->
-```
+<!-- DECLARATIVE SHADOW DOM -->
+<user-card>
+  <template shadowroot="open"> <!-- open | closed -->
+    <style>
+      :host { display: block; border: 1px solid #ccc; padding: 1rem; }
+      ::slotted(h2) { color: teal; }
+    </style>
 
-</details>
+    <slot name="title"></slot> <!-- named slot -->
+    <slot></slot> <!-- default slot -->
+  </template>
+
+  <h2 slot="title">John Doe</h2> <!-- slot assignment -->
+  <p>Content from light DOM</p>
+</user-card>
+
+<script>
+  class UserCard extends HTMLElement {
+    constructor() {
+      super(); // required
+    }
+  }
+
+  customElements.define('user-card', UserCard); // name must contain hyphen
+</script>
+```
 
 ---
 
-## Custom Elements
+## Custom Elements Overview
 
-```txt
-Define new HTML tags with custom behavior
-```
+* User-defined HTML elements
+* Must contain a hyphen (`my-element`)
+* Registered via `customElements.define()`
 
-```js
-customElements.define(name, constructor, options?)
-// name: kebab-case string
-// constructor: class extends HTMLElement
-// options: { extends?: string }
-```
+**Base classes:**
 
-<details>
-<summary>Examples</summary>
+* `HTMLElement`
+* `HTMLButtonElement` (customized built-ins)
 
-```js
-class MyBox extends HTMLElement {
-  connectedCallback() {
-    this.textContent = 'Hello';
-  }
-}
+**Lifecycle callbacks:**
 
-customElements.define('my-box', MyBox);
-```
+* `connectedCallback()`
+* `disconnectedCallback()`
+* `attributeChangedCallback()`
+* `adoptedCallback()`
 
-```js
-// lifecycle callbacks
-connectedCallback();
-disconnectedCallback();
-attributeChangedCallback(name, oldVal, newVal);
-```
-
-```txt
-Rules:
-- Name must contain hyphen
-- Must extend HTMLElement (or built-in via is="")
-```
-
-</details>
+> One-liner: *Custom Elements let you define new HTML tags with behavior.*
 
 ---
 
-## Shadow DOM
+## HTML Extensions via Custom Elements
 
-```txt
-Encapsulated DOM subtree with scoped styles and markup
-```
+* Autonomous custom elements:
 
-```js
-element.attachShadow({ mode: 'open' | 'closed' })
-```
+  * `<my-widget>`
 
-<details>
-<summary>Examples</summary>
-
-```js
-class ShadowEl extends HTMLElement {
-  constructor() {
-    super();
-    const root = this.attachShadow({ mode: 'open' });
-    root.innerHTML = `
-      <style>p { color: red }</style>
-      <p>Scoped</p>
-    `;
-  }
-}
-
-customElements.define('shadow-el', ShadowEl);
-```
-
-```txt
-Features:
-- Style scoping
-- DOM encapsulation
-- Slot-based composition
-```
+* Customized built-ins:
 
 ```html
-<slot name="content"></slot>
+<button is="fancy-button"></button> <!-- limited support -->
 ```
 
-</details>
+* Attributes reflect as strings
+* Properties hold state
+
+> One-liner: *HTML is extended by registering new element types, not by modifying the parser.*
 
 ---
 
-## Notes
+## Slotting and Composition
 
-* Web Components are framework-agnostic
-* Native browser support (no build step)
-* Interop with React/Vue requires care
+* `<slot>` defines insertion points
+* Light DOM projected into Shadow DOM
+* Slot assignment via `slot` attribute
 
-## Caveats
+**Rules:**
 
-* Styling across shadow boundaries is limited
-* Server-side rendering is non-trivial
-* Overuse can harm accessibility if misdesigned
+* Unassigned nodes go to default slot
+* Slots can have fallback content
+* Re-slotting supported dynamically
+
+> One-liner: *Slots compose DOM trees without merging them.*
+
+---
+
+## Declarative Shadow DOM
+
+* Shadow root defined in HTML
+* Parsed before JS executes
+* Enables SSR + hydration
+
+**Attributes:**
+
+* `shadowroot="open | closed"`
+
+**Benefits:**
+
+* Faster first paint
+* No JS bootstrapping race
+
+> One-liner: *Declarative Shadow DOM brings Web Components to server-rendered HTML.*
+
+---
+
+## Limitations of HTML Alone
+
+* No state management
+* No reactivity
+* No conditional rendering
+* No loops
+
+**Requires JS for:**
+
+* Dynamic updates
+* Event handling
+* Data binding
+
+> One-liner: *HTML declares structure; JavaScript provides behavior.*
+
+---
+
+## Often-Missed Details (Hardcore)
+
+* Custom elements upgrade lazily
+* Unregistered elements render as `HTMLElement`
+* Attribute changes are string-based
+* Shadow DOM retargets events
+* CSS inheritance stops at shadow boundary
+
+---
+
+## Mental Model (Interview Grade)
+
+> **Web Components extend HTML by adding new element types and encapsulation boundaries — but HTML remains declarative, static, and behavior-agnostic without JavaScript.**

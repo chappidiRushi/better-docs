@@ -1,3 +1,9 @@
+---
+id: host-elements-cheatsheet
+title: Host Elements CheatSheet
+sidebar_position: 13
+---
+
 # Host Elements CheatSheet
 
 > How a component interacts with its own DOM element using modern Angular APIs

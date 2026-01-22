@@ -1,3 +1,9 @@
+---
+id: cli
+title: Angular CLI
+sidebar_position: 3
+---
+
 # CLI
 
 > Full reference of Angular 21 CLI commands, options, and usage.

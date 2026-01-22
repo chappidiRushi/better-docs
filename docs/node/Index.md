@@ -1,4 +1,5 @@
 ---
-title: Node.js
-sidebar_position: 1
+id: node
+title: Node
+sidebar_position: 6
 ---

@@ -1,3 +1,9 @@
+---
+id: rxjs
+title: RxJS
+sidebar_position: 19
+---
+
 # RxJS
 
 > **RxJS** is Angular's reactive programming library for handling async streams such as HTTP, events, forms, routing, and WebSockets.

@@ -1,3 +1,9 @@
+---
+id: signals
+title: Signals
+sidebar_position: 21
+---
+
 # Signals
 
 ---

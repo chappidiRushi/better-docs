@@ -1,3 +1,9 @@
+---
+id: component-queries
+title: Referencing Component Children with Queries
+sidebar_position: 12
+---
+
 # Referencing Component Children with Queries
 
 > How a component references elements, directives, and child components using the **modern query APIs**

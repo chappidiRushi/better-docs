@@ -1,3 +1,9 @@
+---
+id: dependency-injection
+title: Dependency Injection
+sidebar_position: 14
+---
+
 # Dependency Injection
 
 ---

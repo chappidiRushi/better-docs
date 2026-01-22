@@ -1,4 +1,9 @@
-# Angular 19+ — Services Cheatsheet
+---
+id: angular-services-cheatsheet
+title: Services
+sidebar_position: 15
+---
+# Services
 
 > Angular services manage shared logic and data, injectable via DI in components, other services, or standalone providers.
 

@@ -1,3 +1,9 @@
+---
+id: component-decorator
+title: Component
+sidebar_position: 5
+---
+
 # @Component
 
 > `@Component()` decorator — complete metadata reference (single view)

@@ -1,3 +1,9 @@
+---
+id: component-lifecycle
+title: Component Lifecycle
+sidebar_position: 8
+---
+
 # Component Lifecycle
 
 > When and how Angular creates, updates, and destroys a component

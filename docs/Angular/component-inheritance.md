@@ -1,3 +1,9 @@
+---
+id: component-inheritance
+title: Component Inheritance
+sidebar_position: 11
+---
+
 # Component Inheritance
 
 > How components can reuse logic by extending base classes

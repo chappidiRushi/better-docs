@@ -1,3 +1,9 @@
+---
+id: web-workers-cheatsheet
+title: Web Workers Cheatsheet
+sidebar_position: 27
+---
+
 # Web Workers Cheatsheet
 
 > Angular Web Workers enable running CPU-intensive tasks off the main UI thread for better performance.

@@ -1,3 +1,9 @@
+---
+id: passing-data-between-components
+title: Passing Data Between Components
+sidebar_position: 9
+---
+
 # Passing Data Between Components
 
 > Signal‑based APIs — no decorators

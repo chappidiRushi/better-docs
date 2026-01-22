@@ -1,5 +1,10 @@
-# Signal Forms
+---
+id: signal-forms
+title: Signal Forms
+sidebar_position: 22
+---
 
+# Signal Forms
 
 ---
 

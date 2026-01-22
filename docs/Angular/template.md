@@ -1,3 +1,9 @@
+---
+id: templates
+title: Templates
+sidebar_position: 4
+---
+
 # Templates
 
 > How Angular templates declare views and bind data

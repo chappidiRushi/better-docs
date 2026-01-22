@@ -1,3 +1,8 @@
+---
+id: internationalization
+title: Internationalization (i18n)
+sidebar_position: 29
+---
 # Internationalization (i18n)
 
 > Built‑in Angular i18n using **@angular/localize** with runtime locale switching support

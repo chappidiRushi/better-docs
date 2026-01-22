@@ -1,3 +1,9 @@
+---
+id: elementref-dom-apis
+title: Using DOM APIs with inject(ElementRef)
+sidebar_position: 16
+---
+
 # Using DOM APIs with `inject(ElementRef)`
 
 > How to safely access and interact with the DOM using Angular’s modern dependency injection API

@@ -1,3 +1,9 @@
+---
+id: service-workers-pwa
+title: Service Workers & PWA
+sidebar_position: 28
+---
+
 # Service Workers & PWA
 
 > **Angular Service Workers** turn your Angular app into a Progressive Web App (PWA) with offline support, caching, background updates, and push notifications.

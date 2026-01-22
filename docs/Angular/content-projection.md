@@ -1,3 +1,9 @@
+---
+id: content-projection
+title: Content Projection
+sidebar_position: 10
+---
+
 # Content Projection
 
 > Projecting content from a parent into a child component

@@ -1,3 +1,9 @@
+---
+id: http-client
+title: HttpClient
+sidebar_position: 18
+---
+
 # HttpClient
 
 ## Overview

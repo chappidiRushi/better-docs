@@ -1,3 +1,9 @@
+---
+id: ngrx
+title: NgRx (State Management)
+sidebar_position: 23
+---
+
 # NgRx (State Management)
 
 > **NgRx** is a reactive state management library for Angular apps based on Redux principles — a **single source of truth, immutable state, unidirectional data flow, and RxJS streams**.

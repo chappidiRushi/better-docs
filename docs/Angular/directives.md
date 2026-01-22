@@ -1,3 +1,9 @@
+---
+id: angular-directives
+title: Angular Directives
+sidebar_position: 6
+---
+
 # Angular Directives
 
 ---

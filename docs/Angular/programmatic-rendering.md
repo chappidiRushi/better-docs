@@ -1,3 +1,9 @@
+---
+id: programmatic-rendering
+title: Programmatic Rendering
+sidebar_position: 26
+---
+
 # Programmatic Rendering
 
 > How to create, insert, and destroy views and components imperatively

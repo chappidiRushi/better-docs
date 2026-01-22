@@ -1,3 +1,9 @@
+---
+id: pipes
+title: Pipes
+sidebar_position: 7
+---
+
 # Pipes
 
 > Transform data in templates

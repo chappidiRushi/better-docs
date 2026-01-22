@@ -1,3 +1,9 @@
+---
+id: template-driven-forms
+title: Template-Driven Forms
+sidebar_position: 24
+---
+
 # Template‑Driven Forms
 
 > Mid‑level friendly — **focuses only on what each feature does**.

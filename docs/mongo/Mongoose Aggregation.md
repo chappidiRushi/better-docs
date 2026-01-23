@@ -1,179 +1,146 @@
 ---
 
-id: mongoose-population
-title: Mongoose Population System
-sidebar_position: 31
+id: mongoose-aggregation
+title: Mongoose Aggregation
+sidebar_position: 32
 --------------------
 
-# 31. Mongoose Population System
+# 32. Mongoose Aggregation
 
-> Reference resolution layer that performs client-side joins in Mongoose
+> Thin wrapper over MongoDB Aggregation Framework with schema-aware casting
 
 ---
 
-## Populate Internals
+## Aggregation Wrapper
 
-> How Mongoose executes population under the hood
+> How Mongoose exposes MongoDB aggregation pipelines
 
 **Interview points**
 
-* Population is a **two-phase query**
-* First query fetches base documents
-* Second query fetches referenced documents
-* Join happens **in application memory**, not MongoDB
+* `Model.aggregate()` returns an Aggregation object
+* Mostly pass-through to MongoDB
+* Adds minimal abstraction (casting, middleware)
+
+<details>
+<summary>Examples (Node.js)</summary>
+
+```js
+// Basic aggregation
+const result = await Order.aggregate([
+  { $match: { status: 'paid' } },
+  { $group: { _id: '$userId', total: { $sum: '$amount' } } }
+]);
+
+// Aggregation object (lazy)
+const agg = Order.aggregate();
+agg.match({ status: 'paid' });
+agg.group({ _id: '$userId', total: { $sum: '$amount' } });
+
+await agg.exec(); // execution
+```
+
+</details>
+
+---
+
+## Pipeline Casting
+
+> Automatic casting of pipeline values using schema metadata
+
+**Interview points**
+
+* Only applies to `$match`
+* Driven by SchemaTypes
+* Can be disabled
 
 <details>
 <summary>Examples (Node.js)</summary>
 
 ```js
 // Schema
-const postSchema = new Schema({
-  author: { type: Schema.Types.ObjectId, ref: 'User' }
-});
-
-// Execution
-const posts = await Post.find().populate('author');
-
-// Internals (conceptual)
-// 1. find posts
-// 2. collect author ObjectIds
-// 3. find users by _id
-// 4. map users back to posts
-```
-
-</details>
-
----
-
-## Reference Resolution
-
-> Mapping ObjectId references to actual documents
-
-**Interview points**
-
-* Requires `ref` metadata
-* Uses `_id` by default
-* Supports custom local/foreign fields
-
-<details>
-<summary>Examples (Node.js)</summary>
-
-```js
-// Default resolution
 const schema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  userId: Schema.Types.ObjectId,
+  createdAt: Date,
+  amount: Number
 });
 
-await Order.find().populate('user');
-
-// Custom fields
-await Order.find().populate({
-  path: 'user',
-  localField: 'userId',
-  foreignField: 'externalId',
-  justOne: true // boolean
-});
-```
-
-</details>
-
----
-
-## Virtual Populate
-
-> Non-persisted relationships defined via virtual fields
-
-**Interview points**
-
-* No foreign key stored in document
-* One-to-many and reverse lookups
-* Requires `virtuals: true` in schema options
-
-<details>
-<summary>Examples (Node.js)</summary>
-
-```js
-// User schema
-userSchema.virtual('posts', {
-  ref: 'Post',
-  localField: '_id',
-  foreignField: 'author',
-  justOne: false // array
-});
-
-// Enable virtuals
-userSchema.set('toObject', { virtuals: true });
-userSchema.set('toJSON', { virtuals: true });
-
-// Usage
-const user = await User.findById(id).populate('posts');
-```
-
-</details>
-
----
-
-## Performance Tradeoffs
-
-> Cost and scalability implications of populate
-
-**Interview points**
-
-* Extra queries per populate path
-* Large fan-out causes memory pressure
-* Cannot leverage server-side joins
-
-<details>
-<summary>Examples (Node.js)</summary>
-
-```js
-// ❌ N+1 risk
-await Post.find().populate('author comments.user');
-
-// ❌ Large arrays
-await User.find().populate('orders'); // thousands of docs
-
-// ✅ Limit fields
-await Post.find().populate({
-  path: 'author',
-  select: 'email name', // projection
-  options: { lean: true }
-});
-```
-
-</details>
-
----
-
-## Populate vs Aggregation
-
-> Choosing between Mongoose populate and MongoDB $lookup
-
-**Interview points**
-
-* Populate = app-side join
-* Aggregation = server-side join
-* Aggregation scales better for large datasets
-
-<details>
-<summary>Examples (Node.js)</summary>
-
-```js
-// Populate
-await Order.find().populate('customer');
-
-// Aggregation equivalent
+// String → ObjectId cast
 await Order.aggregate([
-  {
-    $lookup: {
-      from: 'customers',
-      localField: 'customer',
-      foreignField: '_id',
-      as: 'customer'
-    }
-  },
-  { $unwind: '$customer' }
+  { $match: { userId: '64f0c1...' } }
 ]);
+
+// String → Date cast
+await Order.aggregate([
+  { $match: { createdAt: '2024-01-01' } }
+]);
+
+// Disable casting
+Order.aggregate([{ $match: { amount: '100' } }]).option({ cast: false });
+```
+
+</details>
+
+---
+
+## Performance Considerations
+
+> Cost model and optimization constraints
+
+**Interview points**
+
+* Runs entirely on MongoDB server
+* Bypasses Mongoose middleware (mostly)
+* Memory limits apply (100MB unless `allowDiskUse`)
+
+<details>
+<summary>Examples (Node.js)</summary>
+
+```js
+// Allow disk use
+await Order.aggregate([
+  { $sort: { createdAt: -1 } },
+  { $group: { _id: '$userId', total: { $sum: '$amount' } } }
+]).option({ allowDiskUse: true });
+
+// Index-aware $match should come early
+await Order.aggregate([
+  { $match: { status: 'paid' } }, // uses index
+  { $project: { userId: 1, amount: 1 } }
+]);
+```
+
+</details>
+
+---
+
+## Streaming Aggregations
+
+> Processing aggregation results incrementally
+
+**Interview points**
+
+* Uses MongoDB cursors
+* Prevents loading full result set into memory
+* Useful for large pipelines
+
+<details>
+<summary>Examples (Node.js)</summary>
+
+```js
+// Cursor-based aggregation
+const cursor = Order.aggregate([
+  { $match: { status: 'paid' } },
+  { $group: { _id: '$userId', total: { $sum: '$amount' } } }
+]).cursor({ batchSize: 100 }).exec();
+
+for await (const doc of cursor) {
+  process(doc);
+}
+
+// Stream API
+Order.aggregate([...]).cursor().on('data', doc => {
+  handle(doc);
+});
 ```
 
 </details>
@@ -182,12 +149,12 @@ await Order.aggregate([
 
 ## Notes
 
-* Populate works only through Mongoose
-* `lean()` disables document hydration but not population
-* Nested populate multiplies query cost
+* Aggregation results are plain JS objects
+* No document middleware or validation
+* Preferred for analytics and reporting
 
 ## Caveats
 
-* No transactional guarantees across populated queries
-* Large populates can exhaust memory
-* Populate hides query complexity
+* Casting is limited compared to queries
+* Complex pipelines are harder to debug
+* Aggregations ignore default projections

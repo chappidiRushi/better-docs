@@ -8,8 +8,8 @@ sidebar_position: 2
 This section covers everything about **HTML**.
 
 ## Topics
-
+<!--
 - 📘 [Introduction](./intro)
 - 🏷️ [HTML Tags](./tags)
 - 📝 [Forms](./forms)
-- 🧱 [Semantic HTML](./semantic)
+- 🧱 [Semantic HTML](./semantic) -->

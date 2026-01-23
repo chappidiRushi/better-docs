@@ -13,6 +13,6 @@ This documentation covers:
 
 ## Sections
 
-- 📘 [HTML Docs](./html/index)
+<!-- - 📘 [HTML Docs](./html/index)
 - 🎨 [CSS Docs](./css/intro)
-- ⚙️ [JavaScript Docs](./js/intro)
+- ⚙️ [JavaScript Docs](./js/intro) -->

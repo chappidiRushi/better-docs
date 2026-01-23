@@ -119,7 +119,7 @@ const config: Config = {
           items: [
             {
               label: 'Node',
-              to: '/docs/Node',
+              to: '/docs/node',
             },
           ],
         },

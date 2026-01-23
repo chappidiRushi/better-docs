@@ -1,7 +1,7 @@
 {
   "name": "Better Docs",
   "short_name": "Docs",
-  "start_url": "/",
+  "start_url": "/better-docs/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#25c2a0",

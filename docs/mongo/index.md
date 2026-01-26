@@ -386,7 +386,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 33. Updates and Atomic Operations
+### 34. Mongoose Updates and Atomic Operations
 
 1. Update Methods
 2. Optimistic Concurrency
@@ -396,7 +396,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 34. Transactions and Sessions
+### 35. Transactions and Sessions
 
 1. Sessions in Mongoose
 2. Transaction Lifecycle
@@ -405,7 +405,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 35. Delete Operations
+### 36. Delete Operations
 
 1. Delete Methods
 2. Middleware Interaction
@@ -414,7 +414,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 36. Serialization and Output
+### 37. Serialization and Output
 
 1. `toObject()` vs `toJSON()`
 2. Transform Functions
@@ -423,7 +423,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 37. Error Handling
+### 38. Error Handling
 
 1. Error Hierarchy
 2. Cast Errors
@@ -433,7 +433,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 38. Performance and Optimization
+### 39. Performance and Optimization
 
 1. Lean Queries
 2. Population Performance
@@ -443,7 +443,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 39. Security Considerations
+### 40. Security Considerations
 
 1. Injection Risks
 2. Mass Assignment
@@ -452,7 +452,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 40. Testing and Tooling
+### 41. Testing and Tooling
 
 1. In-Memory MongoDB
 2. Mocking Mongoose
@@ -461,7 +461,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 41. Migrations and Schema Evolution
+### 42. Migrations and Schema Evolution
 
 1. Backward Compatibility
 2. Data Migrations
@@ -470,7 +470,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 42. Mongoose Plugins and Ecosystem
+### 43. Mongoose Plugins and Ecosystem
 
 1. Plugin Architecture
 2. Writing Plugins
@@ -479,7 +479,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 43. Mongoose Internals
+### 44. Mongoose Internals
 
 1. Source Code Structure
 2. Query Execution Path
@@ -488,7 +488,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 44. Deprecated APIs and Footguns
+### 45. Deprecated APIs and Footguns
 
 1. Deprecated Features
 2. Legacy Patterns
@@ -497,7 +497,7 @@ It is a **continuum** that reflects how the stack actually works:
 
 ---
 
-### 45. MongoDB ↔ Mongoose Mental Model
+### 46. MongoDB ↔ Mongoose Mental Model
 
 1. Concept Mapping
 2. What Mongoose Adds

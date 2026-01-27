@@ -1,6 +1,6 @@
 ---
 
-id: built-in-components
+id: built-in-react-components
 title: Built-in React Components
 sidebar_position: 6
 -------------------

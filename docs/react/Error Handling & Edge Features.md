@@ -1,5 +1,5 @@
 ---
-id: error-handling-and-edge-features
+id: error-handling-edge-features
 title: Error Handling & Edge Features
 sidebar_position: 9
 -------------------

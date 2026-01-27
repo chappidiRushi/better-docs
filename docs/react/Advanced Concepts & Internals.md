@@ -1,5 +1,5 @@
 ---
-id: advanced-concepts-and-internals
+id: advanced-concepts-internals
 title: Advanced Concepts & Internals
 sidebar_position: 10
 -------------------

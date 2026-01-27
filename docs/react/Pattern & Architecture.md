@@ -1,6 +1,6 @@
 ---
 
-id: pattern-and-architecture
+id: patterns-and-architecture
 title: Patterns and Architecture
 sidebar_position: 8
 -------------------

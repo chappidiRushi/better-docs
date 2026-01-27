@@ -1,6 +1,6 @@
 ---
 
-id: introductions
+id: introduction
 title: Introduction
 sidebar_position: 2
 -------------------

@@ -1,6 +1,6 @@
 ---
 
-id: html-web-components
+id: web-components
 title: Web Components
 sidebar_position: 22
 --------------------

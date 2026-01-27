@@ -1,6 +1,6 @@
 ---
 
-id: html-parsing-algorithms
+id: parsing-algorithms
 title: Parsing Algorithms
 sidebar_position: 6
 -------------------

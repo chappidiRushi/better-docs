@@ -1,6 +1,6 @@
 ---
 
-id: lists-and-grouping
+id: lists-and-grouping-content
 title: Lists and Grouping Content
 sidebar_position: 9
 -------------------

@@ -1,6 +1,6 @@
 ---
 
-id: html-accessibility
+id: html-and-accessibility-a11y
 title: HTML and Accessibility (A11y)
 sidebar_position: 19
 --------------------

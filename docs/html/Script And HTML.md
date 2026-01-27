@@ -1,6 +1,6 @@
 ---
 
-id: scripting-html
+id: scripting-and-html
 title: Scripting and HTML
 sidebar_position: 17
 --------------------

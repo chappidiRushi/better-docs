@@ -1,6 +1,6 @@
 ---
 
-id: embedded-external-content
+id: embedded-and-external-content
 title: Embedded and External Content
 sidebar_position: 13
 --------------------

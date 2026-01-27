@@ -1,6 +1,6 @@
 ---
 
-id: tables-full-spec
+id: tables
 title: Tables
 sidebar_position: 14
 --------------------

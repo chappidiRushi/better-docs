@@ -1,6 +1,6 @@
 ---
 
-id: template-reuse
+id: template-and-reuse-mechanisms
 title: Template and Reuse Mechanisms
 sidebar_position: 18
 --------------------

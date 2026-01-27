@@ -1,5 +1,5 @@
 ---
-id: angular-services-cheatsheet
+id: services
 title: Services
 sidebar_position: 15
 ---

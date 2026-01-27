@@ -1,5 +1,5 @@
 ---
-id: cli
+id: angular-cli
 title: Angular CLI
 sidebar_position: 3
 ---

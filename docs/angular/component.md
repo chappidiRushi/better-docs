@@ -1,5 +1,5 @@
 ---
-id: component-decorator
+id: component
 title: Component
 sidebar_position: 5
 ---

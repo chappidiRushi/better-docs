@@ -1,5 +1,5 @@
 ---
-id: clsses-object_features
+id: classes-object-oriented-features
 title: Classes & Object-Oriented Features
 sidebar_position: 7
 ---

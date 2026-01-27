@@ -1,5 +1,5 @@
 ---
-
+id: typescript-interview-questions
 title: TypeScript Interview Questions
 sidebar_position: 18
 ---

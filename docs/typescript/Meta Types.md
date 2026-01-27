@@ -1,6 +1,6 @@
 ---
 title: Advanced & Meta Types
-id: Advanced-Meta_Types
+id: advanced-meta-types
 sidebar_position: 9
 ---
 # Advanced & Meta Types

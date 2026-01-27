@@ -1,6 +1,6 @@
 ---
 
-id: async-promise-errors
+id: async-promises-errors
 title: Async, Promises & Errors
 sidebar_position: 12
 -------------------
@@ -16,7 +16,7 @@ sidebar_position: 12
 Defines the resolved value type of an asynchronous operation.
 
 <details>
-<summary>Examples</summary> 
+<summary>Examples</summary>
 
 ```ts
 // basic promise

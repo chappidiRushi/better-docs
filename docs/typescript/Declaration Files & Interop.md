@@ -1,6 +1,6 @@
 ---
 
-id: declaration-interop
+id: declaration-files-interop
 title: Declaration Files & Interop
 sidebar_position: 13
 -------------------

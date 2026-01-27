@@ -1,6 +1,6 @@
 ---
-
-title: TypeScript
+id: primitives
+title: Primitives
 sidebar_position: 2
 -------------------
 

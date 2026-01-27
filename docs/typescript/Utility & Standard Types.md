@@ -1,6 +1,6 @@
 ---
 title: Utility & Standard Types
-id: utility-standard_types
+id: utility-standard-types
 sidebar_position: 10
 ---
 

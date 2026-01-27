@@ -1,6 +1,6 @@
 ---
 title:  Interfaces & Type Aliases
-id:  Interfaces_Type_Aliases
+id: interfaces-type-aliases
 sidebar_position: 6
 ---
 

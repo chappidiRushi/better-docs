@@ -1,6 +1,6 @@
 ---
 
-id: configuration-Project_structure
+id: configuration-project-structure
 title:  Configuration & Project Structure
 sidebar_position: 14
 -------------------

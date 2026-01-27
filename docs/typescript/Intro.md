@@ -1,5 +1,6 @@
 ---
 # title: Intro
+id: language-compiler-basics
 sidebar_position: 1
 ---
 # Language & Compiler Basics

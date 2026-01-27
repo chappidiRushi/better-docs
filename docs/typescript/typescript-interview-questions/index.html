@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-typescript/typescript-interview-questions" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">TypeScript Interview Questions | Better Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://chappidirushi.github.io/better-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://chappidirushi.github.io/better-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://chappidirushi.github.io/better-docs/docs/typescript/typescript-interview-questions"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="TypeScript Interview Questions | Better Docs"><meta data-rh="true" name="description" content="---"><meta data-rh="true" property="og:description" content="---"><link data-rh="true" rel="icon" href="/better-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://chappidirushi.github.io/better-docs/docs/typescript/typescript-interview-questions"><link data-rh="true" rel="alternate" href="https://chappidirushi.github.io/better-docs/docs/typescript/typescript-interview-questions" hreflang="en"><link data-rh="true" rel="alternate" href="https://chappidirushi.github.io/better-docs/docs/typescript/typescript-interview-questions" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Typescript","item":"https://chappidirushi.github.io/better-docs/docs/typescript/"},{"@type":"ListItem","position":2,"name":"TypeScript Interview Questions","item":"https://chappidirushi.github.io/better-docs/docs/typescript/typescript-interview-questions"}]}</script><link rel="icon" href="/better-docs/img/pwa/favicon.ico">
+<link rel="manifest" href="/better-docs/manifest.json">
+<meta name="theme-color" content="#25c2a0"><link rel="stylesheet" href="/better-docs/assets/css/styles.fe6a4fdd.css">
+<script src="/better-docs/assets/js/runtime~main.68c58fd8.js" defer="defer"></script>
+<script src="/better-docs/assets/js/main.e281edd1.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/better-docs/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/better-docs/"><div class="navbar__logo"><img src="/better-docs/img/logo.svg" alt="Better Docs Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/better-docs/img/logo.svg" alt="Better Docs Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Better Docs</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/better-docs/docs/">CheatSheets</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/chappidiRushi/better-docs/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbarSearchContainer_Bca1"><div class="dsla-search-wrapper"><div class="dsla-search-field" data-tags="default,docs-default-current"></div></div></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/better-docs/docs/"><span title="Web Development Docs" class="linkLabel_WmDU">Web Development Docs</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/html/"><span title="HTML" class="categoryLinkLabel_W154">HTML</span></a><button aria-label="Expand sidebar category &#x27;HTML&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/javascript/"><span title="JavaScript" class="categoryLinkLabel_W154">JavaScript</span></a><button aria-label="Expand sidebar category &#x27;JavaScript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/better-docs/docs/typescript/"><span title="Typescript" class="categoryLinkLabel_W154">Typescript</span></a><button aria-label="Collapse sidebar category &#x27;Typescript&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/glossary"><span title="Glossary" class="linkLabel_WmDU">Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/language-compiler-basics"><span title="Language &amp; Compiler Basics" class="linkLabel_WmDU">Language &amp; Compiler Basics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/primitives"><span title="Primitives" class="linkLabel_WmDU">Primitives</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/tooling-ecosystem"><span title="Tooling &amp; Ecosystem" class="linkLabel_WmDU">Tooling &amp; Ecosystem</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/type-system-core"><span title="Type System Core" class="linkLabel_WmDU">Type System Core</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/objects-functions"><span title="Objects &amp; Functions" class="linkLabel_WmDU">Objects &amp; Functions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/union-intersection-narrowing"><span title="Union, Intersection &amp; Narrowing" class="linkLabel_WmDU">Union, Intersection &amp; Narrowing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/interfaces-type-aliases"><span title="Interfaces &amp; Type Aliases" class="linkLabel_WmDU">Interfaces &amp; Type Aliases</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/classes-object-oriented-features"><span title="Classes &amp; Object-Oriented Features" class="linkLabel_WmDU">Classes &amp; Object-Oriented Features</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/generics"><span title="Generics" class="linkLabel_WmDU">Generics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/advanced-meta-types"><span title="Advanced &amp; Meta Types" class="linkLabel_WmDU">Advanced &amp; Meta Types</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/utility-standard-types"><span title="Utility &amp; Standard Types" class="linkLabel_WmDU">Utility &amp; Standard Types</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/modules-namespaces"><span title="Modules &amp; Namespaces" class="linkLabel_WmDU">Modules &amp; Namespaces</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/async-promises-errors"><span title="Async, Promises &amp; Errors" class="linkLabel_WmDU">Async, Promises &amp; Errors</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/declaration-files-interop"><span title="Declaration Files &amp; Interop" class="linkLabel_WmDU">Declaration Files &amp; Interop</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/better-docs/docs/typescript/configuration-project-structure"><span title="Configuration &amp; Project Structure" class="linkLabel_WmDU">Configuration &amp; Project Structure</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/better-docs/docs/typescript/typescript-interview-questions"><span title="TypeScript Interview Questions" class="linkLabel_WmDU">TypeScript Interview Questions</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/node/"><span title="Node" class="categoryLinkLabel_W154">Node</span></a><button aria-label="Expand sidebar category &#x27;Node&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/react/"><span title="React" class="categoryLinkLabel_W154">React</span></a><button aria-label="Expand sidebar category &#x27;React&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/angular/"><span title="Angular" class="categoryLinkLabel_W154">Angular</span></a><button aria-label="Expand sidebar category &#x27;Angular&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/better-docs/docs/mongo/"><span title="Mongo" class="categoryLinkLabel_W154">Mongo</span></a><button aria-label="Expand sidebar category &#x27;Mongo&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/better-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/better-docs/docs/typescript/"><span>Typescript</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">TypeScript Interview Questions</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>TypeScript Interview Questions &amp; Answers</h1></header>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fundamentals-120">Fundamentals (1–20)<a href="#fundamentals-120" class="hash-link" aria-label="Direct link to Fundamentals (1–20)" title="Direct link to Fundamentals (1–20)" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p><strong>What is TypeScript?</strong>
+TypeScript is a statically typed superset of JavaScript that adds compile-time type checking.</p>
+</li>
+<li class="">
+<p><strong>Is TypeScript compiled or interpreted?</strong>
+TypeScript is compiled to JavaScript using the TypeScript compiler.</p>
+</li>
+<li class="">
+<p><strong>Does TypeScript run in the browser?</strong>
+No, browsers run JavaScript; TypeScript must be compiled first.</p>
+</li>
+<li class="">
+<p><strong>What file extension does TypeScript use?</strong>
+<code>.ts</code> for TypeScript and <code>.tsx</code> for TS with JSX.</p>
+</li>
+<li class="">
+<p><strong>What is static typing?</strong>
+Types are checked at compile time instead of runtime.</p>
+</li>
+<li class="">
+<p><strong>What are the benefits of TypeScript?</strong>
+Type safety, better tooling, improved maintainability, and early error detection.</p>
+</li>
+<li class="">
+<p><strong>What is type inference?</strong>
+TypeScript automatically determines types based on assigned values.</p>
+</li>
+<li class="">
+<p><strong>What is a type annotation?</strong>
+Explicitly specifying a type for a variable, parameter, or return value.</p>
+</li>
+<li class="">
+<p><strong>What is <code>any</code>?</strong>
+A type that disables type checking.</p>
+</li>
+<li class="">
+<p><strong>What is <code>unknown</code>?</strong>
+A safer alternative to <code>any</code> that requires type narrowing.</p>
+</li>
+<li class="">
+<p><strong>What is <code>void</code>?</strong>
+Represents absence of a return value.</p>
+</li>
+<li class="">
+<p><strong>What is <code>never</code>?</strong>
+Represents values that never occur.</p>
+</li>
+<li class="">
+<p><strong>What is a tuple?</strong>
+An array with fixed length and known element types.</p>
+</li>
+<li class="">
+<p><strong>What is an enum?</strong>
+A set of named numeric or string constants.</p>
+</li>
+<li class="">
+<p><strong>What is structural typing?</strong>
+Type compatibility based on shape rather than explicit declaration.</p>
+</li>
+<li class="">
+<p><strong>What is strict mode?</strong>
+A compiler option enabling strict type checks.</p>
+</li>
+<li class="">
+<p><strong>What is <code>tsconfig.json</code>?</strong>
+Configuration file for the TypeScript compiler.</p>
+</li>
+<li class="">
+<p><strong>What does <code>noImplicitAny</code> do?</strong>
+Disallows implicit <code>any</code> types.</p>
+</li>
+<li class="">
+<p><strong>What is <code>readonly</code>?</strong>
+Prevents reassignment after initialization.</p>
+</li>
+<li class="">
+<p><strong>What is <code>as const</code>?</strong>
+Narrows values to literal and readonly types.</p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="types--narrowing-2145">Types &amp; Narrowing (21–45)<a href="#types--narrowing-2145" class="hash-link" aria-label="Direct link to Types &amp; Narrowing (21–45)" title="Direct link to Types &amp; Narrowing (21–45)" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p><strong>What are union types?</strong>
+Types that can be one of several types.</p>
+</li>
+<li class="">
+<p><strong>What are intersection types?</strong>
+Combine multiple types into one.</p>
+</li>
+<li class="">
+<p><strong>What is a literal type?</strong>
+A type with a specific value.</p>
+</li>
+<li class="">
+<p><strong>What is type narrowing?</strong>
+Reducing a broader type to a more specific one.</p>
+</li>
+<li class="">
+<p><strong>What is <code>typeof</code> used for?</strong>
+Extracting types from values.</p>
+</li>
+<li class="">
+<p><strong>What is <code>instanceof</code> used for?</strong>
+Runtime checking of class instances.</p>
+</li>
+<li class="">
+<p><strong>What is a type guard?</strong>
+A runtime check that narrows a type.</p>
+</li>
+<li class="">
+<p><strong>What is a user-defined type guard?</strong>
+A function that returns a type predicate.</p>
+</li>
+<li class="">
+<p><strong>What are discriminated unions?</strong>
+Unions differentiated by a common literal property.</p>
+</li>
+<li class="">
+<p><strong>What is control-flow analysis?</strong>
+Type narrowing based on code paths.</p>
+</li>
+<li class="">
+<p><strong>Difference between <code>any</code> and <code>unknown</code>?</strong>
+<code>unknown</code> requires type checks before use.</p>
+</li>
+<li class="">
+<p><strong>What is <code>null</code> vs <code>undefined</code>?</strong>
+<code>null</code> is explicit absence; <code>undefined</code> is uninitialized.</p>
+</li>
+<li class="">
+<p><strong>What does <code>strictNullChecks</code> do?</strong>
+Prevents assigning null/undefined where not allowed.</p>
+</li>
+<li class="">
+<p><strong>What is optional chaining?</strong>
+Safely accesses nested properties.</p>
+</li>
+<li class="">
+<p><strong>What is non-null assertion (<code>!</code>)?</strong>
+Tells the compiler a value is not null.</p>
+</li>
+<li class="">
+<p><strong>What is <code>keyof</code>?</strong>
+Produces a union of object keys.</p>
+</li>
+<li class="">
+<p><strong>What is indexed access type?</strong>
+Accesses a property type via indexing.</p>
+</li>
+<li class="">
+<p><strong>What is <code>satisfies</code>?</strong>
+Ensures a value conforms to a type without widening.</p>
+</li>
+<li class="">
+<p><strong>What is a recursive type?</strong>
+A type that references itself.</p>
+</li>
+<li class="">
+<p><strong>What is <code>infer</code>?</strong>
+Captures a type inside conditional types.</p>
+</li>
+<li class="">
+<p><strong>What is a conditional type?</strong>
+Type selected based on a condition.</p>
+</li>
+<li class="">
+<p><strong>What is distributive conditional type?</strong>
+Conditional types applied to union members.</p>
+</li>
+<li class="">
+<p><strong>What is template literal type?</strong>
+Creates string types using template syntax.</p>
+</li>
+<li class="">
+<p><strong>What is <code>NonNullable</code>?</strong>
+Removes null and undefined.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Exclude</code>?</strong>
+Removes union members.</p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="interfaces--objects-4665">Interfaces &amp; Objects (46–65)<a href="#interfaces--objects-4665" class="hash-link" aria-label="Direct link to Interfaces &amp; Objects (46–65)" title="Direct link to Interfaces &amp; Objects (46–65)" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p><strong>What is an interface?</strong>
+A contract defining object shape.</p>
+</li>
+<li class="">
+<p><strong>Interface vs type alias?</strong>
+Interfaces can merge; types cannot.</p>
+</li>
+<li class="">
+<p><strong>What is declaration merging?</strong>
+Multiple interface declarations combine.</p>
+</li>
+<li class="">
+<p><strong>What is optional property?</strong>
+Property that may be absent.</p>
+</li>
+<li class="">
+<p><strong>What is readonly property?</strong>
+Property that cannot be reassigned.</p>
+</li>
+<li class="">
+<p><strong>What are index signatures?</strong>
+Allow dynamic property keys.</p>
+</li>
+<li class="">
+<p><strong>What is excess property check?</strong>
+Prevents extra properties in object literals.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Record</code>?</strong>
+Creates object types with specific keys.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Pick</code>?</strong>
+Selects specific properties.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Omit</code>?</strong>
+Removes specific properties.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Partial</code>?</strong>
+Makes all properties optional.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Required</code>?</strong>
+Makes all properties required.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Readonly&lt;T&gt;</code>?</strong>
+Makes all properties immutable.</p>
+</li>
+<li class="">
+<p><strong>What is call signature?</strong>
+Defines function shape inside object.</p>
+</li>
+<li class="">
+<p><strong>What is construct signature?</strong>
+Defines constructor shape.</p>
+</li>
+<li class="">
+<p><strong>What is <code>this</code> typing?</strong>
+Explicitly types <code>this</code> in functions.</p>
+</li>
+<li class="">
+<p><strong>What is object literal typing?</strong>
+Typing inline object definitions.</p>
+</li>
+<li class="">
+<p><strong>What is structural compatibility?</strong>
+Assignment based on property shape.</p>
+</li>
+<li class="">
+<p><strong>What is <code>exactOptionalPropertyTypes</code>?</strong>
+Differentiates missing vs undefined.</p>
+</li>
+<li class="">
+<p><strong>What is mapped type?</strong>
+Transforms properties of another type.</p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions--generics-6695">Functions &amp; Generics (66–95)<a href="#functions--generics-6695" class="hash-link" aria-label="Direct link to Functions &amp; Generics (66–95)" title="Direct link to Functions &amp; Generics (66–95)" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p><strong>What is a function type?</strong>
+Type describing function parameters and return.</p>
+</li>
+<li class="">
+<p><strong>What are optional parameters?</strong>
+Parameters that may be omitted.</p>
+</li>
+<li class="">
+<p><strong>What are default parameters?</strong>
+Parameters with default values.</p>
+</li>
+<li class="">
+<p><strong>What are rest parameters?</strong>
+Collects remaining arguments.</p>
+</li>
+<li class="">
+<p><strong>What is function overload?</strong>
+Multiple call signatures for one function.</p>
+</li>
+<li class="">
+<p><strong>What are generics?</strong>
+Types parameterized over other types.</p>
+</li>
+<li class="">
+<p><strong>Why use generics?</strong>
+Preserve type relationships.</p>
+</li>
+<li class="">
+<p><strong>What is generic constraint?</strong>
+Limits acceptable generic types.</p>
+</li>
+<li class="">
+<p><strong>What is default generic parameter?</strong>
+Fallback type for generics.</p>
+</li>
+<li class="">
+<p><strong>What is <code>keyof</code> with generics?</strong>
+Constrains keys to object properties.</p>
+</li>
+<li class="">
+<p><strong>What is variance?</strong>
+Rules for type assignability.</p>
+</li>
+<li class="">
+<p><strong>What is covariance?</strong>
+Output-only assignability.</p>
+</li>
+<li class="">
+<p><strong>What is contravariance?</strong>
+Input-only assignability.</p>
+</li>
+<li class="">
+<p><strong>What is invariance?</strong>
+No assignability.</p>
+</li>
+<li class="">
+<p><strong>What is generic interface?</strong>
+Interface with type parameters.</p>
+</li>
+<li class="">
+<p><strong>What is generic class?</strong>
+Class parameterized by types.</p>
+</li>
+<li class="">
+<p><strong>What is higher-order generic?</strong>
+Generic returning generic.</p>
+</li>
+<li class="">
+<p><strong>What is <code>ReturnType</code>?</strong>
+Extracts function return type.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Parameters</code>?</strong>
+Extracts parameter tuple.</p>
+</li>
+<li class="">
+<p><strong>What is <code>InstanceType</code>?</strong>
+Extracts instance type.</p>
+</li>
+<li class="">
+<p><strong>What is <code>Awaited</code>?</strong>
+Unwraps Promise types.</p>
+</li>
+<li class="">
+<p><strong>What is type assertion?</strong>
+Overrides inferred type.</p>
+</li>
+<li class="">
+<p><strong><code>as</code> vs angle bracket assertion?</strong>
+<code>as</code> is preferred and JSX-safe.</p>
+</li>
+<li class="">
+<p><strong>What is overload signature vs implementation?</strong>
+Implementation must cover all overloads.</p>
+</li>
+<li class="">
+<p><strong>What is contextual typing?</strong>
+Type inference from context.</p>
+</li>
+<li class="">
+<p><strong>What is generic factory?</strong>
+Function producing typed instances.</p>
+</li>
+<li class="">
+<p><strong>What is <code>ThisType</code>?</strong>
+Contextual <code>this</code> typing.</p>
+</li>
+<li class="">
+<p><strong>What is function bivariance?</strong>
+Special assignability rule for callbacks.</p>
+</li>
+<li class="">
+<p><strong>What is <code>never</code> in functions?</strong>
+Functions that never return.</p>
+</li>
+<li class="">
+<p><strong>What is exhaustiveness checking?</strong>
+Ensuring all cases are handled.</p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="classes-modules--tooling-96150">Classes, Modules &amp; Tooling (96–150)<a href="#classes-modules--tooling-96150" class="hash-link" aria-label="Direct link to Classes, Modules &amp; Tooling (96–150)" title="Direct link to Classes, Modules &amp; Tooling (96–150)" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p><strong>What is a class in TypeScript?</strong>
+Blueprint for creating objects.</p>
+</li>
+<li class="">
+<p><strong>What are parameter properties?</strong>
+Constructor shorthand for properties.</p>
+</li>
+<li class="">
+<p><strong>What are access modifiers?</strong>
+public, private, protected visibility.</p>
+</li>
+<li class="">
+<p><strong>What is <code>implements</code>?</strong>
+Class conforms to interface.</p>
+</li>
+<li class="">
+<p><strong>What is <code>abstract</code> class?</strong>
+Base class that cannot be instantiated.</p>
+</li>
+<li class="">
+<p><strong>What are static members?</strong>
+Belong to class, not instances.</p>
+</li>
+<li class="">
+<p><strong>What is module?</strong>
+File with import/export.</p>
+</li>
+<li class="">
+<p><strong>Namespace vs module?</strong>
+Namespaces are global; modules are scoped.</p>
+</li>
+<li class="">
+<p><strong>What is path mapping?</strong>
+Alias module paths via tsconfig.</p>
+</li>
+<li class="">
+<p><strong>What is ES module?</strong>
+Standard JavaScript module system.</p>
+</li>
+<li class="">
+<p><strong>What is dynamic import?</strong>
+Runtime module loading.</p>
+</li>
+<li class="">
+<p><strong>What is declaration file?</strong>
+<code>.d.ts</code> type-only file.</p>
+</li>
+<li class="">
+<p><strong>What is ambient declaration?</strong>
+Declares existing global types.</p>
+</li>
+<li class="">
+<p><strong>What is DefinitelyTyped?</strong>
+Community typings repository.</p>
+</li>
+<li class="">
+<p><strong>What is <code>@types</code>?</strong>
+Installed type definitions.</p>
+</li>
+<li class="">
+<p><strong>What is JavaScript interop?</strong>
+Using TS with JS code.</p>
+</li>
+<li class="">
+<p><strong>What is JSDoc typing?</strong>
+Type-check JS via comments.</p>
+</li>
+<li class="">
+<p><strong>What is <code>ts-node</code>?</strong>
+Runs TS directly.</p>
+</li>
+<li class="">
+<p><strong>What is Babel role?</strong>
+Transpiles without type checking.</p>
+</li>
+<li class="">
+<p><strong>What is SWC?</strong>
+Fast TS/JS compiler.</p>
+</li>
+<li class="">
+<p><strong>What is ESLint role?</strong>
+Static code analysis.</p>
+</li>
+<li class="">
+<p><strong>What is Prettier role?</strong>
+Code formatting.</p>
+</li>
+<li class="">
+<p><strong>What is incremental build?</strong>
+Speeds up recompilation.</p>
+</li>
+<li class="">
+<p><strong>What is composite project?</strong>
+Project reference-ready build.</p>
+</li>
+<li class="">
+<p><strong>What is project reference?</strong>
+Links TS projects.</p>
+</li>
+<li class="">
+<p><strong>What is module resolution?</strong>
+How imports map to files.</p>
+</li>
+<li class="">
+<p><strong>Node vs classic resolution?</strong>
+Different lookup strategies.</p>
+</li>
+<li class="">
+<p><strong>What is <code>lib</code> option?</strong>
+Includes built-in typings.</p>
+</li>
+<li class="">
+<p><strong>What is <code>target</code> option?</strong>
+JS version output.</p>
+</li>
+<li class="">
+<p><strong>What is <code>emitDecoratorMetadata</code>?</strong>
+Emits metadata for decorators.</p>
+</li>
+<li class="">
+<p><strong>What is <code>skipLibCheck</code>?</strong>
+Skips type checking of libs.</p>
+</li>
+<li class="">
+<p><strong>What is <code>isolatedModules</code>?</strong>
+Ensures per-file transpilation.</p>
+</li>
+<li class="">
+<p><strong>What is <code>useDefineForClassFields</code>?</strong>
+Controls class field emit.</p>
+</li>
+<li class="">
+<p><strong>What is <code>esModuleInterop</code>?</strong>
+Improves CommonJS interop.</p>
+</li>
+<li class="">
+<p><strong>What is <code>forceConsistentCasingInFileNames</code>?</strong>
+Enforces import casing.</p>
+</li>
+<li class="">
+<p><strong>What is <code>allowJs</code>?</strong>
+Allows JS files.</p>
+</li>
+<li class="">
+<p><strong>What is <code>checkJs</code>?</strong>
+Type-check JS files.</p>
+</li>
+<li class="">
+<p><strong>What is <code>resolveJsonModule</code>?</strong>
+Allows importing JSON.</p>
+</li>
+<li class="">
+<p><strong>What is <code>noEmit</code>?</strong>
+Prevents output.</p>
+</li>
+<li class="">
+<p><strong>What is <code>emitDeclarationOnly</code>?</strong>
+Only emits <code>.d.ts</code>.</p>
+</li>
+<li class="">
+<p><strong>What is <code>downlevelIteration</code>?</strong>
+Improves ES5 iteration.</p>
+</li>
+<li class="">
+<p><strong>What is <code>sourceMap</code>?</strong>
+Maps JS to TS.</p>
+</li>
+<li class="">
+<p><strong>What is <code>declarationMap</code>?</strong>
+Maps <code>.d.ts</code> to TS.</p>
+</li>
+<li class="">
+<p><strong>What is <code>strictFunctionTypes</code>?</strong>
+Checks function assignability.</p>
+</li>
+<li class="">
+<p><strong>What is <code>exactOptionalPropertyTypes</code>?</strong>
+Strict optional semantics.</p>
+</li>
+<li class="">
+<p><strong>What is <code>noUncheckedIndexedAccess</code>?</strong>
+Adds undefined to index access.</p>
+</li>
+<li class="">
+<p><strong>What is <code>useUnknownInCatchVariables</code>?</strong>
+Types catch as unknown.</p>
+</li>
+<li class="">
+<p><strong>What is <code>verbatimModuleSyntax</code>?</strong>
+Preserves import/export.</p>
+</li>
+<li class="">
+<p><strong>What is <code>preserveValueImports</code>?</strong>
+Keeps type-only imports.</p>
+</li>
+<li class="">
+<p><strong>What is <code>importsNotUsedAsValues</code>?</strong>
+Controls import elision.</p>
+</li>
+<li class="">
+<p><strong>What is <code>allowImportingTsExtensions</code>?</strong>
+Allows <code>.ts</code> in imports.</p>
+</li>
+<li class="">
+<p><strong>What is <code>moduleDetection</code>?</strong>
+Controls module classification.</p>
+</li>
+<li class="">
+<p><strong>What is <code>noImplicitOverride</code>?</strong>
+Requires override keyword.</p>
+</li>
+<li class="">
+<p><strong>What is <code>useDefineForClassFields</code> impact?</strong>
+Aligns with JS spec.</p>
+</li>
+<li class="">
+<p><strong>What is best TS interview advice?</strong>
+Explain trade-offs and real usage.</p>
+</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/chappidirushi/better-docs/tree/main/docs/typescript/Interview.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/better-docs/docs/typescript/configuration-project-structure"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Configuration &amp; Project Structure</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/better-docs/docs/node/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Node</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#fundamentals-120" class="table-of-contents__link toc-highlight">Fundamentals (1–20)</a></li><li><a href="#types--narrowing-2145" class="table-of-contents__link toc-highlight">Types &amp; Narrowing (21–45)</a></li><li><a href="#interfaces--objects-4665" class="table-of-contents__link toc-highlight">Interfaces &amp; Objects (46–65)</a></li><li><a href="#functions--generics-6695" class="table-of-contents__link toc-highlight">Functions &amp; Generics (66–95)</a></li><li><a href="#classes-modules--tooling-96150" class="table-of-contents__link toc-highlight">Classes, Modules &amp; Tooling (96–150)</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/better-docs/docs/node">Node</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

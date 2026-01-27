@@ -1,6 +1,6 @@
 ---
 title: Union, Intersection & Narrowing
-id: Union-Intersection-Narrowing
+id: union-intersection-narrowing
 sidebar_position: 5
 -------------------
 

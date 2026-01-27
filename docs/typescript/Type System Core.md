@@ -1,5 +1,5 @@
 ---
-id: Type-System-Core
+id: type-system-core
 title: Type System Core
 sidebar_position: 3
 ---

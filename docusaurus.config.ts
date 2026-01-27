@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://chappidirushi.github.io/',
+  url: 'https://chappidirushi.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/better-docs/',
@@ -38,7 +38,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-pwa',
       {
-        debug: false,
+        debug: false, // set true only when testing
         offlineModeActivationStrategies: [
           'appInstalled',
           'standalone',
@@ -48,7 +48,7 @@ const config: Config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/docusaurus.png',
+            href: '/img/pwa/favicon.ico',
           },
           {
             tagName: 'link',

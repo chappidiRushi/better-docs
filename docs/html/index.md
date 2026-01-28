@@ -8,8 +8,9 @@ sidebar_position: 2
 This section covers everything about **HTML**.
 
 ## Topics
-## Glossary
 
+- [Glossary](./glossary)
+- [Interview](./interview)
 - [How HTML Works Under the Hood](./html-under-the-hood)
 - [HTML as a Platform](./html-as-a-platform)
 - [HTML Document Model](./html-document-model)

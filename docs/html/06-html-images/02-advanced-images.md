@@ -8,6 +8,7 @@ sidebar_position: 2
 
 - **Image Map**: An image with clickable areas, where different areas link to different destinations.
 - **Background Image**: An image applied to the background of an HTML element via CSS, rather than being placed in the content flow via an `<img>` tag.
+- **Resolution Switching**: Providing multiple versions of the same image at different sizes so the browser can download the smallest one that still looks sharp on the user's screen.
 - **Picture Element (`<picture>`)**: A container used to specify multiple `<source>` elements for a specific `<img>` contained in it. Allows for serving different images based on screen size or format support.
 - **Lazy Loading**: A technique that defers the loading of non-critical resources (like images far down the page) at page load time. Instead, these resources are loaded at the moment of need.
 
@@ -38,6 +39,15 @@ Inside the `<map>`, you define clickable `<area>` elements, specifying their sha
 
 *(Note: Image maps are rarely used in modern web design because they are incredibly difficult to make responsive.)*
 
+### Resolution Switching (`srcset` and `sizes`)
+
+If you want to display the exact same image to all users, but you want to save bandwidth for mobile users by giving them a smaller file, you do not need the `<picture>` tag. You can use the `srcset` and `sizes` attributes directly on a standard `<img>` tag.
+
+- **`srcset`**: A comma-separated list of image URLs, each with a width descriptor (e.g., `400w` meaning the image is 400 pixels wide). This tells the browser *what* images are available.
+- **`sizes`**: A comma-separated list of media conditions (e.g., `(max-width: 600px) 100vw`). This tells the browser *how large* the image will be displayed on screen.
+
+The browser looks at the `sizes` attribute, calculates the math, and automatically downloads the most appropriate image from the `srcset` list.
+
 ### The Picture Element (`<picture>`)
 
 The `<picture>` element is a powerful tool for **Art Direction** and **Format Support**. It allows you to define multiple sources for an image, and the browser will pick the best one.
@@ -60,6 +70,27 @@ Loading dozens of high-resolution images on a page can make the site incredibly 
 HTML5 introduced native lazy loading. Simply add `loading="lazy"` to your `<img>` tag. The browser will wait to download the image until the user scrolls close to it.
 
 ## Examples
+
+<details>
+<summary><strong>Example: Resolution Switching (`srcset`)</strong></summary>
+
+```html
+<!-- 
+  The browser calculates the screen width and the device pixel ratio (Retina displays).
+  If the screen is 320px wide, it will download small.jpg. 
+  If it's on a 4K monitor, it will download large.jpg.
+-->
+<img srcset="small.jpg 400w,
+             medium.jpg 800w,
+             large.jpg 1200w"
+     sizes="(max-width: 600px) 100vw, 
+            (max-width: 900px) 50vw, 
+            800px"
+     src="medium.jpg"
+     alt="A beautiful landscape">
+```
+
+</details>
 
 <details>
 <summary><strong>Example: The Picture Element (Art Direction)</strong></summary>

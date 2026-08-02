@@ -10,6 +10,8 @@ sidebar_position: 2
 - **Charset (Character Set)**: A defined list of characters recognized by the computer hardware and software.
 - **Viewport**: The user's visible area of a web page.
 - **Open Graph (OG)**: A protocol that enables any web page to become a rich object in a social graph (used by Facebook, Twitter, LinkedIn to generate preview cards).
+- **Twitter Cards**: Specific meta tags used by Twitter (X) to format links shared on their platform.
+- **Schema.org Microdata**: A standardized set of tags added to HTML to improve how search engines read and represent the page in SERPs (Search Engine Results Pages).
 - **Favicon**: A small icon associated with a particular website, typically displayed in the address bar of a browser or on the browser tab.
 
 ## Beginner Level Introduction
@@ -59,14 +61,32 @@ Search engines read `<meta>` tags to understand what your page is about.
 ```
 The `description` is often used by Google as the snippet text under your title in the search results. Keeping this accurate and concise (under 160 characters) is a massive part of SEO.
 
-### Open Graph Metadata
+### Open Graph and Twitter Cards
 
-When you paste a link into WhatsApp, Twitter, or iMessage, a nice card pops up with an image, a title, and a description. This is driven by Open Graph meta tags (originally created by Facebook).
+When you paste a link into WhatsApp, Facebook, or iMessage, a nice card pops up with an image, a title, and a description. This is driven by Open Graph meta tags. Twitter (X) uses a similar but distinct set of tags called Twitter Cards.
 
 ```html
+<!-- Open Graph -->
 <meta property="og:title" content="The Ultimate HTML Guide">
 <meta property="og:image" content="https://example.com/banner.jpg">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@webdevmastery">
 ```
+
+### Schema.org Microdata
+
+Major search engines (Google, Bing, Yahoo) collaborate on Schema.org to structure data on the web. By adding specific attributes (`itemscope`, `itemtype`, `itemprop`) to your HTML tags, you can explicitly tell Google what your content represents (e.g., a Recipe, a Person, a Product review).
+
+```html
+<!-- We define a "Person" schema -->
+<div itemscope itemtype="https://schema.org/Person">
+  <span itemprop="name">Jane Doe</span>
+  <span itemprop="jobTitle">Senior Developer</span>
+</div>
+```
+*(Note: While microdata is valid HTML, modern SEO often prefers injecting JSON-LD scripts in the `<head>` instead of polluting the HTML body with `itemprop` attributes).*
 
 ### Favicon
 

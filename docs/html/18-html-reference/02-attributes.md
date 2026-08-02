@@ -18,6 +18,7 @@ This is a list of the most common and important element-specific attributes. For
 - `enctype`: Specifies how the form-data should be encoded when submitting it to the server. (Used on `<form>`)
 - `autocomplete`: Specifies whether a form or an input field should have autocomplete on or off. (Used on `<form>`, `<input>`)
 - `novalidate`: Specifies that the form should not be validated when submitted. (Used on `<form>`)
+- `formaction`, `formenctype`, `formmethod`, `formnovalidate`, `formtarget`: Overrides the corresponding `<form>` attributes for a specific submit button. (Used on `<input type="submit">`, `<button type="submit">`)
 
 ### Input Attributes
 - `type`: Specifies the type of input element to display. (Used on `<input>`, `<button>`)
@@ -33,6 +34,8 @@ This is a list of the most common and important element-specific attributes. For
 - `min` / `max`: Specifies a minimum/maximum value for an `<input>` element.
 - `step`: Specifies the legal number intervals for an input field.
 - `maxlength` / `minlength`: Specifies the maximum/minimum number of characters allowed in an element.
+- `accept`: Specifies the types of files that the server accepts (only for `type="file"`).
+- `capture`: Specifies which camera to use for image/video capture on mobile devices (only for `type="file"`).
 
 ### Media Attributes
 - `src`: Specifies the URL of the media file. (Used on `<img>`, `<audio>`, `<video>`, `<iframe>`, `<script>`, `<embed>`, `<source>`, `<track>`)
@@ -49,11 +52,19 @@ This is a list of the most common and important element-specific attributes. For
 - `target`: Specifies where to open the linked document. (Used on `<a>`, `<area>`, `<base>`, `<form>`)
 - `rel`: Specifies the relationship between the current document and the linked document. (Used on `<a>`, `<area>`, `<form>`, `<link>`)
 - `download`: Specifies that the target will be downloaded when a user clicks on the hyperlink. (Used on `<a>`, `<area>`)
+- `ping`: Contains a space-separated list of URLs to which, when the hyperlink is followed, POST requests with the body PING will be sent by the browser (in the background). (Used on `<a>`, `<area>`)
 
 ### Table Attributes
 - `colspan`: Specifies the number of columns a cell should span. (Used on `<td>`, `<th>`)
 - `rowspan`: Specifies the number of rows a cell should span. (Used on `<td>`, `<th>`)
 - `headers`: Specifies one or more forms the header cell is related to. (Used on `<td>`, `<th>`)
+
+### Miscellaneous Attributes
+- `reversed`: Specifies that the list order should be descending (9,8,7...). (Used on `<ol>`)
+- `start`: Specifies the start value of an ordered list. (Used on `<ol>`)
+- `type`: Specifies the kind of marker to use in a list. (Used on `<ol>`, `<ul>`, `<li>`)
+- `datetime`: Specifies the date and time. (Used on `<time>`)
+- `open`: Specifies that the details should be visible (open) to the user. (Used on `<details>`)
 
 ## Examples
 
